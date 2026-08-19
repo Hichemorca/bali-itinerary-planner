@@ -1,0 +1,76 @@
+name: Deploy to Netlify
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  deploy:
+    name: Deploy to Netlify
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy to Netlify
+        env:
+          NETLIFY_SITE_ID: c6f9b2c1-4e3c-4a9e-adb0-ede2d423b957
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        run: |
+          # Create deployment with the full repo contents (no build step needed)
+          DEPLOY_ID=$(curl -s -X POST \
+            -H "Authorization: Bearer $NETLIFY_AUTH_TOKEN" \
+            -H "Content-Type: application/json" \
+            -d '{"site_id":"'"$NETLIFY_SITE_ID"'","draft":false}' \
+            "https://api.netlify.com/api/v1/sites/$NETLIFY_SITE_ID/deploys" | python3 -c "import sys,json;print(json.load(sys.stdin)['id'])")
+          echo "Deploy ID: $DEPLOY_ID"
+
+          # Upload all files via the deploy files API
+          python3 <<'PYEOF'
+          import os, json, hashlib, urllib.request, urllib.parse
+
+          site_id = os.environ["NETLIFY_SITE_ID"]
+          token = os.environ["NETLIFY_AUTH_TOKEN"]
+          deploy_id = os.environ["DEPLOY_ID"]
+          base = "https://api.netlify.com/api/v1"
+          auth = {"Authorization": f"Bearer {token}"}
+
+          # Build sha1 map of all files in the repo (skip .git and .github)
+          files = {}
+          for root, dirs, fnames in os.walk("."):
+              dirs[:] = [d for d in dirs if d not in (".git", ".github")]
+              for f in fnames:
+                  path = os.path.join(root, f)
+                  rel = path[2:] if path.startswith("./") else path
+                  files[rel] = hashlib.sha1(open(path, "rb").read()).hexdigest()
+
+          def req(url, data=None, headers=None):
+              h = dict(auth)
+              if headers: h.update(headers)
+              body = json.dumps(data).encode() if data else None
+              r = urllib.request.Request(url, data=body, headers=h)
+              return json.load(urllib.request.urlopen(r))
+
+          # Ask Netlify which files are missing
+          res = req(f"{base}/deploys/{deploy_id}/files", data={"files": files})
+          missing = {rel: sha for rel, sha in res.items() if sha not in files}
+          print(f"Missing files: {len(missing)}")
+          for rel, sha in missing.items():
+              body = open(rel, "rb").read()
+              rr = urllib.request.Request(
+                  f"{base}/deploys/{deploy_id}/files/{sha}",
+                  data=body,
+                  headers={**auth, "Content-Type": "application/octet-stream"},
+                  method="PUT")
+              urllib.request.urlopen(rr)
+              print("uploaded", rel)
+
+          # Wait for deploy to finish
+          for _ in range(60):
+              import time; time.sleep(10)
+              st = req(f"{base}/deploys/{deploy_id}")
+              print("state:", st["state"])
+              if st["state"] == "ready":
+                  print("DEPLOYED:", st.get("ssl_url") or st.get("url"))
+                  break
+          PYEOF
