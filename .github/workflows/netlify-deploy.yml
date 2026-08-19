@@ -8,25 +8,32 @@ jobs:
   deploy:
     name: Deploy to Netlify
     runs-on: ubuntu-latest
-    if: ${{ secrets.NETLIFY_AUTH_TOKEN != '' }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+      - name: Check for Netlify token
+        id: token-check
+        run: |
+          if [ -n "${{ secrets.NETLIFY_AUTH_TOKEN }}" ]; then
+            echo "has_token=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_token=false" >> "$GITHUB_OUTPUT"
+            echo "NETLIFY_AUTH_TOKEN secret not set — skipping deploy (handled via sandbox MCP)."
+          fi
       - name: Deploy to Netlify
+        if: steps.token-check.outputs.has_token == 'true'
         env:
           NETLIFY_SITE_ID: c6f9b2c1-4e3c-4a9e-adb0-ede2d423b957
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
         run: |
-          # Create deployment with the full repo contents (no build step needed)
           DEPLOY_ID=$(curl -s -X POST \
             -H "Authorization: Bearer $NETLIFY_AUTH_TOKEN" \
             -H "Content-Type: application/json" \
             -d '{"site_id":"'"$NETLIFY_SITE_ID"'","draft":false}' \
             "https://api.netlify.com/api/v1/sites/$NETLIFY_SITE_ID/deploys" | python3 -c "import sys,json;print(json.load(sys.stdin)['id'])")
           echo "Deploy ID: $DEPLOY_ID"
-          # Upload all files via the deploy files API
           python3 <<'PYEOF'
-          import os, json, hashlib, urllib.request, urllib.parse
+          import os, json, hashlib, urllib.request
           site_id = os.environ["NETLIFY_SITE_ID"]
           token = os.environ["NETLIFY_AUTH_TOKEN"]
           deploy_id = os.environ["DEPLOY_ID"]
