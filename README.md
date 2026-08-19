@@ -1,133 +1,93 @@
 # Bali Interactive Itinerary Planner
 
-![Version](https://img.shields.io/badge/version-1.5-green)
-![Stack](https://img.shields.io/badge/stack-HTML%2FCSS%2FJS--no--backend-orange)
+A static, fully client-side website that generates personalized day-by-day Bali itineraries through a **4-question quiz**, with a downloadable PDF, interactive Leaflet map, calendar export (ICS + Google Calendar), shareable plan links, and dark mode. No backend, no build step — everything runs in the browser and deploys to Netlify as plain static files.
 
-A fully client-side, interactive travel-planning web app that generates a **personalized day-by-day Bali itinerary** from a 4-question quiz. All logic runs in the browser — no backend, no database, no build step. Live at [https://bali-itinerary-planner.netlify.app](https://bali-itinerary-planner.netlify.app).
+**Live:** [bali-itinerary-planner.netlify.app](https://bali-itinerary-planner.netlify.app)
 
----
+> **Note:** the Gumroad payment gateway is **temporarily disabled** — the site is free to use. The placeholder `your-product-id` remains in `js/gumroad-integration.js` until a product is created; when ready, follow the "Gumroad Setup" section below.
 
-## ✨ Features
+## Latest: v5 — Automated Test Suite (Phase 10)
 
-### Core Experience
+- **Engine tests** (`tests/engine.test.js`, Node.js): **25,076 assertions** across **all 648 possible quiz combinations** (4 durations × 3 budgets × 3 trip types × 6 interests × 9 regions), verifying zero-repeat scheduling, free/paid balance, meal breaks, flex days, region rotation, and stats consistency. **All green.**
+- **UI tests** (`tests/ui.test.js`, Playwright): **14 browser tests** that actually click through the site — full quiz flow, PDF download, ICS calendar download (validates `BEGIN:VCALENDAR` content), Google Calendar links, share link prefill, edit-plan mode, star rating, email capture, rainy-day toggle, dark mode, back-to-top, and a no-JavaScript-errors-on-load check. **14/14 passing.**
+- **Run everything:** `npm test` (or `npm run test:engine` / `npm run test:ui`). GitHub Actions runs the suite on every push.
+- **Bugs the tests found and fixed:** 20 alternative activities (IDs 122–141) had `interests` stored as a comma-string instead of an array — they never matched any quiz interest and were effectively invisible; rest-day flag was applied per day instead of capped at 2 per trip; evening bonus activities consumed the activity pool without being scheduled; flex-day options could exhaust on very long trips; a `classList.toggle` multi-class call threw `InvalidCharacterError` on every scroll; blob-URL ICS download needed a pre-registered listener plus a delayed `revokeObjectURL` in headless Chromium.
+- Full details in `reports/phase10-test-suite-report.md`.
 
-| Feature | Description |
-|---|---|
-| **4-Question Quiz** | Trip duration, budget tier, trip type + interests, preferred region — answers persist in `localStorage` and support resume/edit via `?edit=1` |
-| **Smart Itinerary Engine** | Builds a daily schedule from 141 curated activities (48 free) with realistic inter-region driving times and auto-inserted meal breaks |
-| **Zero-Repeat Guarantee** | An activity never reappears within a 3-day window; a 20-activity alternatives pool eliminates duplicates entirely — rest days are created only if the pool is exhausted |
-| **Regional Rotation** | Long trips (10+ days) rotate through Ubud, Seminyak, Canggu, Uluwatu, Nusa Penida, and North Bali with a recent-region penalty |
-| **Flex Days** | Trips of 10+ days include flexible "relax" days with 7 fresh swap-in suggestions |
-| **Dark Mode** | Toggle with preference saved to `localStorage` |
-| **Day 1 Preview** | Free preview of the first day to build trust before any paywall |
-
-### Traveler Deliverables
-
-| Feature | Implementation |
-|---|---|
-| **Interactive Map** | Leaflet 1.9.4 — day-colored markers, click-for-details popups, auto-fit bounds |
-| **PDF Export** | jsPDF 2.5.1 — printable multi-page plan with activity thumbnails and sanitized Indonesian text |
-| **Calendar Export** | Full-plan `.ics` download + one-click "Add Day 1 to Google Calendar" |
-| **Booking Links** | One-click links to GetYourGuide, Klook, and official activity sites |
-| **Rainy-Day Backups** | Toggle swaps any outdoor activity for a covered indoor alternative |
-| **Share / Edit / Rate** | Shareable plan link, answer re-edit, star rating widget |
-
----
-
-## 🏗 Project Structure
+## Project Structure
 
 ```
-.
-├── index.html                 # Landing page with pitch + quiz entry
-├── quiz.html                  # 4-question quiz (js/quiz.js)
-├── result.html                # Generated itinerary + PDF/map/calendar actions
-├── contact.html / privacy.html
+bali-itinerary-planner/
+├── index.html              # Landing page (SEO-optimized)
+├── quiz.html               # 4-question interactive quiz with progress bar
+├── result.html             # Itinerary result page: plan, PDF, map, calendar, share
+├── privacy.html / contact.html
 ├── robots.txt / sitemap.xml / netlify.toml
-├── css/style.css              # Theme: Bali green #2E7D32, gold #F9A825 (dark mode included)
+├── css/style.css           # Theme: Bali green #2E7D32, gold #F9A825
 ├── js/
-│   ├── quiz.js                # Quiz logic + answer persistence
-│   ├── itinerary-engine.js    # Recommendation engine (filtering, rotation, zero-repeat, flex days)
-│   ├── result.js              # Result rendering, PDF/map/calendar wiring
-│   ├── map-calendar.js        # Leaflet map init, ICS, Google Calendar
-│   ├── pdf-generator.js       # jsPDF plan generation
-│   ├── gumroad-integration.js # Payment overlay (temporarily disabled)
-│   ├── dark-mode.js           # Dark mode toggle
-│   └── analytics.js           # GA4 event tracking (G-ID placeholder)
-├── data/activities.json       # 141 activities (48 free, 20 alternatives)
-├── assets/images/             # Activity photos (webp in production)
-└── reports/                   # Phase-by-phase improvement reports
+│   ├── quiz.js             # Quiz logic (answers stored in localStorage)
+│   ├── itinerary-engine.js # filterActivities(), buildDailyItinerary()
+│   ├── pdf-generator.js    # jsPDF-based printable PDF generator
+│   ├── result.js           # Result page rendering + share/edit/rating/dark-mode
+│   ├── map-calendar.js     # Leaflet map + Google Cal / ICS export
+│   ├── analytics.js        # GA4 funnel tracking
+│   └── gumroad-integration.js # DISABLED (payment gateway off)
+├── data/activities.json    # 141 Bali activities (48 free, 20 alternatives)
+├── assets/images/          # activity photos (webp, lazy-loaded)
+├── tests/                  # engine.test.js + ui.test.js (Phase 10)
+├── playwright.config.js    # UI test config
+└── reports/                # Arabic phase reports
 ```
 
----
+## How the Engine Works
 
-## ⚙️ How the Engine Works
-
-1. **`filterActivities(activities, filters)`** — keyword-matches interests and `bestFor` trip-type tags, applies per-tier budget ceilings with margin, scores results by rating + relevance + a soft region boost (score bonus, never a hard filter).
-2. **`buildDailyItinerary(filtered, tripDuration, budgetTier, preferredRegion)`** — generates a region rotation for long trips, schedules 3 main activities + an evening bonus per day (with automatic lunch/dinner break rows on trips over 10 days), balances free-vs-paid slots by budget tier, enforces zero repetition with a 3-day gap rule, falls back to the 20-activity alternatives pool and automatic Rest Days when exhausted, frees days 13–14 as flex days, adds realistic driving times (e.g., Ubud → Uluwatu ≈ 1.6 h), auto-includes a full-day private driver (~$40–65/day, excluded from flex days), and flags days with >4 h of driving.
+1. **`filterActivities(activities, filters)`** — filters 141 activities by interest/category keyword match and `bestFor` trip-type tags, applies per-activity budget ceilings per tier, scores results by rating + relevance + soft region boost (`regionBoost = 40`; region preference is a score bonus, not a hard filter). A defensive `Array.isArray` guard protects the alternative pool (IDs 122–141).
+2. **`buildDailyItinerary(filtered, tripDuration, budgetTier, preferredRegion)`** — generates a day-by-day region rotation, schedules activities per day (3 main + evening bonus on long trips, with auto-inserted lunch 12:30–13:30 and dinner 19:00–20:00 break rows), balances free vs. paid slots by tier (budget 50% / mid 30% / luxury 10%), **zero-repetition scheduler** (hard ban on any previously used activity; 20-activity alternative pool plus automatic Rest Days when no fresh activity fits, capped at 2 rest days per trip; unused evening bonus picks are returned to the pool), flex days with a layered fallback on long trips, island-wide region sweep with recent-region penalty, realistic inter-region driving times, full-day private driver (~$40–65/day) except on rest/flex days, >4h driving warnings, and rainy-day indoor swaps.
 3. **`generateInsiderTips(activity)`** — returns the insider tip from the database.
 
----
+## Features by Page
 
-## 🚀 Deployment
+- **Quiz:** 4 questions (duration, budget, trip type + interests, preferred region) with a 60-second Day 1 preview on completion.
+- **Result page:** day-by-day plan cards, price stats, interactive map with day-colored markers and popups, PDF export, full-plan `.ics` download, per-activity Google Calendar buttons, shareable encoded link (prefills the quiz for editing), star rating, optional email capture, rainy-day backup toggle, dark mode, and a back-to-top button.
 
-**Live site:** [https://bali-itinerary-planner.netlify.app](https://bali-itinerary-planner.netlify.app)
-
-The repository is connected to the Netlify site, so **every push to `master` automatically rebuilds and deploys** — no manual steps needed.
-
-Local development (no toolchain required):
+## Running Locally
 
 ```bash
-python3 -m http.server 8000
-# open http://localhost:8000
+npm install        # dev dependencies only (Playwright for tests)
+npm test           # engine + UI test suite
+npx playwright install chromium   # one-time, for UI tests
+npm run serve      # or: python3 -m http.server 8000
+# visit http://localhost:8000
 ```
 
-Note: `result.html` fetches `data/activities.json`, so it works over HTTP(S) only, not `file://`.
+Note: `result.html` fetches `data/activities.json`, so it only works over HTTP(S), not `file://`.
 
----
+## Deploy to Netlify
 
-## 💳 Payment Gateway — Temporarily Disabled
+Drag the folder into Netlify Drop, or:
 
-The Gumroad payment overlay ($19 launch / $29 regular) has been **removed** so all features are freely accessible. The integration is preserved for easy re-enablement.
+```bash
+netlify deploy --prod --dir=.
+```
 
-**To re-enable payments:**
-1. Create the product on [Gumroad](https://gumroad.com) and copy its product ID.
-2. Restore the `<div id="unlock-banner">` block and the two Gumroad `<script>` tags in `result.html`.
-3. Replace `your-product-id` in `result.html` and `js/gumroad-integration.js`.
-4. The locked-feature logic (`applyPurchaseState` in `js/result.js`) is already in place.
+`netlify.toml` already configures clean URLs, caching, and security headers.
 
----
+## Gumroad Setup (when ready to monetize)
 
-## 📊 Analytics
+1. Create a Gumroad account (no business registration needed).
+2. Create product: **"Bali Bespoke Itinerary — Interactive Planner"**, fixed price **$29**.
+3. Upload the sample PDF generated by the site as the digital deliverable.
+4. Set **After purchase → redirect** to `https://yourdomain.com/thank-you.html`.
+5. Replace `your-product-id` in `js/gumroad-integration.js` (`GUMROAD_PRODUCT_ID`) and in `result.html`, then re-enable the banner and overlay scripts.
 
-`js/analytics.js` tracks `start_quiz`, `complete_quiz`, `download_pdf`, and `gumroad_click` events. Add your GA4 **G-ID** measurement ID to activate tracking.
+## Updating the Database
 
----
+Re-run the conversion script from Phase 1 (`build_json.py` against `bali_activities_database.xlsx`) whenever activities or prices change, bump `metadata.version` in `activities.json`, and re-run `npm test` — the suite will verify the new data matches every quiz combination.
 
-## ✅ QA Test Scenarios
+## Tech Stack
 
-| Scenario | Expected |
-|---|---|
-| 5 days, budget, solo | 5 days planned, activities ≤ ~$15–19 avg, zero repeats |
-| 14 days, budget, family | Region rotation across the island, flex days, 0 close-repeats |
-| Preferred region = Ubud | Days clustered around Ubud, drive hours ≤ 2 h |
-| PDF button | Downloads `bali-itinerary-{type}-{days}d.pdf` with thumbnails |
-| Rainy toggle | Outdoor activities struck through, indoor backup per day |
-| ICS / Google Cal | `.ics` downloads all events; GCal opens Day 1 event |
-| Map | 10+ tiles + all activity markers render on fresh page load |
+Tailwind CSS (CDN), Font Awesome (CDN), jsPDF 2.5.1 (CDN), Leaflet 1.9.4 (CDN), Poppins + Inter (Google Fonts), localStorage for state, Playwright 1.62 + Node.js for testing. No build step, no backend.
 
----
+## Performance Build (optional)
 
-## 📝 Version History
-
-| Version | Highlights |
-|---|---|
-| v1.5 (current) | 4-question quiz, 141 activities (48 free), zero-repeat engine with 20-activity alternatives, dark mode, Day 1 preview, share/edit/rate, map auto-init fix |
-| v1.4 | Flex days for 10+ day trips, 4 slots/day, meal-break rows, smarter region sweep, 136 activities |
-| v1.3 | Anti-duplication engine, 16 free activities, free/paid balance by tier, green free-activity cards, soft region boost |
-| v1.2 | Rainy-day backups, private driver, local price savings, 90 activity photos, Leaflet map, ICS/GCal export, GA4 |
-| v1.1 | Map + calendar + analytics integration |
-| v1.0 | Initial 6-question quiz MVP with PDF export |
-
----
-
-*Private repository — all rights reserved.*
+Minified copies live in `build/` (`npm install terser -g` then run `bash build.sh`), referenced by cache-busted filenames from `index-prod.html` / `quiz-prod.html` / `result-prod.html` — or simply rely on Netlify/Brotli compression; the plain build already ships well under 1MB.
