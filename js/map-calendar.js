@@ -78,6 +78,13 @@ function initBaliMap(mapEl, days) {
 /**
  * Build ICS file content and download it.
  */
+// RFC 5545 basic date-time format: YYYYMMDDTHHMMSSZ (iCalendar standard)
+function basicFormat(d) {
+  const pad = (n) => String(n).padStart(2, "0");
+  return d.getUTCFullYear().toString() + pad(d.getUTCMonth() + 1) + pad(d.getUTCDate())
+    + "T" + pad(d.getUTCHours()) + pad(d.getUTCMinutes()) + pad(d.getUTCSeconds()) + "Z";
+}
+
 function downloadICS(plan, tripType) {
   const fmtDT = (dayNum, timeStr, durHours) => {
     // timeStr like "8:30 AM"; approx start date = next Monday (relative)
@@ -91,7 +98,7 @@ function downloadICS(plan, tripType) {
     const d = new Date();
     d.setDate(d.getDate() + (1 - d.getDay() + 7) % 7 + (dayNum - 1)); // next Monday + offset
     d.setHours(hh, mm, 0);
-    return d.toISOString().split(".")[0] + "Z"; // full ISO kept parseable (Google Cal accepts it)
+    return basicFormat(d); // RFC 5545 basic format YYYYMMDDTHHMMSSZ (compatible with Outlook, Apple Cal, Google)
   };
 
   let ics = [
@@ -110,10 +117,10 @@ function downloadICS(plan, tripType) {
       const dtStart = fmtDT(day.dayNum, item.startTime, item.act.duration);
       if (!dtStart) return;
       const end = new Date(new Date(dtStart).getTime() + item.act.duration * 3600000);
-      const dtEnd = end.toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
+      const dtEnd = basicFormat(end);
       ics.push("BEGIN:VEVENT");
       ics.push(`UID:bali-${day.dayNum}-${item.act.id}@baliplanner`);
-      ics.push(`DTSTAMP:${new Date().toISOString().replace(/[-:]/g, "").split(".")[0]}Z`);
+      ics.push(`DTSTAMP:${basicFormat(new Date())}`);
       ics.push(`DTSTART:${dtStart}`);
       ics.push(`DTEND:${dtEnd}`);
       ics.push(`SUMMARY:Day ${day.dayNum}: ${item.act.name}`);
@@ -150,7 +157,7 @@ function openGoogleCalendarAdd(act, dayNum, startTime) {
   d.setDate(d.getDate() + (1 - d.getDay() + 7) % 7 + (dayNum - 1));
   d.setHours(hh, mm, 0);
   const end = new Date(d.getTime() + act.duration * 3600000);
-  const fmt = (dt) => dt.toISOString().split(".")[0] + "Z";
+  const fmt = (dt) => basicFormat(dt);
   const url = "https://calendar.google.com/calendar/render?action=TEMPLATE"
     + `&text=${encodeURIComponent(`Day ${dayNum}: ${act.name}`)}`
     + `&dates=${fmt(d)}/${fmt(end)}`

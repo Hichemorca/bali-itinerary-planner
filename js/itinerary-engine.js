@@ -145,8 +145,10 @@ function filterActivities(activities, filters) {
     score += interestScore * 3;
     score += tripScore * 3;
     score += regionBoost; // soft regional preference (never a hard exclusion)
-    // Small randomness for variety on re-runs
-    score += Math.random() * 4;
+    // Deterministic tie-breaker (variety per activity, stable across re-runs of the same quiz):
+    // a hash-derived value in [0, 4) derived solely from the activity id so the same
+    // answers always produce the same plan (important for share links).
+    score += ((act.id * 9301 + 49297) % 233280) / 233280 * 4;
 
     scored.push({ act, score });
   }
@@ -275,7 +277,10 @@ function buildDailyItinerary(filteredActivities, tripDuration, budgetTier, prefe
   // Ordered pool respecting regional rotation + visited-region penalty:
   // region-of-day activities first, heavy-recent regions penalized.
   // Used activities are filtered out permanently (zero repetition).
+  // Cache the per-day ordered pool so it is computed once per day instead of 3x
+  const _orderedPoolCache = {};
   function orderedPoolForDay(d) {
+    if (_orderedPoolCache[d]) return _orderedPoolCache[d];
     const target = regionSchedule[d - 1];
     const used = new Set(usedActivityIds);
     const sorted = activityPool
@@ -289,16 +294,19 @@ function buildDailyItinerary(filteredActivities, tripDuration, budgetTier, prefe
         if (penA !== penB) return penA - penB; // less recently visited wins
         return (b.rating || 4) - (a.rating || 4);
       });
+    _orderedPoolCache[d] = sorted;
     return sorted;
   }
 
-  // Phase 5: flex-day option picks (fresh, highly rated, region-varied)
+  // Phase 5: flex-day option picks (fresh, highly rated, region-varied).
+  // Hard rule: an activity already scheduled ANYWHERE in the trip can NEVER
+  // reappear as a flex option, regardless of rating (comment + zero-repeat contract).
   function flexDayOptions(d) {
     const recent = new Set(activityHistory.filter(h => (d - h.day) < REPEAT_GAP_DAYS).map(h => h.id));
     const usedAllTime = new Set(activityHistory.map(h => h.id));
     const seen = new Set(regionSchedule.filter(r => r)); // skip regions already in rotation
     return activityPool
-      .filter(a => !recent.has(a.id) && !usedAllTime.has(a.id) && !seen.has(a.region) || (!recent.has(a.id) && (a.rating || 4) >= 4.3))
+      .filter(a => !usedAllTime.has(a.id) && !recent.has(a.id) && (a.rating || 4) >= 4.3 && !seen.has(a.region))
       .sort((a, b) => (b.rating || 4) - (a.rating || 4))
       .slice(0, 7);
   }

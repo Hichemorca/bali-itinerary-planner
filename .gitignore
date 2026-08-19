@@ -1,3 +1,10 @@
-node_modules
+# Build output (optional minified path; keep build files out of the repo)
+build/
+
+# Manual backup copies — rely on Git history instead
+backup/
+data/*.bak
+
+# OS junk
 .DS_Store
-*.log
+Thumbs.db

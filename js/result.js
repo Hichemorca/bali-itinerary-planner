@@ -136,21 +136,23 @@ function renderDays() {
     // Phase 5: flex day rendering — last 2 days of long trips are optional
     if (day.isFlex) {
       const optsHtml = (day.flexOptions || []).map((a, oi) => {
+        const actIcon = activityIcon(a); // fix: actIcon must be defined per flex option
+        const esc = (s) => String(s || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
         const freeAct = a.isFree || a.priceHigh <= 1;
         const price = a.priceHigh > 0 ? `$${Math.round(a.priceLow)}–$${Math.round(a.priceHigh)}` : "Free";
         const badge = freeAct ? `<span class="inline-flex items-center gap-1 text-[10px] font-extrabold uppercase tracking-wider text-[#1B5E20] bg-[#C8E6C9] border border-[#A5D6A7] px-2 py-0.5 rounded-full"><i class="fa-solid fa-hand-holding-heart"></i>Free</span>` : "";
-        const imgHtml = a.imageUrl ? `<img src="${a.imageUrl}" alt="${a.name.replace(/"/g, "")}" loading="lazy" decoding="async" onerror="this.src='assets/images/placeholder-activity.webp'" class="activity-image h-32">` : "";
+        const imgHtml = a.imageUrl ? `<img src="${esc(a.imageUrl)}" alt="${esc(a.name)}" loading="lazy" decoding="async" onerror="this.src='assets/images/placeholder-activity.webp'" class="activity-image h-32">` : "";
         return `
           <div class="bg-white rounded-xl border border-gray-100 p-4 flex gap-3 items-start ${freeAct ? "free-activity-card" : ""}">
             <div class="text-center shrink-0 w-10"><div class="text-xs font-bold text-[#2E7D32] uppercase tracking-wide">Pick ${oi + 1}</div></div>
             <div class="flex-1 min-w-0">
               <div class="flex items-start justify-between gap-2">
-                <h4 class="font-semibold text-sm"><i class="fa-solid ${actIcon.icon} mr-1 ${actIcon.cls}"></i>${a.name} ${badge}</h4>
+                <h4 class="font-semibold text-sm"><i class="fa-solid ${actIcon.icon} mr-1 ${actIcon.cls}"></i>${esc(a.name)} ${badge}</h4>
                 <span class="shrink-0 text-xs font-bold text-[#2E7D32]">${price}</span>
               </div>
-              <p class="text-xs text-[#757575] mt-0.5">${a.category} • ${a.region} • ~${a.duration}h</p>
+              <p class="text-xs text-[#757575] mt-0.5">${esc(a.category)} • ${esc(a.region)} • ~${esc(a.duration)}h</p>
               ${imgHtml}
-              ${a.insiderTip ? `<p class="text-xs text-[#757575] mt-1.5"><i class="fa-solid fa-lightbulb text-[#F9A825] mr-1"></i>${a.insiderTip}</p>` : ""}
+              ${a.insiderTip ? `<p class="text-xs text-[#757575] mt-1.5"><i class="fa-solid fa-lightbulb text-[#F9A825] mr-1"></i>${esc(a.insiderTip)}</p>` : ""}
             </div>
           </div>`;
       }).join("");
@@ -286,19 +288,11 @@ function bookableLink(a) {
   return u && !u.includes("goo.gl") && !u.endsWith("getyourguide.com/") && u !== "https://www.getyourguide.com/";
 }
 
+// Payment gateway temporarily disabled (Gumroad removed).
+// When re-enabling: restore applyPurchaseState to show the unlocked banner
+// via window.BaliGumroad.isPurchased() and re-add the unlock-banner markup.
 function applyPurchaseState() {
-  const banner = document.getElementById("unlock-banner");
-  const emailForm = document.getElementById("email-capture");
-  if (banner && emailForm && typeof window.BaliGumroad !== "undefined" && window.BaliGumroad.isPurchased()) {
-    banner.innerHTML = `
-      <i class="fa-solid fa-circle-check text-3xl text-[#2E7D32]"></i>
-      <div class="flex-1 text-center md:text-left">
-        <p class="font-bold text-[#1B5E20] text-lg">Unlocked! Your full plan is ready.</p>
-        <p class="text-[#757575] text-sm">Download the PDF below and book every activity with one click.</p>
-      </div>`;
-    banner.classList.remove("bg-[#F9A825]");
-    banner.classList.add("bg-[#2E7D32]/10", "border", "border-[#2E7D32]/30");
-  }
+  // Free-access mode: nothing is locked, all features available.
 }
 
 // Phase 6: quick summary strip under the header (duration, budget, activity count)
@@ -336,7 +330,7 @@ function renderDay1Preview() {
         <h3 class="font-heading font-bold text-lg">Day 1 — ${TIER_LABELS[answers.budgetTier]} plan</h3>
       </div>
       ${rows}
-      <p class="text-sm text-[#757575] mt-4 pt-3 border-t border-gray-100">Here's a preview of Day 1. Unlock the full ${answers.tripDuration}-day plan for <b class="text-[#2E7D32]">$19</b> — printable PDF, every booking link, interactive map & calendar export.</p>
+      <p class="text-sm text-[#757575] mt-4 pt-3 border-t border-gray-100">Explore your full ${answers.tripDuration}-day plan below — printable PDF, every booking link, interactive map & calendar export are all ready to use.</p>
     </div>`;
 }
 

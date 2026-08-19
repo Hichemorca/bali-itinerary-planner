@@ -61,26 +61,8 @@
     <!-- Phase 6: Day 1 free preview (visible before payment) -->
     <div id="day1-preview" class="mb-8 print:hidden"></div>
 
-    <!-- Unlock CTA (shown until paid) -->
-    <div id="unlock-banner" class="bg-[#F9A825] rounded-2xl p-6 mb-8 flex flex-col md:flex-row items-center gap-5 print:hidden">
-      <i class="fa-solid fa-unlock text-3xl text-[#7a4f00]"></i>
-      <div class="flex-1 text-center md:text-left">
-        <p class="font-bold text-[#4a3000] text-lg">Unlock the full plan — printable PDF + all booking links</p>
-        <p class="text-[#6b4800] text-sm">One payment of $29. Download instantly, use offline on your phone.</p>
-      </div>
-      <div class="flex items-center gap-3">
-        <div class="text-center">
-          <span class="block text-xs line-through text-[#7a4f00]/60">$29</span>
-          <span class="block font-extrabold text-xl text-[#4a3000]">$19</span>
-          <span class="block text-[10px] text-[#7a4f00]">launch offer</span>
-        </div>
-        <a href="https://gum.co/your-product-id" class="gumroad-button bg-[#212121] hover:bg-black text-white font-bold px-6 py-3 rounded-xl" data-gumroad-single-product="true">
-          <i class="fa-solid fa-lock-open mr-2"></i>Unlock — $19
-        </a>
-      </div>
-    </div>
 
-    <!-- Email capture (before unlock) -->
+    <!-- Email capture (optional) -->
     <div id="email-capture" class="bg-white rounded-2xl border border-gray-100 p-6 mb-8 print:hidden">
       <form id="email-form" class="flex flex-col md:flex-row gap-3">
         <div class="flex-1">
@@ -162,12 +144,10 @@
   <script src="js/dark-mode.js"></script>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="js/itinerary-engine.js?v=ph6"></script>
-  <script src="js/map-calendar.js?v=ph10"></script>
+  <script src="js/itinerary-engine.js?v=ph11"></script>
+  <script src="js/map-calendar.js?v=ph11"></script>
   <script src="js/pdf-generator.js?v=ph8"></script>
-  <script src="js/gumroad-integration.js?v=ph6"></script>
   <script src="js/analytics.js"></script>
-  <script src="js/result.js?v=ph10"></script>
-  <script src="https://gumroad.com/js/gumroad.js"></script>
+  <script src="js/result.js?v=ph11"></script>
 </body>
 </html>
