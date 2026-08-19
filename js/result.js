@@ -122,7 +122,8 @@ function renderHeader() {
 function renderDays() {
   // Phase 6: interest icon for activity cards (🏄 adventure, 🏛 culture, 🌿 nature, 🧘 relaxation/wellness, 🍽 food, 🛍 shopping, 📸 photography)
   function activityIcon(a) {
-    const cat = ((a.category || "") + " " + (a.interests || []).join(" ")).toLowerCase();
+    const interestsTxt = Array.isArray(a.interests) ? a.interests.join(" ") : (a.interests || "");
+    const cat = ((a.category || "") + " " + interestsTxt).toLowerCase();
     if (/adventure|sport|watersport|atv|quad|surf|raft|snorkel|dive|swing|climb|kayak|safari|waterslid/.test(cat)) return { icon: "fa-person-skiing", cls: "text-[#0288D1]" };
     if (/temple|culture|history|dance|art|museum|village|palace|ritual|ceremony|photography|photo/.test(cat)) return { icon: "fa-person-praying", cls: "text-[#6A1B9A]" };
     if (/nature|beach|waterfall|marine|sun|sunrise|sunset|cliff|island|dolphin|turtle|star/.test(cat)) return { icon: "fa-leaf", cls: "text-[#2E7D32]" };
@@ -379,7 +380,9 @@ function wireBackToTop() {
   const btn = document.getElementById("btn-back-to-top");
   if (!btn) return;
   window.addEventListener("scroll", () => {
-    btn.classList.toggle("opacity-0 pointer-events-none", window.scrollY < 400);
+    const hidden = window.scrollY < 400;
+    btn.classList.toggle("opacity-0", hidden);
+    btn.classList.toggle("pointer-events-none", hidden);
   }, { passive: true });
   btn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
 }

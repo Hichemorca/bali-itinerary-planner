@@ -302,15 +302,32 @@ function buildDailyItinerary(filteredActivities, tripDuration, budgetTier, prefe
   // Hard rule: an activity already scheduled ANYWHERE in the trip can NEVER
   // reappear as a flex option, regardless of rating (comment + zero-repeat contract).
   function flexDayOptions(d) {
+    // Hard rule: an activity already scheduled ANYWHERE in the trip can NEVER
+    // reappear as a flex option (zero-repeat contract). Everything else is a
+    // layered preference that relaxes only when the strict pick is too thin.
     const recent = new Set(activityHistory.filter(h => (d - h.day) < REPEAT_GAP_DAYS).map(h => h.id));
     const usedAllTime = new Set(activityHistory.map(h => h.id));
-    const seen = new Set(regionSchedule.filter(r => r)); // skip regions already in rotation
-    return activityPool
-      .filter(a => !usedAllTime.has(a.id) && !recent.has(a.id) && (a.rating || 4) >= 4.3 && !seen.has(a.region))
-      .sort((a, b) => (b.rating || 4) - (a.rating || 4))
-      .slice(0, 7);
+    // Recent regions only: exclude regions the user visited in the ~2 days
+    // BEFORE the flex day (so the flex day suggests a different area), but do
+    // not ban every region visited anywhere in the trip.
+    const seen = new Set(regionSchedule.filter((r, i) => r && (d - (i + 1)) <= 2 && (d - (i + 1)) > 0));
+    function pick(ratingMin, ignoreRegions) {
+      return activityPool
+        .filter(a => !usedAllTime.has(a.id) && !recent.has(a.id) && (a.rating || 4) >= ratingMin && (ignoreRegions || !seen.has(a.region)))
+        .sort((a, b) => (b.rating || 4) - (a.rating || 4));
+    }
+    const strict = pick(4.3, false);
+    if (strict.length >= 3) return strict.slice(0, 7);
+    const noRegion = pick(4.3, true);
+    if (noRegion.length >= 3) return noRegion.slice(0, 7);
+    const relaxed = pick(3.8, true);
+    return relaxed.slice(0, 7);
   }
 
+  // Phase 10: cap rest days at 2 per TRIP (was 1 per day — which produced
+  // 7 consecutive rest days on narrow-pool interest filters like 'food').
+  let restDaysUsedThisTrip = 0;
+  const MAX_REST_DAYS = 2;
   for (let d = 1; d <= tripDuration; d++) {
     // Phase 5 flex day: last 2 days of long trips are optional, no fixed schedule
     if (regionSchedule[d - 1] === null) {
@@ -419,10 +436,8 @@ function buildDailyItinerary(filteredActivities, tripDuration, budgetTier, prefe
     }
 
     // Phase 6: custom Rest Day used only when even the alternatives run out
-    let restDayUsedThisTrip = false;
     function createRestDay(role) {
-      if (restDayUsedThisTrip) return null; // one rest day per trip max
-      restDayUsedThisTrip = true;
+      if (restDaysUsedThisTrip >= MAX_REST_DAYS) return null; // max 2 per trip
       const rest = { act: { name: "✨ Rest & Recovery Day", region: "-",
           category: "Rest / Optional", priceLow: 0, priceHigh: 0, duration: 0,
           bestTime: "Your pace", location: "Around your base", bookingLink: "",
@@ -453,6 +468,7 @@ function buildDailyItinerary(filteredActivities, tripDuration, budgetTier, prefe
         if (rest) {
           dayOrder.push(rest);
           picked = rest.act;
+          restDaysUsedThisTrip++;
         }
       }
       if (picked && picked.isFree) freeScheduled++;
@@ -465,7 +481,14 @@ function buildDailyItinerary(filteredActivities, tripDuration, budgetTier, prefe
       const needed = tt + candidate.duration + 0.5;
 
       if (role === "evening" && clock + needed > MAX_ACTIVE_HOURS) {
+        // The evening bonus didn't fit today — release it back to the pool so
+        // it stays available for a later day or the flex-day suggestions
+        // (keeps the visible pool alive on fully-booked long trips).
         day.bonus = candidate;
+        const lastHist = activityHistory.length ? activityHistory[activityHistory.length - 1] : null;
+        if (lastHist && lastHist.id === candidate.id && lastHist.day === d && lastHist.role === role) {
+          activityHistory.pop();
+        }
         continue;
       }
 
@@ -499,7 +522,7 @@ function buildDailyItinerary(filteredActivities, tripDuration, budgetTier, prefe
     // so they do not disturb travel-time math. The lunch break is spliced right
     // after the first activity that ends at or after 12:00 PM (i.e. the first
     // afternoon activity); the dinner break is appended last.
-    if (isLongTrip && day.activities.length >= 2) {
+    if (isLongTrip && day.activities.length >= 1) {
       const toMinutes = (t) => {
         const m = (t || "").match(/(\d+):(\d+)\s*(AM|PM)/i);
         if (!m) return 0;

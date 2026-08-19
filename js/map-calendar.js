@@ -139,7 +139,9 @@ function downloadICS(plan, tripType) {
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
-  URL.revokeObjectURL(url);
+  // Delay the revoke so the browser has time to start the download (some browsers/Chromium-headless
+  // fail to fetch the blob when it is revoked synchronously right after click)
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
   if (window.gtag) window.gtag("event", "download_ics", {});
 }
 

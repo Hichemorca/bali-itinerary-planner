@@ -3324,7 +3324,10 @@
     "nomad",
     "adventure"
    ],
-   "interests": "relaxation, wellness",
+   "interests": [
+    "relaxation",
+    "wellness"
+   ],
    "localPrice": 0,
    "imageUrl": "assets/images/placeholder-activity.webp",
    "isFree": true,
@@ -3352,7 +3355,10 @@
     "nomad",
     "adventure"
    ],
-   "interests": "relaxation, nature",
+   "interests": [
+    "relaxation",
+    "nature"
+   ],
    "localPrice": 0,
    "imageUrl": "assets/images/placeholder-activity.webp",
    "isFree": true,
@@ -3380,7 +3386,10 @@
     "nomad",
     "adventure"
    ],
-   "interests": "relaxation, wellness",
+   "interests": [
+    "relaxation",
+    "wellness"
+   ],
    "localPrice": 0,
    "imageUrl": "assets/images/placeholder-activity.webp",
    "isFree": true,
@@ -3408,7 +3417,10 @@
     "nomad",
     "adventure"
    ],
-   "interests": "relaxation, wellness",
+   "interests": [
+    "relaxation",
+    "wellness"
+   ],
    "localPrice": 0,
    "imageUrl": "assets/images/placeholder-activity.webp",
    "isFree": true,
@@ -3436,7 +3448,10 @@
     "nomad",
     "adventure"
    ],
-   "interests": "food, relaxation",
+   "interests": [
+    "food",
+    "relaxation"
+   ],
    "localPrice": 0,
    "imageUrl": "assets/images/placeholder-activity.webp",
    "isFree": true,
@@ -3464,7 +3479,10 @@
     "nomad",
     "adventure"
    ],
-   "interests": "photography, nature",
+   "interests": [
+    "photography",
+    "nature"
+   ],
    "localPrice": 0,
    "imageUrl": "assets/images/placeholder-activity.webp",
    "isFree": true,
@@ -3492,7 +3510,10 @@
     "nomad",
     "adventure"
    ],
-   "interests": "photography, nature",
+   "interests": [
+    "photography",
+    "nature"
+   ],
    "localPrice": 0,
    "imageUrl": "assets/images/placeholder-activity.webp",
    "isFree": true,
@@ -3520,7 +3541,11 @@
     "nomad",
     "adventure"
    ],
-   "interests": "photography, nature, culture",
+   "interests": [
+    "photography",
+    "nature",
+    "culture"
+   ],
    "localPrice": 0,
    "imageUrl": "assets/images/placeholder-activity.webp",
    "isFree": true,
@@ -3548,7 +3573,10 @@
     "nomad",
     "adventure"
    ],
-   "interests": "photography, culture",
+   "interests": [
+    "photography",
+    "culture"
+   ],
    "localPrice": 0,
    "imageUrl": "assets/images/placeholder-activity.webp",
    "isFree": true,
@@ -3576,7 +3604,11 @@
     "nomad",
     "adventure"
    ],
-   "interests": "photography, culture, food",
+   "interests": [
+    "photography",
+    "culture",
+    "food"
+   ],
    "localPrice": 0,
    "imageUrl": "assets/images/placeholder-activity.webp",
    "isFree": true,
@@ -3604,7 +3636,10 @@
     "nomad",
     "adventure"
    ],
-   "interests": "nature, wellness",
+   "interests": [
+    "nature",
+    "wellness"
+   ],
    "localPrice": 0,
    "imageUrl": "assets/images/placeholder-activity.webp",
    "isFree": true,
@@ -3632,7 +3667,10 @@
     "nomad",
     "adventure"
    ],
-   "interests": "nature, relaxation",
+   "interests": [
+    "nature",
+    "relaxation"
+   ],
    "localPrice": 0,
    "imageUrl": "assets/images/placeholder-activity.webp",
    "isFree": true,
@@ -3660,7 +3698,10 @@
     "nomad",
     "adventure"
    ],
-   "interests": "culture, nature",
+   "interests": [
+    "culture",
+    "nature"
+   ],
    "localPrice": 0,
    "imageUrl": "assets/images/placeholder-activity.webp",
    "isFree": true,
@@ -3688,7 +3729,11 @@
     "nomad",
     "adventure"
    ],
-   "interests": "shopping, food, culture",
+   "interests": [
+    "shopping",
+    "food",
+    "culture"
+   ],
    "localPrice": 0,
    "imageUrl": "assets/images/placeholder-activity.webp",
    "isFree": true,
@@ -3716,7 +3761,10 @@
     "nomad",
     "adventure"
    ],
-   "interests": "culture, photography",
+   "interests": [
+    "culture",
+    "photography"
+   ],
    "localPrice": 0,
    "imageUrl": "assets/images/placeholder-activity.webp",
    "isFree": true,
@@ -3744,7 +3792,11 @@
     "nomad",
     "adventure"
    ],
-   "interests": "photography, nature, wellness",
+   "interests": [
+    "photography",
+    "nature",
+    "wellness"
+   ],
    "localPrice": 0,
    "imageUrl": "assets/images/placeholder-activity.webp",
    "isFree": true,
@@ -3772,7 +3824,11 @@
     "nomad",
     "adventure"
    ],
-   "interests": "photography, nature, relaxation",
+   "interests": [
+    "photography",
+    "nature",
+    "relaxation"
+   ],
    "localPrice": 0,
    "imageUrl": "assets/images/placeholder-activity.webp",
    "isFree": true,
@@ -3800,7 +3856,10 @@
     "nomad",
     "adventure"
    ],
-   "interests": "relaxation, photography",
+   "interests": [
+    "relaxation",
+    "photography"
+   ],
    "localPrice": 0,
    "imageUrl": "assets/images/placeholder-activity.webp",
    "isFree": true,
@@ -3828,7 +3887,10 @@
     "nomad",
     "adventure"
    ],
-   "interests": "relaxation, wellness",
+   "interests": [
+    "relaxation",
+    "wellness"
+   ],
    "localPrice": 0,
    "imageUrl": "assets/images/placeholder-activity.webp",
    "isFree": true,
@@ -3856,7 +3918,11 @@
     "nomad",
     "adventure"
    ],
-   "interests": "photography, relaxation, wellness",
+   "interests": [
+    "photography",
+    "relaxation",
+    "wellness"
+   ],
    "localPrice": 0,
    "imageUrl": "assets/images/placeholder-activity.webp",
    "isFree": true,

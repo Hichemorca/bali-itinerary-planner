@@ -1,0 +1,22 @@
+{
+  "name": "bali_itinerary_planner",
+  "version": "1.0.0",
+  "description": "A static, fully client-side website that generates personalized day-by-day Bali itineraries through a 4-question quiz, with a downloadable PDF, interactive map, and calendar export.",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "node tests/engine.test.js && npx playwright test",
+    "test:engine": "node tests/engine.test.js",
+    "test:ui": "npx playwright test",
+    "serve": "npx serve ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.62.1",
+    "playwright": "^1.62.1"
+  }
+}
