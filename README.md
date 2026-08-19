@@ -6,7 +6,15 @@ A static, fully client-side website that generates personalized day-by-day Bali 
 
 > **Note:** the Gumroad payment gateway is **temporarily disabled** — the site is free to use. The placeholder `your-product-id` remains in `js/gumroad-integration.js` until a product is created; when ready, follow the "Gumroad Setup" section below.
 
-## Latest: v5 — Automated Test Suite (Phase 10)
+## Latest: v6 — SEO, Social Sharing & CI (Phase 11)
+
+Every page now ships with a complete SEO head block: `meta description`, `keywords`, `author`, canonical URL, full Open Graph set (title/description/type/URL/image/dimensions/alt/site name/locale) and Twitter Card (`summary_large_image` with image + alt). The landing page and quiz page carry **JSON-LD structured data** (`WebSite` + `SoftwareApplication` with rating markup on the index; `WebPage` with `isPartOf` on quiz/result/privacy/contact). A custom **1200×630 social sharing card** (`assets/images/og-social-card.png`) is generated from Python/Pillow in the Bali green/gold theme. `sitemap.xml` lists only the indexable pages (result page stays `noindex` by design).
+
+GA4 tracking (`js/analytics.js`) was hardened: the `dataLayer` is initialized before `gtag`, the stub is a fully safe no-op when `GA_ID` is empty, and the GA config now sends `page_location`/`page_title` with every `page_view`. **Three automated analytics health tests** (`tests/analytics.test.js`, Playwright) verify the stub, the quiz funnel (`quiz_start` → `quiz_complete` → `view_result`, captured across page navigation), and the result-page actions (`download_pdf`, `download_ics`).
+
+**GitHub Actions CI is live and green**: `.github/workflows/ci.yml` runs the full suite (`npm test` = engine + 17 UI tests) on every push/PR to `master` (Node 22, Chromium pre-installed, local `http.server` on port 8000). The Netlify deploy workflow gracefully skips when the `NETLIFY_AUTH_TOKEN` secret is not set (production deploys are managed via the sandbox). A `package-lock.json` was added because `setup-node`'s npm cache requires it.
+
+## Previous: v5 — Automated Test Suite (Phase 10)
 
 - **Engine tests** (`tests/engine.test.js`, Node.js): **25,076 assertions** across **all 648 possible quiz combinations** (4 durations × 3 budgets × 3 trip types × 6 interests × 9 regions), verifying zero-repeat scheduling, free/paid balance, meal breaks, flex days, region rotation, and stats consistency. **All green.**
 - **UI tests** (`tests/ui.test.js`, Playwright): **14 browser tests** that actually click through the site — full quiz flow, PDF download, ICS calendar download (validates `BEGIN:VCALENDAR` content), Google Calendar links, share link prefill, edit-plan mode, star rating, email capture, rainy-day toggle, dark mode, back-to-top, and a no-JavaScript-errors-on-load check. **14/14 passing.**
@@ -34,7 +42,8 @@ bali-itinerary-planner/
 │   └── gumroad-integration.js # DISABLED (payment gateway off)
 ├── data/activities.json    # 141 Bali activities (48 free, 20 alternatives)
 ├── assets/images/          # activity photos (webp, lazy-loaded)
-├── tests/                  # engine.test.js + ui.test.js (Phase 10)
+├── tests/                  # engine.test.js + ui.test.js (Phase 10) + analytics.test.js (Phase 11)
+├── .github/workflows/      # ci.yml (npm test on push/PR) + netlify-deploy.yml
 ├── playwright.config.js    # UI test config
 └── reports/                # Arabic phase reports
 ```
