@@ -1,0 +1,3866 @@
+{
+ "metadata": {
+  "version": "1.5",
+  "generated": "2026-08-18",
+  "total": 90,
+  "regions": [
+   "Canggu",
+   "Kuta",
+   "Multi-region",
+   "North Bali",
+   "Nusa Penida",
+   "Seminyak",
+   "Ubud",
+   "Uluwatu"
+  ],
+  "budgetTiers": {
+   "budget": {
+    "maxPerDay": 50,
+    "maxPerActivity": 15
+   },
+   "mid": {
+    "maxPerDay": 150,
+    "maxPerActivity": 60
+   },
+   "luxury": {
+    "maxPerDay": 500,
+    "maxPerActivity": 250
+   }
+  },
+  "freeActivitiesAdded": 16,
+  "totalActivities": 106,
+  "freeCount": 13,
+  "updated": "2026-08-18"
+ },
+ "activities": [
+  {
+   "id": 1,
+   "name": "Ubud Monkey Forest (Sacred Monkey Forest Sanctuary)",
+   "region": "Ubud",
+   "category": "Culture / Nature",
+   "priceLow": 3.0,
+   "priceHigh": 5.0,
+   "duration": 2.0,
+   "bestTime": "Early morning (before 9 AM) to avoid crowds and heat",
+   "location": "Jl. Monkey Forest Rd, Ubud",
+   "bookingLink": "https://www.getyourguide.com/ubud-l32246/",
+   "platform": "GetYourGuide / On-site",
+   "rating": 4.5,
+   "insiderTip": "Watch out for monkeys grabbing hats, phones and sunglasses; keep valuables zipped away",
+   "bestFor": [
+    "family",
+    "honeymoon",
+    "solo"
+   ],
+   "interests": [
+    "culture",
+    "nature"
+   ],
+   "localPrice": 2,
+   "localPriceHigh": 3,
+   "imageUrl": "assets/images/act-1.webp",
+   "isFree": false
+  },
+  {
+   "id": 2,
+   "name": "Tegallalang (Ceking) Rice Terraces",
+   "region": "Ubud",
+   "category": "Nature / Photography",
+   "priceLow": 1.0,
+   "priceHigh": 3.0,
+   "duration": 2.0,
+   "bestTime": "Early morning or late afternoon; midday is hot and crowded",
+   "location": "Tegallalang, Gianyar",
+   "bookingLink": "https://www.getyourguide.com/ubud-l32246/",
+   "platform": "GetYourGuide / On-site",
+   "rating": 4.4,
+   "insiderTip": "Pay the small donation at each terrace checkpoint; the famous swings are at the lower terraces",
+   "bestFor": [
+    "honeymoon",
+    "solo",
+    "family"
+   ],
+   "interests": [
+    "nature"
+   ],
+   "localPrice": 1,
+   "localPriceHigh": 1,
+   "imageUrl": "assets/images/act-2.webp",
+   "isFree": false
+  },
+  {
+   "id": 3,
+   "name": "Bali Swing (Tegallalang jungle swings)",
+   "region": "Ubud",
+   "category": "Adventure / Photography",
+   "priceLow": 13.0,
+   "priceHigh": 45.0,
+   "duration": 2.0,
+   "bestTime": "Morning (opens 8 AM) for soft light and fewer people",
+   "location": "Tegallalang, Ubud",
+   "bookingLink": "https://www.getyourguide.com/bali-swing-l158531/",
+   "platform": "GetYourGuide / Direct",
+   "rating": 4.5,
+   "insiderTip": "Aloha Ubud Swing offers the best value (~$13); official Bali Swing from ~$22-45 for multiple swings",
+   "bestFor": [
+    "honeymoon",
+    "solo"
+   ],
+   "interests": [
+    "adventure"
+   ],
+   "localPrice": 6,
+   "localPriceHigh": 22,
+   "imageUrl": "assets/images/act-3.webp",
+   "isFree": false
+  },
+  {
+   "id": 4,
+   "name": "Tirta Empul Holy Water Temple (purification ritual)",
+   "region": "Ubud",
+   "category": "Culture / Wellness",
+   "priceLow": 4.0,
+   "priceHigh": 8.0,
+   "duration": 2.0,
+   "bestTime": "Early morning before tour buses arrive; dress modestly",
+   "location": "Jl. Tirta, Manukaya, Tampaksiring",
+   "bookingLink": "https://www.getyourguide.com/bali-l347/bali-3-hidden-waterfalls-sacred-water-blessing-experience-t1356135/",
+   "platform": "GetYourGuide / On-site",
+   "rating": 4.4,
+   "insiderTip": "Buy a sarong at the entrance (~IDR 15K); bring a change of clothes to get wet",
+   "bestFor": [
+    "solo",
+    "honeymoon"
+   ],
+   "interests": [
+    "culture",
+    "relaxation"
+   ],
+   "localPrice": 3,
+   "localPriceHigh": 6,
+   "imageUrl": "assets/images/act-4.webp",
+   "isFree": false
+  },
+  {
+   "id": 5,
+   "name": "Mount Batur Sunrise Trek",
+   "region": "Ubud",
+   "category": "Adventure",
+   "priceLow": 16.0,
+   "priceHigh": 65.0,
+   "duration": 6.0,
+   "bestTime": "Pre-dawn start (~1:30-2 AM pickup); clear dry season (Apr-Oct) best views",
+   "location": "Mount Batur, Kintamani",
+   "bookingLink": "https://www.getyourguide.com/bali-l347/bali-sunrise-mount-batur-hike-with-breakfast-t97437/",
+   "platform": "GetYourGuide",
+   "rating": 4.8,
+   "insiderTip": "Book the Jeep option if you lack fitness; bring a headlamp, light jacket and water",
+   "bestFor": [
+    "adventure",
+    "solo",
+    "honeymoon"
+   ],
+   "interests": [
+    "adventure"
+   ],
+   "localPrice": 9,
+   "localPriceHigh": 36,
+   "imageUrl": "assets/images/act-5.webp",
+   "isFree": false
+  },
+  {
+   "id": 6,
+   "name": "Mount Batur Sunrise Jeep Tour + Hot Spring",
+   "region": "Ubud",
+   "category": "Adventure / Relaxation",
+   "priceLow": 41.0,
+   "priceHigh": 55.0,
+   "duration": 7.0,
+   "bestTime": "Pre-dawn pickup; hot spring best right after sunrise",
+   "location": "Mount Batur / Toya Devasya Hot Spring",
+   "bookingLink": "https://www.getyourguide.com/bali-l347/mount-batur-private-sunrise-jeep-tour-natural-hot-spring-t175089/",
+   "platform": "GetYourGuide",
+   "rating": 4.8,
+   "insiderTip": "The private jeep + Toya Devasya hot spring combo is the best-value Batur experience for mixed fitness groups",
+   "bestFor": [
+    "adventure",
+    "family",
+    "honeymoon"
+   ],
+   "interests": [
+    "adventure",
+    "relaxation"
+   ],
+   "localPrice": 23,
+   "localPriceHigh": 30,
+   "imageUrl": "assets/images/act-6.webp",
+   "isFree": false
+  },
+  {
+   "id": 7,
+   "name": "ATV Quad Bike Jungle Adventure (tunnel + waterfall)",
+   "region": "Ubud",
+   "category": "Adventure",
+   "priceLow": 22.0,
+   "priceHigh": 47.0,
+   "duration": 3.0,
+   "bestTime": "Morning slots are cooler; rainy season makes mud more fun",
+   "location": "Green Bali Adventure, Sukawati",
+   "bookingLink": "https://www.getyourguide.com/ubud-l32246/ubud-atv-quad-bike-adventure-with-lunch-transfer-t392681/",
+   "platform": "GetYourGuide",
+   "rating": 4.8,
+   "insiderTip": "Ages 16+ to drive (tandem allowed younger); shower and locker facilities on site",
+   "bestFor": [
+    "adventure",
+    "friends",
+    "honeymoon"
+   ],
+   "interests": [
+    "adventure"
+   ],
+   "localPrice": 13,
+   "localPriceHigh": 27,
+   "imageUrl": "assets/images/act-7.webp",
+   "isFree": false
+  },
+  {
+   "id": 8,
+   "name": "ATV + Ayung River Rafting Combo with Meal",
+   "region": "Ubud",
+   "category": "Adventure",
+   "priceLow": 16.0,
+   "priceHigh": 36.0,
+   "duration": 6.0,
+   "bestTime": "Anytime; rapids stronger in rainy season",
+   "location": "Ubud area",
+   "bookingLink": "https://www.getyourguide.com/bali-l347/bali-ubud-gorilla-face-atv-ayung-river-rafting-with-meal-t489945/",
+   "platform": "GetYourGuide",
+   "rating": 4.8,
+   "insiderTip": "The 'Gorilla Face' ATV track is the most scenic route; includes lunch and transfers",
+   "bestFor": [
+    "adventure",
+    "friends",
+    "honeymoon"
+   ],
+   "interests": [
+    "adventure"
+   ],
+   "localPrice": 7,
+   "localPriceHigh": 17,
+   "imageUrl": "assets/images/act-8.webp",
+   "isFree": false
+  },
+  {
+   "id": 9,
+   "name": "Ayung River White Water Rafting",
+   "region": "Ubud",
+   "category": "Adventure",
+   "priceLow": 24.0,
+   "priceHigh": 40.0,
+   "duration": 4.0,
+   "bestTime": "Morning best; beginner-friendly (Class II-III)",
+   "location": "Ayung River, Ubud",
+   "bookingLink": "https://www.viator.com/tours/Kuta/bali-rafting-with-pickup/d22290-52474P3",
+   "platform": "Viator",
+   "rating": 4.7,
+   "insiderTip": "Age 7+; Balinese buffet lunch included at the end; great in the rain",
+   "bestFor": [
+    "adventure",
+    "family",
+    "friends"
+   ],
+   "interests": [
+    "adventure"
+   ],
+   "localPrice": 12,
+   "localPriceHigh": 21,
+   "imageUrl": "assets/images/act-9.webp",
+   "isFree": false
+  },
+  {
+   "id": 10,
+   "name": "Balinese Cooking Class + Market Tour (9 dishes)",
+   "region": "Ubud",
+   "category": "Food / Culture",
+   "priceLow": 26.0,
+   "priceHigh": 45.0,
+   "duration": 5.0,
+   "bestTime": "Morning session recommended (market visit included)",
+   "location": "Subak, Ubud",
+   "bookingLink": "https://www.viator.com/tours/Ubud/Subak-cooking-class-Balinese-cooking-school-9-Dish-Cooking-and-Market-Tour/d5467-52577P9",
+   "platform": "Viator",
+   "rating": 4.9,
+   "insiderTip": "Hotel pickup in Ubud included; you eat everything you cook — come hungry",
+   "bestFor": [
+    "solo",
+    "honeymoon"
+   ],
+   "interests": [
+    "culture",
+    "food"
+   ],
+   "localPrice": 20,
+   "localPriceHigh": 34,
+   "imageUrl": "assets/images/act-10.webp",
+   "isFree": false
+  },
+  {
+   "id": 11,
+   "name": "Best of Ubud Full-Day Private Tour (highlights combo)",
+   "region": "Ubud",
+   "category": "Culture / Sightseeing",
+   "priceLow": 13.0,
+   "priceHigh": 95.0,
+   "duration": 9.0,
+   "bestTime": "Full day, start 8-9 AM",
+   "location": "Ubud area",
+   "bookingLink": "https://www.getyourguide.com/ubud-l32246/ubud-rice-terrace-monkey-forest-waterfall-private-tour-t841262/",
+   "platform": "GetYourGuide",
+   "rating": 5.0,
+   "insiderTip": "Covers Monkey Forest, Tegallalang, Tirta Empul, Tegenungan, Art Market with lunch — ideal first-day overview",
+   "bestFor": [
+    "family",
+    "solo",
+    "friends"
+   ],
+   "interests": [
+    "culture"
+   ],
+   "localPrice": 6,
+   "localPriceHigh": 46,
+   "imageUrl": "assets/images/act-11.webp",
+   "isFree": false
+  },
+  {
+   "id": 12,
+   "name": "Ubud Waterfalls Tour (Tegenungan, Tibumana, Suwat, Kanto Lampo)",
+   "region": "Ubud",
+   "category": "Nature / Adventure",
+   "priceLow": 14.0,
+   "priceHigh": 40.0,
+   "duration": 8.0,
+   "bestTime": "Morning to beat crowds; bring swimwear and water shoes",
+   "location": "Ubud outskirts",
+   "bookingLink": "https://www.getyourguide.com/ubud-l32246/ubud-waterfalls-water-temple-rice-terraces-private-tour-t812529/",
+   "platform": "GetYourGuide",
+   "rating": 5.0,
+   "insiderTip": "Kanto Lampo allows cliff-jumping photos in the stream; Tibumana is the most peaceful",
+   "bestFor": [
+    "solo",
+    "friends"
+   ],
+   "interests": [
+    "adventure",
+    "nature"
+   ],
+   "localPrice": 7,
+   "localPriceHigh": 21,
+   "imageUrl": "assets/images/act-12.webp",
+   "isFree": false
+  },
+  {
+   "id": 13,
+   "name": "Campuhan Ridge Walk",
+   "region": "Ubud",
+   "category": "Nature / Wellness",
+   "priceLow": 0.0,
+   "priceHigh": 1.0,
+   "duration": 1.5,
+   "bestTime": "Sunrise (before 7 AM) for empty trails and cool air",
+   "location": "Jl. Raya Campuhan, Ubud",
+   "bookingLink": "https://www.getyourguide.com/ubud-l32246/ubud-campuhan-ridge-walk-tegallalang-rice-terrace-more-t890889/",
+   "platform": "Free / Self-guided",
+   "rating": 4.3,
+   "insiderTip": "Start at the Warwick hotel car park; end at a café with rice-field views for breakfast",
+   "bestFor": [
+    "solo",
+    "honeymoon"
+   ],
+   "interests": [
+    "nature",
+    "relaxation"
+   ],
+   "localPrice": 0,
+   "imageUrl": "assets/images/act-13.webp",
+   "isFree": true
+  },
+  {
+   "id": 14,
+   "name": "Kecak Fire Dance at Ubud Palace / Ubud Water Palace",
+   "region": "Ubud",
+   "category": "Culture / Entertainment",
+   "priceLow": 8.0,
+   "priceHigh": 15.0,
+   "duration": 1.5,
+   "bestTime": "Evening shows 7:30 PM daily",
+   "location": "Ubud Palace, Jl. Raya Ubud",
+   "bookingLink": "https://www.getyourguide.com/uluwatu-l105742/kecak-dance-performances-tc2386/",
+   "platform": "GetYourGuide / On-site",
+   "rating": 4.5,
+   "insiderTip": "Ubud Palace show is free to enter the courtyard; buy tickets in high season",
+   "bestFor": [
+    "honeymoon",
+    "family"
+   ],
+   "interests": [
+    "adventure",
+    "culture"
+   ],
+   "localPrice": 4,
+   "localPriceHigh": 7,
+   "imageUrl": "assets/images/act-14.webp",
+   "isFree": false
+  },
+  {
+   "id": 15,
+   "name": "Goa Gajah (Elephant Cave) Temple",
+   "region": "Ubud",
+   "category": "Culture / History",
+   "priceLow": 2.0,
+   "priceHigh": 3.0,
+   "duration": 1.5,
+   "bestTime": "Early morning; shaded site, fine at midday",
+   "location": "Bedulu, Blahbatuh, Gianyar",
+   "bookingLink": "https://www.getyourguide.com/ubud-l32246/",
+   "platform": "On-site",
+   "rating": 4.3,
+   "insiderTip": "Combine with nearby Tegallalang (15 min drive); much quieter than central Ubud temples",
+   "bestFor": [
+    "solo"
+   ],
+   "interests": [
+    "culture"
+   ],
+   "localPrice": 2,
+   "localPriceHigh": 2,
+   "imageUrl": "assets/images/act-15.webp",
+   "isFree": false
+  },
+  {
+   "id": 16,
+   "name": "Ubud Art Market & Ubud Palace",
+   "region": "Ubud",
+   "category": "Culture / Shopping",
+   "priceLow": 0.0,
+   "priceHigh": 20.0,
+   "duration": 2.0,
+   "bestTime": "Early morning for best bargaining and photos",
+   "location": "Jl. Raya Ubud, central Ubud",
+   "bookingLink": "https://www.getyourguide.com/ubud-l32246/",
+   "platform": "On-site",
+   "rating": 4.2,
+   "insiderTip": "Start at 30% of the asking price and negotiate up; cash works best",
+   "bestFor": [
+    "family"
+   ],
+   "interests": [
+    "culture",
+    "relaxation"
+   ],
+   "localPrice": 5,
+   "imageUrl": "assets/images/act-16.webp",
+   "isFree": false
+  },
+  {
+   "id": 17,
+   "name": "Ubud Silver Jewelry Making Class",
+   "region": "Ubud",
+   "category": "Culture / Hands-on",
+   "priceLow": 25.0,
+   "priceHigh": 60.0,
+   "duration": 4.0,
+   "bestTime": "Morning or afternoon sessions; 2-day option for advanced",
+   "location": "Celuk village, Sukawati",
+   "bookingLink": "https://www.getyourguide.com/celuk-l166278/bali-make-your-own-silver-jewelry-gold-plated-option-t523518/",
+   "platform": "GetYourGuide",
+   "rating": 4.8,
+   "insiderTip": "Take home a ring you made yourself — the most sentimental souvenir in Bali",
+   "bestFor": [
+    "honeymoon",
+    "solo"
+   ],
+   "interests": [
+    "culture"
+   ],
+   "localPrice": 14,
+   "localPriceHigh": 33,
+   "imageUrl": "assets/images/act-17.webp",
+   "isFree": false
+  },
+  {
+   "id": 18,
+   "name": "Ubud Yoga Drop-in (The Yoga Barn / Radiance)",
+   "region": "Ubud",
+   "category": "Wellness",
+   "priceLow": 9.0,
+   "priceHigh": 15.0,
+   "duration": 2.0,
+   "bestTime": "Sunrise or sunset classes; book via app",
+   "location": "Jl. Raya Pengosekan, Ubud",
+   "bookingLink": "https://theyogabarn.com/",
+   "platform": "Direct booking",
+   "rating": 4.9,
+   "insiderTip": "The Yoga Barn drop-in is ~IDR 150K; 3-day wellness passes save ~20%",
+   "bestFor": [
+    "solo",
+    "honeymoon"
+   ],
+   "interests": [
+    "relaxation"
+   ],
+   "localPrice": 7,
+   "localPriceHigh": 12,
+   "imageUrl": "assets/images/act-18.webp",
+   "isFree": false
+  },
+  {
+   "id": 19,
+   "name": "Cretya Ubud Day Club (3-level infinity pool)",
+   "region": "Ubud",
+   "category": "Relaxation / Photography",
+   "priceLow": 20.0,
+   "priceHigh": 65.0,
+   "duration": 4.0,
+   "bestTime": "8 AM-9 PM; weekdays quieter; dress code 18+ for pool",
+   "location": "Tegallalang, Ubud",
+   "bookingLink": "https://cretyaubud.com/",
+   "platform": "Direct booking",
+   "rating": 4.6,
+   "insiderTip": "VIP booth for 2 ~$65 incl. food/drink credit; the best 'jungle beach club' in Bali",
+   "bestFor": [
+    "honeymoon",
+    "friends",
+    "solo"
+   ],
+   "interests": [
+    "relaxation"
+   ],
+   "localPrice": 10,
+   "localPriceHigh": 31,
+   "imageUrl": "assets/images/act-19.webp",
+   "isFree": false
+  },
+  {
+   "id": 20,
+   "name": "Luwak Coffee Plantation Tour",
+   "region": "Ubud",
+   "category": "Food / Culture",
+   "priceLow": 0.0,
+   "priceHigh": 5.0,
+   "duration": 1.5,
+   "bestTime": "Mid-morning; often combined with swing/terrace tours",
+   "location": "Ubud-Tabanan road",
+   "bookingLink": "https://www.getyourguide.com/ubud-l32246/",
+   "platform": "On-site / Free tasting",
+   "rating": 4.0,
+   "insiderTip": "Tastings are free but buy nothing you do not need; real civet coffee is expensive and ethical sourcing varies",
+   "bestFor": [
+    "solo"
+   ],
+   "interests": [
+    "culture",
+    "food"
+   ],
+   "localPrice": 2,
+   "imageUrl": "assets/images/act-20.webp",
+   "isFree": false
+  },
+  {
+   "id": 21,
+   "name": "Lempuyang 'Gate of Heaven' Temple + Tirta Gangga (East Bali day trip)",
+   "region": "Multi-region",
+   "category": "Culture / Photography",
+   "priceLow": 30.0,
+   "priceHigh": 80.0,
+   "duration": 10.0,
+   "bestTime": "Leave 5-6 AM to beat queues; dry season (May-Sep) clearer skies",
+   "location": "Lempuyang, Karangasem",
+   "bookingLink": "https://www.getyourguide.com/karangasem-regency-l190139/",
+   "platform": "GetYourGuide (private)",
+   "rating": 5.0,
+   "insiderTip": "The 'water reflection' photo uses a mirror, not real water; expect 1-2h queues midday",
+   "bestFor": [
+    "solo",
+    "honeymoon"
+   ],
+   "interests": [
+    "culture"
+   ],
+   "localPrice": 25,
+   "localPriceHigh": 67,
+   "imageUrl": "assets/images/act-21.webp",
+   "isFree": false
+  },
+  {
+   "id": 22,
+   "name": "Tegenungan Waterfall",
+   "region": "Ubud",
+   "category": "Nature / Adventure",
+   "priceLow": 2.0,
+   "priceHigh": 4.0,
+   "duration": 2.0,
+   "bestTime": "Before 9 AM or after 3 PM; swimming allowed",
+   "location": "Kemenuh, Sukawati",
+   "bookingLink": "https://www.getyourguide.com/ubud-l32246/",
+   "platform": "On-site",
+   "rating": 4.3,
+   "insiderTip": "100+ steps down (and back up); bring a waterproof bag for your phone",
+   "bestFor": [
+    "friends",
+    "family"
+   ],
+   "interests": [
+    "adventure",
+    "nature"
+   ],
+   "localPrice": 1,
+   "localPriceHigh": 2,
+   "imageUrl": "assets/images/act-22.webp",
+   "isFree": false
+  },
+  {
+   "id": 23,
+   "name": "Batuan Village Painting Class",
+   "region": "Ubud",
+   "category": "Culture / Hands-on",
+   "priceLow": 20.0,
+   "priceHigh": 40.0,
+   "duration": 3.0,
+   "bestTime": "Morning or afternoon; village is 15 min from Ubud",
+   "location": "Batuan village",
+   "bookingLink": "https://www.getyourguide.com/bali-l347/ubud-3-hour-traditional-balinese-painting-class-t308993/",
+   "platform": "GetYourGuide",
+   "rating": 4.7,
+   "insiderTip": "Learn the traditional Batuan style from a village master; paintings travel well as carry-on",
+   "bestFor": [
+    "solo",
+    "honeymoon"
+   ],
+   "interests": [
+    "culture"
+   ],
+   "localPrice": 9,
+   "localPriceHigh": 18,
+   "imageUrl": "assets/images/act-23.webp",
+   "isFree": false
+  },
+  {
+   "id": 24,
+   "name": "Potato Head Beach Club",
+   "region": "Seminyak",
+   "category": "Relaxation / Social",
+   "priceLow": 0.0,
+   "priceHigh": 50.0,
+   "duration": 5.0,
+   "bestTime": "All day; arrive by 2-3 PM to secure a sunset spot",
+   "location": "Jl. Petitenget No.51B, Seminyak",
+   "bookingLink": "https://seminyak.potatohead.co/feast/beach-club/",
+   "platform": "Direct booking",
+   "rating": 4.4,
+   "insiderTip": "No entry fee; daybed minimum spend ~IDR 500K; refined, family-friendly vibe",
+   "bestFor": [
+    "friends",
+    "honeymoon",
+    "family"
+   ],
+   "interests": [
+    "relaxation"
+   ],
+   "localPrice": 15,
+   "imageUrl": "assets/images/act-24.webp",
+   "isFree": false
+  },
+  {
+   "id": 25,
+   "name": "Ku De Ta Beach Club & Restaurant",
+   "region": "Seminyak",
+   "category": "Relaxation / Dining",
+   "priceLow": 0.0,
+   "priceHigh": 80.0,
+   "duration": 4.0,
+   "bestTime": "Sunset dinner is the signature experience",
+   "location": "Jl. Kayu Aya No.9, Seminyak",
+   "bookingLink": "https://kudeta.com/",
+   "platform": "Direct booking",
+   "rating": 4.5,
+   "insiderTip": "The original Bali beach club (since 2000); sophisticated, low-volume music",
+   "bestFor": [
+    "honeymoon",
+    "solo"
+   ],
+   "interests": [
+    "relaxation"
+   ],
+   "localPrice": 25,
+   "imageUrl": "assets/images/act-25.webp",
+   "isFree": false
+  },
+  {
+   "id": 26,
+   "name": "Mano Beach House",
+   "region": "Seminyak",
+   "category": "Relaxation / Food",
+   "priceLow": 0.0,
+   "priceHigh": 40.0,
+   "duration": 4.0,
+   "bestTime": "Midday-to-sunset; famous for slow-food menu",
+   "location": "Jl. Dhyana Pura, Seminyak",
+   "bookingLink": "https://www.manobali.com/",
+   "platform": "Direct booking",
+   "rating": 4.4,
+   "insiderTip": "Chilled alternative to Potato Head with excellent salads and juices",
+   "bestFor": [
+    "friends",
+    "honeymoon"
+   ],
+   "interests": [
+    "food",
+    "relaxation"
+   ],
+   "localPrice": 12,
+   "imageUrl": "assets/images/act-26.webp",
+   "isFree": false
+  },
+  {
+   "id": 27,
+   "name": "Mrs Sippy Bali (pool with diving board)",
+   "region": "Seminyak",
+   "category": "Relaxation / Party",
+   "priceLow": 15.0,
+   "priceHigh": 45.0,
+   "duration": 4.0,
+   "bestTime": "Afternoon sessions; weekend DJ sets",
+   "location": "Jl. Petitenget, Seminyak",
+   "bookingLink": "https://www.mrssippybali.com/",
+   "platform": "Direct booking",
+   "rating": 4.5,
+   "insiderTip": "Minimum spend applies for beds; book ahead on weekends",
+   "bestFor": [
+    "friends"
+   ],
+   "interests": [
+    "relaxation"
+   ],
+   "localPrice": 9,
+   "localPriceHigh": 26,
+   "imageUrl": "assets/images/act-27.webp",
+   "isFree": false
+  },
+  {
+   "id": 28,
+   "name": "Seminyak Sunset Beach Walk + La Plancha",
+   "region": "Seminyak",
+   "category": "Relaxation / Food",
+   "priceLow": 5.0,
+   "priceHigh": 25.0,
+   "duration": 3.0,
+   "bestTime": "5:30-7 PM golden hour",
+   "location": "Double Six to Petitenget beach",
+   "bookingLink": "https://laplancha-bali.com/",
+   "platform": "On-site",
+   "rating": 4.4,
+   "insiderTip": "Bean bags on the sand at La Plancha are first-come; bring cash",
+   "bestFor": [
+    "honeymoon",
+    "solo",
+    "family"
+   ],
+   "interests": [
+    "food",
+    "relaxation"
+   ],
+   "localPrice": 4,
+   "localPriceHigh": 21,
+   "imageUrl": "assets/images/act-28.webp",
+   "isFree": false
+  },
+  {
+   "id": 29,
+   "name": "Beginner Surf Lesson (Seminyak Beach)",
+   "region": "Seminyak",
+   "category": "Adventure / Sport",
+   "priceLow": 19.0,
+   "priceHigh": 35.0,
+   "duration": 2.0,
+   "bestTime": "Early morning for flat water; sand-bottom, reef-free",
+   "location": "Seminyak Beach",
+   "bookingLink": "https://www.klook.com/en-US/activity/73710-surfing-lesson-seminyak-nuna-surfing-school-bali/",
+   "platform": "Klook",
+   "rating": 4.8,
+   "insiderTip": "~IDR 300K for 2h incl. board; instructors used to complete beginners",
+   "bestFor": [
+    "adventure",
+    "family",
+    "friends"
+   ],
+   "interests": [
+    "adventure"
+   ],
+   "localPrice": 15,
+   "localPriceHigh": 28,
+   "imageUrl": "assets/images/act-29.webp",
+   "isFree": false
+  },
+  {
+   "id": 30,
+   "name": "Umah Living Candle & Room Spray Making Class",
+   "region": "Seminyak",
+   "category": "Culture / Hands-on",
+   "priceLow": 35.0,
+   "priceHigh": 40.0,
+   "duration": 2.0,
+   "bestTime": "Mon-Sat, 1-3 PM and 4-6 PM sessions",
+   "location": "Jl Mertanadi No. 72, Seminyak",
+   "bookingLink": "https://umahliving.com/products/appointment",
+   "platform": "Direct booking",
+   "rating": 4.9,
+   "insiderTip": "Choose from 80 Balinese oils; take home your own scent of Bali",
+   "bestFor": [
+    "honeymoon",
+    "solo"
+   ],
+   "interests": [
+    "culture"
+   ],
+   "localPrice": 17,
+   "localPriceHigh": 19,
+   "imageUrl": "assets/images/act-30.webp",
+   "isFree": false
+  },
+  {
+   "id": 31,
+   "name": "Petitenget Temple & Nyaman Gallery Art Walk",
+   "region": "Seminyak",
+   "category": "Culture",
+   "priceLow": 0.0,
+   "priceHigh": 10.0,
+   "duration": 2.0,
+   "bestTime": "Late afternoon; dress modestly (sarong provided)",
+   "location": "Jl. Petitenget, Seminyak",
+   "bookingLink": "https://thehoneycombers.com/bali/things-to-do-in-seminyak/",
+   "platform": "On-site",
+   "rating": 4.3,
+   "insiderTip": "Nyaman Gallery showcases contemporary Balinese art next to boutique shopping",
+   "bestFor": [
+    "solo"
+   ],
+   "interests": [
+    "culture"
+   ],
+   "localPrice": 0,
+   "imageUrl": "assets/images/act-31.webp",
+   "isFree": false
+  },
+  {
+   "id": 32,
+   "name": "Bodyworks Spa Seminyak (Balinese massage)",
+   "region": "Seminyak",
+   "category": "Wellness",
+   "priceLow": 15.0,
+   "priceHigh": 45.0,
+   "duration": 1.5,
+   "bestTime": "Book a day ahead in high season; evening slots popular",
+   "location": "Jl. Petitenget, Seminyak",
+   "bookingLink": "https://www.bodyworksbali.com/",
+   "platform": "Direct booking",
+   "rating": 4.8,
+   "insiderTip": "Classic Balinese massage 60 min ~$25; the most aesthetic mid-range spa in Seminyak",
+   "bestFor": [
+    "honeymoon",
+    "solo"
+   ],
+   "interests": [
+    "relaxation"
+   ],
+   "localPrice": 13,
+   "localPriceHigh": 40,
+   "imageUrl": "assets/images/act-32.webp",
+   "isFree": false
+  },
+  {
+   "id": 33,
+   "name": "Seminyak Boutique Shopping (Legian St, Eat Street)",
+   "region": "Seminyak",
+   "category": "Shopping",
+   "priceLow": 20.0,
+   "priceHigh": 200.0,
+   "duration": 3.0,
+   "bestTime": "Morning or late afternoon to avoid midday heat",
+   "location": "Jl. Kayu Aya (Eat Street), Legian Rd",
+   "bookingLink": "https://thehoneycombers.com/bali/things-to-do-in-seminyak/",
+   "platform": "On-site",
+   "rating": 4.4,
+   "insiderTip": "Designer local brands (Magali Pascal, Biasa) + bargains at the night markets",
+   "bestFor": [
+    "friends",
+    "honeymoon"
+   ],
+   "interests": [
+    "relaxation"
+   ],
+   "localPrice": 10,
+   "localPriceHigh": 100,
+   "imageUrl": "assets/images/act-33.webp",
+   "isFree": false
+  },
+  {
+   "id": 34,
+   "name": "Seminyak Sunday Brunch & Cafe Hopping (KYND, Sisterfields, Revolver)",
+   "region": "Seminyak",
+   "category": "Food",
+   "priceLow": 15.0,
+   "priceHigh": 40.0,
+   "duration": 4.0,
+   "bestTime": "Brunch 9-11 AM sharp (queues build by noon)",
+   "location": "Eat Street area",
+   "bookingLink": "https://thehoneycombers.com/bali/things-to-do-in-seminyak/",
+   "platform": "On-site",
+   "rating": 4.6,
+   "insiderTip": "KYND is Bali's most Instagrammed vegan cafe; Revolver for serious coffee",
+   "bestFor": [
+    "solo",
+    "friends"
+   ],
+   "interests": [
+    "food"
+   ],
+   "localPrice": 7,
+   "localPriceHigh": 19,
+   "imageUrl": "assets/images/act-34.webp",
+   "isFree": false
+  },
+  {
+   "id": 35,
+   "name": "Finns Beach Club",
+   "region": "Canggu",
+   "category": "Relaxation / Party",
+   "priceLow": 0.0,
+   "priceHigh": 100.0,
+   "duration": 6.0,
+   "bestTime": "Arrive before 1 PM for 50% off daybeds; adults-only",
+   "location": "Jl. Pantai Batu Bolong, Canggu",
+   "bookingLink": "https://www.finnsbeachclub.com/",
+   "platform": "Direct booking",
+   "rating": 4.5,
+   "insiderTip": "Voted world's best beach club; 170m beachfront, daybed min spend ~IDR 2.5M redeemable on F&B",
+   "bestFor": [
+    "friends",
+    "honeymoon"
+   ],
+   "interests": [
+    "relaxation"
+   ],
+   "localPrice": 35,
+   "imageUrl": "assets/images/act-35.webp",
+   "isFree": false
+  },
+  {
+   "id": 36,
+   "name": "Atlas Beach Club (Asia's largest)",
+   "region": "Canggu",
+   "category": "Relaxation / Party",
+   "priceLow": 13.0,
+   "priceHigh": 220.0,
+   "duration": 6.0,
+   "bestTime": "Weekday afternoons to avoid festival crowds; family-friendly",
+   "location": "Jl. Pantai Batu Bolong, Canggu",
+   "bookingLink": "https://atlasbeachfest.com/",
+   "platform": "Direct booking",
+   "rating": 4.5,
+   "insiderTip": "Entry ~IDR 200K; daybeds from ~IDR 3.5M; massive food market on site",
+   "bestFor": [
+    "friends",
+    "family"
+   ],
+   "interests": [
+    "relaxation"
+   ],
+   "localPrice": 10,
+   "localPriceHigh": 168,
+   "imageUrl": "assets/images/act-36.webp",
+   "isFree": false
+  },
+  {
+   "id": 37,
+   "name": "La Brisa Beach Club",
+   "region": "Canggu",
+   "category": "Relaxation / Food",
+   "priceLow": 0.0,
+   "priceHigh": 40.0,
+   "duration": 5.0,
+   "bestTime": "Late afternoon for sunset; min spend ~IDR 250K",
+   "location": "Echo Beach, Canggu",
+   "bookingLink": "https://labrisabali.com/",
+   "platform": "Direct booking",
+   "rating": 4.6,
+   "insiderTip": "Built from reclaimed fishing boats; the chillest big beach club, great for solo travelers",
+   "bestFor": [
+    "solo",
+    "honeymoon",
+    "friends"
+   ],
+   "interests": [
+    "food",
+    "relaxation"
+   ],
+   "localPrice": 15,
+   "imageUrl": "assets/images/act-37.webp",
+   "isFree": false
+  },
+  {
+   "id": 38,
+   "name": "Batu Bolong Learn-to-Surf (Sunny Surf & Stay etc.)",
+   "region": "Canggu",
+   "category": "Adventure / Sport",
+   "priceLow": 25.0,
+   "priceHigh": 45.0,
+   "duration": 2.5,
+   "bestTime": "Early morning lessons; May-Sep = best surf season, year-round possible",
+   "location": "Batu Bolong Beach, Canggu",
+   "bookingLink": "https://www.getyourguide.com/seminyak-l95096/surfing-lessons-tc59/",
+   "platform": "GetYourGuide",
+   "rating": 4.8,
+   "insiderTip": "Batu Bolong is the designated beginner break; group lessons ~IDR 400-700K",
+   "bestFor": [
+    "adventure",
+    "family",
+    "friends"
+   ],
+   "interests": [
+    "adventure"
+   ],
+   "localPrice": 14,
+   "localPriceHigh": 26,
+   "imageUrl": "assets/images/act-38.webp",
+   "isFree": false
+  },
+  {
+   "id": 39,
+   "name": "Canggu Cafe Hopping (Penny Lane, BSG, Kynd, Milk & Madu)",
+   "region": "Canggu",
+   "category": "Food",
+   "priceLow": 10.0,
+   "priceHigh": 30.0,
+   "duration": 4.0,
+   "bestTime": "Breakfast 8-10 AM; Penny Lane opens early",
+   "location": "Batu Bolong / Berawa area",
+   "bookingLink": "https://www.kelanabykayla.com/best-things-to-do-in-canggu-bali/",
+   "platform": "On-site",
+   "rating": 4.6,
+   "insiderTip": "Digital-nomad HQ: strong wifi, $3-6 flat whites, avocado everything",
+   "bestFor": [
+    "solo",
+    "nomad"
+   ],
+   "interests": [
+    "food"
+   ],
+   "localPrice": 5,
+   "localPriceHigh": 16,
+   "imageUrl": "assets/images/act-39.webp",
+   "isFree": false
+  },
+  {
+   "id": 40,
+   "name": "Tanah Lot Temple Sunset Tour (from Canggu/Seminyak)",
+   "region": "North Bali",
+   "category": "Culture / Sightseeing",
+   "priceLow": 5.0,
+   "priceHigh": 30.0,
+   "duration": 4.0,
+   "bestTime": "Arrive by 4 PM for golden-hour views; sunset ~6 PM",
+   "location": "Beraban, Kediri, Tabanan",
+   "bookingLink": "https://www.getyourguide.com/en-gb/temple-tanah-lot-l85379/entry-tickets-tc123/",
+   "platform": "GetYourGuide / On-site",
+   "rating": 4.4,
+   "insiderTip": "Foreign adult entry IDR 75K; go right at 4 PM to beat tour buses",
+   "bestFor": [
+    "family",
+    "solo"
+   ],
+   "interests": [
+    "culture"
+   ],
+   "localPrice": 4,
+   "localPriceHigh": 26,
+   "imageUrl": "assets/images/act-40.webp",
+   "isFree": false
+  },
+  {
+   "id": 41,
+   "name": "Mai Main Indoor Playground",
+   "region": "Canggu",
+   "category": "Family",
+   "priceLow": 5.0,
+   "priceHigh": 12.0,
+   "duration": 3.0,
+   "bestTime": "Mornings and rainy afternoons; toddlers to age 10",
+   "location": "Jl. Batu Mejan, Canggu",
+   "bookingLink": "https://www.kelanabykayla.com/best-things-to-do-in-canggu-bali/",
+   "platform": "On-site",
+   "rating": 4.7,
+   "insiderTip": "Air-conditioned play paradise with soft play, LEGO area, animals and pool; parent café on site",
+   "bestFor": [
+    "family"
+   ],
+   "interests": [
+    "relaxation"
+   ],
+   "localPrice": 3,
+   "localPriceHigh": 7,
+   "imageUrl": "assets/images/act-41.webp",
+   "isFree": false
+  },
+  {
+   "id": 42,
+   "name": "Desa Seni Village & Sunset Yoga",
+   "region": "Canggu",
+   "category": "Wellness / Culture",
+   "priceLow": 5.0,
+   "priceHigh": 15.0,
+   "duration": 2.0,
+   "bestTime": "Daily sunset sessions; organic farm-to-table restaurant",
+   "location": "Jl. Subak Sok Tunggal, Canggu",
+   "bookingLink": "https://www.desaseni.com/",
+   "platform": "Direct booking",
+   "rating": 4.7,
+   "insiderTip": "Eco-village built from reclaimed teak; yoga class ~IDR 100-150K",
+   "bestFor": [
+    "solo",
+    "honeymoon"
+   ],
+   "interests": [
+    "culture",
+    "relaxation"
+   ],
+   "localPrice": 4,
+   "localPriceHigh": 12,
+   "imageUrl": "assets/images/act-42.webp",
+   "isFree": false
+  },
+  {
+   "id": 43,
+   "name": "Love Anchor & Samadi Weekend Markets",
+   "region": "Canggu",
+   "category": "Shopping / Food",
+   "priceLow": 0.0,
+   "priceHigh": 50.0,
+   "duration": 2.0,
+   "bestTime": "Saturday-Sunday mornings",
+   "location": "Jl. Nelayan & Jl. Batu Bolong, Canggu",
+   "bookingLink": "https://www.loveanchorcanggu.com/",
+   "platform": "On-site",
+   "rating": 4.4,
+   "insiderTip": "Local designers, vintage finds, food stalls; Samadi is the Sunday hippie market",
+   "bestFor": [
+    "solo",
+    "nomad"
+   ],
+   "interests": [
+    "food",
+    "relaxation"
+   ],
+   "localPrice": 5,
+   "imageUrl": "assets/images/act-43.webp",
+   "isFree": false
+  },
+  {
+   "id": 44,
+   "name": "EcoSpa / Marissa Spa Canggu (Balinese massage)",
+   "region": "Canggu",
+   "category": "Wellness",
+   "priceLow": 10.0,
+   "priceHigh": 35.0,
+   "duration": 1.5,
+   "bestTime": "Book same-day morning slots; mid-range best value",
+   "location": "Canggu center",
+   "bookingLink": "https://www.kelanabykayla.com/best-things-to-do-in-canggu-bali/",
+   "platform": "Direct booking",
+   "rating": 4.6,
+   "insiderTip": "Budget option Marissa ~$10/hr; EcoSpa and Massaji mid-range ~$20-25/hr",
+   "bestFor": [
+    "solo",
+    "honeymoon"
+   ],
+   "interests": [
+    "relaxation"
+   ],
+   "localPrice": 9,
+   "localPriceHigh": 31,
+   "imageUrl": "assets/images/act-44.webp",
+   "isFree": false
+  },
+  {
+   "id": 45,
+   "name": "Pretty Poison Skate Bar (nightlife)",
+   "region": "Canggu",
+   "category": "Entertainment / Nightlife",
+   "priceLow": 5.0,
+   "priceHigh": 20.0,
+   "duration": 3.0,
+   "bestTime": "Evenings from 6 PM; Thursday-Sunday liveliest",
+   "location": "Jl. Batu Mejan, Canggu",
+   "bookingLink": "https://www.kelanabykayla.com/best-things-to-do-in-canggu-bali/",
+   "platform": "On-site",
+   "rating": 4.3,
+   "insiderTip": "Skate bowl built in an old swimming pool; live bands and cheap Bintang",
+   "bestFor": [
+    "friends"
+   ],
+   "interests": [
+    "adventure"
+   ],
+   "localPrice": 3,
+   "localPriceHigh": 10,
+   "imageUrl": "assets/images/act-45.webp",
+   "isFree": false
+  },
+  {
+   "id": 46,
+   "name": "Uluwatu Temple (Pura Luhur Uluwatu) at Sunset",
+   "region": "Uluwatu",
+   "category": "Culture / Photography",
+   "priceLow": 3.0,
+   "priceHigh": 6.0,
+   "duration": 2.0,
+   "bestTime": "Arrive 4:30-5 PM for sunset + Kecak dance; watch the monkeys",
+   "location": "Pecatu, South Kuta",
+   "bookingLink": "https://www.getyourguide.com/bali-l347/bali-uluwatu-temple-kecak-fire-dance-show-ticket-t1088422/",
+   "platform": "GetYourGuide / On-site",
+   "rating": 4.5,
+   "insiderTip": "Entry IDR 50K; no drones allowed; monkeys steal sunglasses — lock everything away",
+   "bestFor": [
+    "solo",
+    "honeymoon"
+   ],
+   "interests": [
+    "culture"
+   ],
+   "localPrice": 2,
+   "localPriceHigh": 5,
+   "imageUrl": "assets/images/act-46.webp",
+   "isFree": false
+  },
+  {
+   "id": 47,
+   "name": "Kecak Fire Dance at Uluwatu Temple",
+   "region": "Uluwatu",
+   "category": "Culture / Entertainment",
+   "priceLow": 9.0,
+   "priceHigh": 20.0,
+   "duration": 1.5,
+   "bestTime": "Daily 6-7 PM; arrive 30+ min early for front seats",
+   "location": "Uluwatu Temple amphitheatre",
+   "bookingLink": "https://www.getyourguide.com/bali-l347/bali-uluwatu-and-kecak-ticket-t684070/",
+   "platform": "GetYourGuide",
+   "rating": 4.2,
+   "insiderTip": "The most iconic performance in Bali: 50 men chant around a fire at sunset cliff edge",
+   "bestFor": [
+    "honeymoon",
+    "family"
+   ],
+   "interests": [
+    "adventure",
+    "culture"
+   ],
+   "localPrice": 8,
+   "localPriceHigh": 17,
+   "imageUrl": "assets/images/act-47.webp",
+   "isFree": false
+  },
+  {
+   "id": 48,
+   "name": "Padang Padang Beach",
+   "region": "Uluwatu",
+   "category": "Nature / Surf",
+   "priceLow": 1.0,
+   "priceHigh": 3.0,
+   "duration": 3.0,
+   "bestTime": "Early morning to avoid crowds; reef break for experienced surfers",
+   "location": "Pecatu, South Kuta",
+   "bookingLink": "https://www.klook.com/en-US/destination/p50139894-uluwatu-beach/",
+   "platform": "On-site",
+   "rating": 4.4,
+   "insiderTip": "Eat Pray Love filming location; entry IDR 15K; swim between the rock walls",
+   "bestFor": [
+    "honeymoon",
+    "solo"
+   ],
+   "interests": [
+    "nature"
+   ],
+   "localPrice": 1,
+   "localPriceHigh": 3,
+   "imageUrl": "assets/images/act-48.webp",
+   "isFree": false
+  },
+  {
+   "id": 49,
+   "name": "Suluban (Blue Point) Beach & Caves",
+   "region": "Uluwatu",
+   "category": "Nature / Adventure",
+   "priceLow": 1.0,
+   "priceHigh": 3.0,
+   "duration": 3.0,
+   "bestTime": "Mid-to-low tide to explore the caves and lagoons",
+   "location": "Pecatu, South Kuta",
+   "bookingLink": "https://www.klook.com/en-US/destination/p50139894-uluwatu-beach/",
+   "platform": "On-site",
+   "rating": 4.5,
+   "insiderTip": "Walk through dramatic sea caves at low tide; Single Fin bar perches above for sunset beers",
+   "bestFor": [
+    "adventure",
+    "solo"
+   ],
+   "interests": [
+    "adventure",
+    "nature"
+   ],
+   "localPrice": 1,
+   "localPriceHigh": 3,
+   "imageUrl": "assets/images/act-49.webp",
+   "isFree": false
+  },
+  {
+   "id": 50,
+   "name": "Nyang Nyang Beach (secluded 1.5km beach)",
+   "region": "Uluwatu",
+   "category": "Nature / Photography",
+   "priceLow": 0.0,
+   "priceHigh": 2.0,
+   "duration": 4.0,
+   "bestTime": "Morning; cliffside hike down (~30 min each way)",
+   "location": "Ungasan, South Kuta",
+   "bookingLink": "https://www.klook.com/en-US/destination/p50139894-uluwatu-beach/",
+   "platform": "Self-guided",
+   "rating": 4.6,
+   "insiderTip": "Almost always empty; bring water, hat and snacks — nothing sold on the beach",
+   "bestFor": [
+    "solo"
+   ],
+   "interests": [
+    "nature"
+   ],
+   "localPrice": 0,
+   "imageUrl": "assets/images/act-50.webp",
+   "isFree": false
+  },
+  {
+   "id": 51,
+   "name": "Bingin Beach Day (surf + cafes + villas)",
+   "region": "Uluwatu",
+   "category": "Nature / Relaxation",
+   "priceLow": 10.0,
+   "priceHigh": 60.0,
+   "duration": 5.0,
+   "bestTime": "Midday for surf watching; Cashew Tree café for lunch",
+   "location": "Bingin, South Kuta",
+   "bookingLink": "https://www.klook.com/en-US/destination/p50139894-uluwatu-beach/",
+   "platform": "On-site",
+   "rating": 4.5,
+   "insiderTip": "Intermediates: best consistent reef break; steps down to beach, boho cafés above",
+   "bestFor": [
+    "adventure",
+    "honeymoon",
+    "friends"
+   ],
+   "interests": [
+    "nature",
+    "relaxation"
+   ],
+   "localPrice": 8,
+   "localPriceHigh": 50,
+   "imageUrl": "assets/images/act-51.webp",
+   "isFree": false
+  },
+  {
+   "id": 52,
+   "name": "Dreamland Beach + Beginner Surf Lesson",
+   "region": "Uluwatu",
+   "category": "Adventure / Nature",
+   "priceLow": 15.0,
+   "priceHigh": 40.0,
+   "duration": 3.0,
+   "bestTime": "Small-swell days for beginners; afternoon lessons common",
+   "location": "Dreamland, Pecatu",
+   "bookingLink": "https://www.klook.com/activity/174682-surfing-lesson-for-all-levels-in-uluwatu-bali/",
+   "platform": "GetYourGuide / On-site",
+   "rating": 4.5,
+   "insiderTip": "White sand, gentler on small days; beach clubs on the cliff serve lunch",
+   "bestFor": [
+    "adventure",
+    "family"
+   ],
+   "interests": [
+    "adventure",
+    "nature"
+   ],
+   "localPrice": 13,
+   "localPriceHigh": 34,
+   "imageUrl": "assets/images/act-52.webp",
+   "isFree": false
+  },
+  {
+   "id": 53,
+   "name": "Sundays Beach Club",
+   "region": "Uluwatu",
+   "category": "Relaxation / Water sports",
+   "priceLow": 30.0,
+   "priceHigh": 45.0,
+   "duration": 6.0,
+   "bestTime": "All day; bonfire at sunset; cable car access down the cliff",
+   "location": "Ungasan Clifftop, South Kuta",
+   "bookingLink": "https://www.klook.com/en-US/activity/89772-sundays-beach-club-pass-ungasan-bali/",
+   "platform": "Klook",
+   "rating": 4.6,
+   "insiderTip": "Entry IDR 500-650K incl. IDR 400K F&B credit; kayaking, SUP and snorkeling included",
+   "bestFor": [
+    "honeymoon",
+    "family",
+    "friends"
+   ],
+   "interests": [
+    "relaxation"
+   ],
+   "localPrice": 23,
+   "localPriceHigh": 34,
+   "imageUrl": "assets/images/act-53.webp",
+   "isFree": false
+  },
+  {
+   "id": 54,
+   "name": "Savaya Bali (clifftop day club)",
+   "region": "Uluwatu",
+   "category": "Entertainment / Party",
+   "priceLow": 20.0,
+   "priceHigh": 100.0,
+   "duration": 5.0,
+   "bestTime": "Sunday sessions and event nights; big-name DJs",
+   "location": "Uluwatu cliffs, 100m above ocean",
+   "bookingLink": "https://savaya.com/",
+   "platform": "Direct booking",
+   "rating": 4.4,
+   "insiderTip": "Entry varies by event; the most glamorous party venue in Bali",
+   "bestFor": [
+    "friends",
+    "honeymoon"
+   ],
+   "interests": [
+    "adventure"
+   ],
+   "localPrice": 16,
+   "localPriceHigh": 78,
+   "imageUrl": "assets/images/act-54.webp",
+   "isFree": false
+  },
+  {
+   "id": 55,
+   "name": "El Kabron (Spanish clifftop restaurant & bar)",
+   "region": "Uluwatu",
+   "category": "Relaxation / Dining",
+   "priceLow": 30.0,
+   "priceHigh": 115.0,
+   "duration": 4.0,
+   "bestTime": "Sunset hours; sangria and tapas signature",
+   "location": "Uluwatu cliffs",
+   "bookingLink": "https://elkabron.com/",
+   "platform": "Direct booking",
+   "rating": 4.5,
+   "insiderTip": "Daybed minimum spend ~IDR 1.8M; arrive 4 PM to catch the full sunset",
+   "bestFor": [
+    "honeymoon",
+    "friends"
+   ],
+   "interests": [
+    "relaxation"
+   ],
+   "localPrice": 24,
+   "localPriceHigh": 91,
+   "imageUrl": "assets/images/act-55.webp",
+   "isFree": false
+  },
+  {
+   "id": 56,
+   "name": "Melasti Beach (white sand + beach clubs)",
+   "region": "Uluwatu",
+   "category": "Nature / Relaxation",
+   "priceLow": 1.0,
+   "priceHigh": 40.0,
+   "duration": 4.0,
+   "bestTime": "Midday swimming; beach clubs (Palmilla, Cattamaran, White Rock) all day",
+   "location": "Ungasan, South Kuta",
+   "bookingLink": "https://www.klook.com/en-US/destination/p50120819-melasti-beach/",
+   "platform": "On-site / Direct",
+   "rating": 4.5,
+   "insiderTip": "Entry IDR 10K; 25 min from Uluwatu center; clearest water on the peninsula",
+   "bestFor": [
+    "family",
+    "friends"
+   ],
+   "interests": [
+    "nature",
+    "relaxation"
+   ],
+   "localPrice": 1,
+   "localPriceHigh": 30,
+   "imageUrl": "assets/images/act-56.webp",
+   "isFree": false
+  },
+  {
+   "id": 57,
+   "name": "Balangan Beach Viewpoint",
+   "region": "Uluwatu",
+   "category": "Nature / Photography",
+   "priceLow": 0.0,
+   "priceHigh": 2.0,
+   "duration": 1.5,
+   "bestTime": "Golden hour; surfers below on the long reef break",
+   "location": "Balangan, South Kuta",
+   "bookingLink": "https://www.klook.com/en-US/destination/p50139894-uluwatu-beach/",
+   "platform": "Self-guided",
+   "rating": 4.4,
+   "insiderTip": "Free panoramic viewpoint; no barriers at the cliff edge — keep back for photos",
+   "bestFor": [
+    "solo"
+   ],
+   "interests": [
+    "nature"
+   ],
+   "localPrice": 0,
+   "imageUrl": "assets/images/act-57.webp",
+   "isFree": false
+  },
+  {
+   "id": 58,
+   "name": "Garuda Wisnu Kencana (GWK) Cultural Park",
+   "region": "Uluwatu",
+   "category": "Culture / Sightseeing",
+   "priceLow": 5.0,
+   "priceHigh": 25.0,
+   "duration": 3.0,
+   "bestTime": "Late afternoon; cultural shows at the amphitheatre",
+   "location": "Ungasan, South Kuta",
+   "bookingLink": "https://ticket.gwkbali.com/",
+   "platform": "Direct / Klook",
+   "rating": 4.4,
+   "insiderTip": "Regular entry IDR 150K (~$5.55 online); 121m Vishnu statue; top-of-statue tour IDR 400K",
+   "bestFor": [
+    "family",
+    "solo"
+   ],
+   "interests": [
+    "culture"
+   ],
+   "localPrice": 4,
+   "localPriceHigh": 20,
+   "imageUrl": "assets/images/act-58.webp",
+   "isFree": false
+  },
+  {
+   "id": 59,
+   "name": "The Cave by Chef Ryan Clift (fine dining in natural cave)",
+   "region": "Uluwatu",
+   "category": "Food / Luxury",
+   "priceLow": 150.0,
+   "priceHigh": 250.0,
+   "duration": 3.0,
+   "bestTime": "Dinner only; book 1-2 weeks ahead",
+   "location": "The Edge Estate, Uluwatu",
+   "bookingLink": "https://thecavebali.com/",
+   "platform": "Direct booking",
+   "rating": 4.8,
+   "insiderTip": "7-10 course tasting menu projected onto cave walls; the splurge occasion in Bali",
+   "bestFor": [
+    "honeymoon",
+    "solo"
+   ],
+   "interests": [
+    "food"
+   ],
+   "localPrice": 70,
+   "localPriceHigh": 116,
+   "imageUrl": "assets/images/act-59.webp",
+   "isFree": false
+  },
+  {
+   "id": 60,
+   "name": "Single Fin Bar Sunset Sessions",
+   "region": "Uluwatu",
+   "category": "Entertainment / Food",
+   "priceLow": 5.0,
+   "priceHigh": 20.0,
+   "duration": 3.0,
+   "bestTime": "Sunday sunset sessions with live bands; cliffs above Suluban",
+   "location": "Jl. Labuan Sait, Pecatu",
+   "bookingLink": "https://www.singlefinbali.com/",
+   "platform": "On-site",
+   "rating": 4.6,
+   "insiderTip": "The original surfer sunset bar; cheap Bintang, live music, ocean cliff views",
+   "bestFor": [
+    "friends",
+    "adventure"
+   ],
+   "interests": [
+    "adventure",
+    "food"
+   ],
+   "localPrice": 4,
+   "localPriceHigh": 16,
+   "imageUrl": "assets/images/act-60.webp",
+   "isFree": false
+  },
+  {
+   "id": 61,
+   "name": "Nusa Penida West Highlights Day Trip (Kelingking, Angel's Billabong, Broken Beach)",
+   "region": "Nusa Penida",
+   "category": "Nature / Photography",
+   "priceLow": 26.0,
+   "priceHigh": 80.0,
+   "duration": 10.0,
+   "bestTime": "Leave Bali 6-7 AM; Kelingking at midday light for photos",
+   "location": "Nusa Penida island",
+   "bookingLink": "https://www.getyourguide.com/bali-l347/bali-nusa-penida-east-west-highlights-full-day-tour-t449366/",
+   "platform": "GetYourGuide",
+   "rating": 4.7,
+   "insiderTip": "The T-Rex cliff (Kelingking) is Bali's most photographed beach; ferry 30-45 min each way",
+   "bestFor": [
+    "solo",
+    "adventure",
+    "honeymoon"
+   ],
+   "interests": [
+    "nature"
+   ],
+   "localPrice": 22,
+   "localPriceHigh": 68,
+   "imageUrl": "assets/images/act-61.webp",
+   "isFree": false
+  },
+  {
+   "id": 62,
+   "name": "Nusa Penida Manta Ray Snorkeling + Land Tour (Premium Yacht)",
+   "region": "Nusa Penida",
+   "category": "Adventure / Nature",
+   "priceLow": 96.0,
+   "priceHigh": 125.0,
+   "duration": 10.0,
+   "bestTime": "Year-round; mantas most common May-Oct",
+   "location": "Nusa Penida (Manta Bay)",
+   "bookingLink": "https://www.getyourguide.com/nusa-penida-l89276/from-bali-nusa-penida-manta-rays-snorkel-private-boat-tour-t1121187/",
+   "platform": "GetYourGuide",
+   "rating": 5.0,
+   "insiderTip": "The #1 rated tour in Bali: swim with giant mantas, then west coast sights; GoPro footage included",
+   "bestFor": [
+    "adventure",
+    "honeymoon",
+    "solo"
+   ],
+   "interests": [
+    "adventure",
+    "nature"
+   ],
+   "localPrice": 48,
+   "localPriceHigh": 63,
+   "imageUrl": "assets/images/act-62.webp",
+   "isFree": false
+  },
+  {
+   "id": 63,
+   "name": "Nusa Penida All-Inclusive Day Tour with Transfers",
+   "region": "Nusa Penida",
+   "category": "Nature / Sightseeing",
+   "priceLow": 40.0,
+   "priceHigh": 45.0,
+   "duration": 9.0,
+   "bestTime": "Full day from 6 AM; includes lunch and snorkeling",
+   "location": "Nusa Penida island",
+   "bookingLink": "https://www.getyourguide.com/bali-l347/bali-nusa-penida-all-inclusive-full-day-tour-with-transfers-t393272/",
+   "platform": "GetYourGuide",
+   "rating": 4.6,
+   "insiderTip": "Best all-rounder: east + west sights, snorkel at Crystal Bay, hotel pickup",
+   "bestFor": [
+    "solo",
+    "friends",
+    "honeymoon"
+   ],
+   "interests": [
+    "culture",
+    "nature"
+   ],
+   "localPrice": 20,
+   "localPriceHigh": 23,
+   "imageUrl": "assets/images/act-63.webp",
+   "isFree": false
+  },
+  {
+   "id": 64,
+   "name": "Nusa Penida 3-Spot Snorkeling with GoPro",
+   "region": "Nusa Penida",
+   "category": "Adventure / Nature",
+   "priceLow": 17.0,
+   "priceHigh": 29.0,
+   "duration": 4.0,
+   "bestTime": "Midday for clearest water; turtles at Gamat Bay",
+   "location": "Manta Bay, Gamat Bay, Crystal Bay",
+   "bookingLink": "https://www.getyourguide.com/batoemadeg-l189824/nusa-penida-snorkeling-3-spots-with-gopro-west-land-tour-t904464/",
+   "platform": "GetYourGuide",
+   "rating": 4.7,
+   "insiderTip": "Budget-friendly: 3 snorkel spots + optional land tour; great add-on to Penida day trip",
+   "bestFor": [
+    "adventure",
+    "solo",
+    "friends"
+   ],
+   "interests": [
+    "adventure",
+    "nature"
+   ],
+   "localPrice": 8,
+   "localPriceHigh": 14,
+   "imageUrl": "assets/images/act-64.webp",
+   "isFree": false
+  },
+  {
+   "id": 65,
+   "name": "Kelingking Beach Hike (T-Rex Beach)",
+   "region": "Nusa Penida",
+   "category": "Adventure / Photography",
+   "priceLow": 0.0,
+   "priceHigh": 5.0,
+   "duration": 3.0,
+   "bestTime": "Early morning from the island; the hike down is steep and exposed",
+   "location": "Kelingking, Nusa Penida",
+   "bookingLink": "https://www.getyourguide.com/nusa-penida-l89276/",
+   "platform": "On-site",
+   "rating": 4.5,
+   "insiderTip": "You can hike down to the sand (~45 min each way, no rails) or just shoot from the top",
+   "bestFor": [
+    "adventure",
+    "solo"
+   ],
+   "interests": [
+    "adventure"
+   ],
+   "localPrice": 2,
+   "imageUrl": "assets/images/act-65.webp",
+   "isFree": false
+  },
+  {
+   "id": 66,
+   "name": "Lovina Dolphin Watching Sunrise Cruise",
+   "region": "North Bali",
+   "category": "Nature / Family",
+   "priceLow": 15.0,
+   "priceHigh": 35.0,
+   "duration": 4.0,
+   "bestTime": "Departs ~6 AM from Kalibukbuk beach; dolphins most active at dawn",
+   "location": "Kalibukbuk, Buleleng",
+   "bookingLink": "https://www.getyourguide.com/lovina-beach-l123060/",
+   "platform": "GetYourGuide / On-site",
+   "rating": 4.4,
+   "insiderTip": "Traditional jukung boats; optional swim-with-dolphins add-on; combine with Gitgit waterfall",
+   "bestFor": [
+    "family",
+    "honeymoon"
+   ],
+   "interests": [
+    "nature",
+    "relaxation"
+   ],
+   "localPrice": 7,
+   "localPriceHigh": 17,
+   "imageUrl": "assets/images/act-66.webp",
+   "isFree": false
+  },
+  {
+   "id": 67,
+   "name": "Banjar Hot Springs (Air Panas Banjar)",
+   "region": "North Bali",
+   "category": "Relaxation / Wellness",
+   "priceLow": 3.0,
+   "priceHigh": 6.0,
+   "duration": 2.0,
+   "bestTime": "Late afternoon; 3 tiered sulfurous pools under banyan trees",
+   "location": "Banjar, Buleleng",
+   "bookingLink": "https://www.getyourguide.com/en-gb/banjar-hot-spring-l166256/",
+   "platform": "On-site",
+   "rating": 4.4,
+   "insiderTip": "Entry IDR 45K; believed healing waters; combine with Brahmavihara temple (5 min away)",
+   "bestFor": [
+    "family",
+    "honeymoon"
+   ],
+   "interests": [
+    "relaxation"
+   ],
+   "localPrice": 2,
+   "localPriceHigh": 4,
+   "imageUrl": "assets/images/act-67.webp",
+   "isFree": false
+  },
+  {
+   "id": 68,
+   "name": "Sekumpul Waterfall (Bali's most spectacular)",
+   "region": "North Bali",
+   "category": "Nature / Adventure",
+   "priceLow": 3.0,
+   "priceHigh": 10.0,
+   "duration": 4.0,
+   "bestTime": "Morning; guided descent ~20 min; multiple ticket tiers by waterfall count",
+   "location": "Sekumpul, Sawan, Buleleng",
+   "bookingLink": "https://www.getyourguide.com/bali-l347/bali-sekumpul-waterfall-hanging-cafe-and-rice-terrace-tour-t1399467/",
+   "platform": "GetYourGuide / On-site",
+   "rating": 4.7,
+   "insiderTip": "Guides mandatory and worth it — safety plus photo help; wear water shoes",
+   "bestFor": [
+    "solo",
+    "adventure"
+   ],
+   "interests": [
+    "adventure",
+    "nature"
+   ],
+   "localPrice": 2,
+   "localPriceHigh": 5,
+   "imageUrl": "assets/images/act-68.webp",
+   "isFree": false
+  },
+  {
+   "id": 69,
+   "name": "Aling-Aling Waterfall (cliff jumping & natural slides)",
+   "region": "North Bali",
+   "category": "Adventure / Nature",
+   "priceLow": 3.0,
+   "priceHigh": 10.0,
+   "duration": 3.0,
+   "bestTime": "Morning; swim forbidden at sacred pool directly below falls",
+   "location": "Aling-Aling, Sukasada",
+   "bookingLink": "https://www.getyourguide.com/singaraja-l90981/jumping-sliding-at-aling-aling-waterfall-handara-gate-lunch-t626993/",
+   "platform": "On-site",
+   "rating": 4.6,
+   "insiderTip": "Natural water slides and cliff jumps (5m-15m) with local guides; the adrenaline waterfall",
+   "bestFor": [
+    "adventure",
+    "friends",
+    "solo"
+   ],
+   "interests": [
+    "adventure",
+    "nature"
+   ],
+   "localPrice": 2,
+   "localPriceHigh": 5,
+   "imageUrl": "assets/images/act-69.webp",
+   "isFree": false
+  },
+  {
+   "id": 70,
+   "name": "Banyumala Twin Waterfall",
+   "region": "North Bali",
+   "category": "Nature / Photography",
+   "priceLow": 2.0,
+   "priceHigh": 8.0,
+   "duration": 2.5,
+   "bestTime": "Early morning — often completely empty; easy swim",
+   "location": "Banyumala, Sukasada",
+   "bookingLink": "https://www.getyourguide.com/banyumala-waterfalls-l90978/",
+   "platform": "On-site",
+   "rating": 4.6,
+   "insiderTip": "Waist-deep natural pool, gentle flow — the most peaceful swim in North Bali",
+   "bestFor": [
+    "honeymoon",
+    "solo"
+   ],
+   "interests": [
+    "nature"
+   ],
+   "localPrice": 1,
+   "localPriceHigh": 4,
+   "imageUrl": "assets/images/act-70.webp",
+   "isFree": false
+  },
+  {
+   "id": 71,
+   "name": "Pura Ulun Danu Beratan (floating lake temple)",
+   "region": "North Bali",
+   "category": "Culture / Photography",
+   "priceLow": 4.0,
+   "priceHigh": 15.0,
+   "duration": 2.0,
+   "bestTime": "Early morning before clouds and crowds; mist over the lake at dawn",
+   "location": "Candikuning, Baturiti",
+   "bookingLink": "https://www.getyourguide.com/ulun-danu-bratan-temple-l91023/",
+   "platform": "GetYourGuide / On-site",
+   "rating": 4.4,
+   "insiderTip": "Iconic IDR 50K banknote image; on the way to Lovina/Munduk; combine with Jatiluwih terraces",
+   "bestFor": [
+    "solo"
+   ],
+   "interests": [
+    "culture"
+   ],
+   "localPrice": 3,
+   "localPriceHigh": 13,
+   "imageUrl": "assets/images/act-71.webp",
+   "isFree": false
+  },
+  {
+   "id": 72,
+   "name": "Jatiluwih Rice Terraces (UNESCO)",
+   "region": "North Bali",
+   "category": "Nature / Culture",
+   "priceLow": 2.0,
+   "priceHigh": 4.0,
+   "duration": 2.5,
+   "bestTime": "Late afternoon golden light; cooler than the coast",
+   "location": "Jatiluwih, Penebel, Tabanan",
+   "bookingLink": "https://www.getyourguide.com/jatiluwih-rice-terrace-l161374/",
+   "platform": "On-site",
+   "rating": 4.5,
+   "insiderTip": "UNESCO World Heritage subak system; bigger and wilder than Tegallalang",
+   "bestFor": [
+    "solo"
+   ],
+   "interests": [
+    "culture",
+    "nature"
+   ],
+   "localPrice": 1,
+   "localPriceHigh": 2,
+   "imageUrl": "assets/images/act-72.webp",
+   "isFree": false
+  },
+  {
+   "id": 73,
+   "name": "Handara Golf Gate Photo Stop",
+   "region": "North Bali",
+   "category": "Photography",
+   "priceLow": 0.0,
+   "priceHigh": 5.0,
+   "duration": 0.5,
+   "bestTime": "Early morning to avoid the photo queue",
+   "location": "Handara Golf & Resort, Bedugul",
+   "bookingLink": "https://www.getyourguide.com/handara-iconic-gate-l91818/day-trips-tc172/",
+   "platform": "On-site",
+   "rating": 4.1,
+   "insiderTip": "The viral Instagram gate — purely a 3-minute photo stop, no cultural significance",
+   "bestFor": [
+    "solo",
+    "friends"
+   ],
+   "interests": [
+    "adventure",
+    "culture",
+    "nature"
+   ],
+   "localPrice": 0,
+   "imageUrl": "assets/images/act-73.webp",
+   "isFree": false
+  },
+  {
+   "id": 74,
+   "name": "Gitgit Waterfall",
+   "region": "North Bali",
+   "category": "Nature",
+   "priceLow": 2.0,
+   "priceHigh": 4.0,
+   "duration": 1.5,
+   "bestTime": "Morning; 30 min from Lovina",
+   "location": "Gitgit, Sukasada",
+   "bookingLink": "https://www.getyourguide.com/gitgit-waterfall-l90972/",
+   "platform": "On-site",
+   "rating": 4.2,
+   "insiderTip": "The classic North Bali waterfall, paved path, easy access — good half-day add-on",
+   "bestFor": [
+    "family",
+    "solo"
+   ],
+   "interests": [
+    "nature"
+   ],
+   "localPrice": 1,
+   "localPriceHigh": 2,
+   "imageUrl": "assets/images/act-74.webp",
+   "isFree": false
+  },
+  {
+   "id": 75,
+   "name": "Bioluminescent Plankton Night Tour (Lovina)",
+   "region": "North Bali",
+   "category": "Nature / Unique",
+   "priceLow": 20.0,
+   "priceHigh": 35.0,
+   "duration": 2.0,
+   "bestTime": "Night tour, 7-9 PM; glow strongest on moonless nights",
+   "location": "Kalibukbuk, Buleleng",
+   "bookingLink": "https://www.baliholidaysecrets.com/lovina-guide/",
+   "platform": "On-site / Local operator",
+   "rating": 4.8,
+   "insiderTip": "Swim in glowing blue plankton — one of Bali's most magical and least-known experiences",
+   "bestFor": [
+    "honeymoon",
+    "solo"
+   ],
+   "interests": [
+    "nature"
+   ],
+   "localPrice": 12,
+   "localPriceHigh": 21,
+   "imageUrl": "assets/images/act-75.webp",
+   "isFree": false
+  },
+  {
+   "id": 76,
+   "name": "Lovina Seafood & Local Cooking Class (Meja Satu)",
+   "region": "North Bali",
+   "category": "Food / Culture",
+   "priceLow": 30.0,
+   "priceHigh": 45.0,
+   "duration": 4.0,
+   "bestTime": "Morning market + cook session",
+   "location": "Kalibukbuk, Buleleng",
+   "bookingLink": "https://www.baliholidaysecrets.com/lovina-cooking-class/",
+   "platform": "Direct booking",
+   "rating": 4.9,
+   "insiderTip": "Learn Rendang, Nasi Goreng and Sate from a 40-year veteran chef",
+   "bestFor": [
+    "solo",
+    "honeymoon"
+   ],
+   "interests": [
+    "culture",
+    "food"
+   ],
+   "localPrice": 25,
+   "localPriceHigh": 38,
+   "imageUrl": "assets/images/act-76.webp",
+   "isFree": false
+  },
+  {
+   "id": 77,
+   "name": "Waterbom Bali (Asia's #1 water park)",
+   "region": "Kuta",
+   "category": "Family / Adventure",
+   "priceLow": 32.0,
+   "priceHigh": 43.0,
+   "duration": 6.0,
+   "bestTime": "Opens 9 AM — arrive at opening for zero queues",
+   "location": "Jl. Kartika Plaza, Kuta",
+   "bookingLink": "https://www.klook.com/en-US/activity/175-waterbom-bali/",
+   "platform": "Klook / Direct",
+   "rating": 4.7,
+   "insiderTip": "Adult entry ~IDR 450-550K ($32-43); 17 slides incl. 'Climax' 20m drop; all ages",
+   "bestFor": [
+    "family",
+    "friends",
+    "adventure"
+   ],
+   "interests": [
+    "adventure",
+    "relaxation"
+   ],
+   "localPrice": 27,
+   "localPriceHigh": 36,
+   "imageUrl": "assets/images/act-77.webp",
+   "isFree": false
+  },
+  {
+   "id": 78,
+   "name": "Kuta Beach + Beginner Surf Lesson",
+   "region": "Kuta",
+   "category": "Adventure / Family",
+   "priceLow": 15.0,
+   "priceHigh": 30.0,
+   "duration": 2.5,
+   "bestTime": "Morning waves calmest; lessons on the sand then in the water",
+   "location": "Kuta Beach",
+   "bookingLink": "https://www.getyourguide.com/kuta-l2849/",
+   "platform": "GetYourGuide / On-site",
+   "rating": 4.4,
+   "insiderTip": "The classic learner's beach: gentle sand-bottom waves, dozens of schools",
+   "bestFor": [
+    "family",
+    "solo"
+   ],
+   "interests": [
+    "adventure",
+    "relaxation"
+   ],
+   "localPrice": 13,
+   "localPriceHigh": 26,
+   "imageUrl": "assets/images/act-78.webp",
+   "isFree": false
+  },
+  {
+   "id": 79,
+   "name": "Bali Treetop Adventure Park (aerial ropes course)",
+   "region": "Kuta",
+   "category": "Adventure / Family",
+   "priceLow": 15.0,
+   "priceHigh": 25.0,
+   "duration": 2.5,
+   "bestTime": "Morning start to beat heat; 12 courses by difficulty",
+   "location": "Bedugul (near Kuta pickup)",
+   "bookingLink": "https://www.klook.com/en-US/activity/50148-kebun-raya-bali-ticket-bali/",
+   "platform": "Klook",
+   "rating": 4.6,
+   "insiderTip": "Age 4+ with harness; zip-lines over the lake — favorite kid activity in Bali",
+   "bestFor": [
+    "family",
+    "adventure"
+   ],
+   "interests": [
+    "adventure",
+    "relaxation"
+   ],
+   "localPrice": 13,
+   "localPriceHigh": 22,
+   "imageUrl": "assets/images/act-79.webp",
+   "isFree": false
+  },
+  {
+   "id": 80,
+   "name": "Bali Zoo (incl. ethical elephant care experience)",
+   "region": "Multi-region",
+   "category": "Family / Nature",
+   "priceLow": 25.0,
+   "priceHigh": 45.0,
+   "duration": 4.0,
+   "bestTime": "Morning feeding sessions; ethical elephant program highlighted",
+   "location": "Jl. Serma Wayan Dipta, Singapadu",
+   "bookingLink": "https://www.getyourguide.com/kuta-l2849/family-friendly-activities-tc1094/",
+   "platform": "GetYourGuide",
+   "rating": 4.5,
+   "insiderTip": "Elephant breakfast experience is the signature; kids under 3 free",
+   "bestFor": [
+    "family"
+   ],
+   "interests": [
+    "nature",
+    "relaxation"
+   ],
+   "localPrice": 14,
+   "localPriceHigh": 25,
+   "imageUrl": "assets/images/act-80.webp",
+   "isFree": false
+  },
+  {
+   "id": 81,
+   "name": "Kuta Sunset Promenade & Beachwalk Mall",
+   "region": "Kuta",
+   "category": "Relaxation / Shopping",
+   "priceLow": 0.0,
+   "priceHigh": 30.0,
+   "duration": 3.0,
+   "bestTime": "Golden hour stroll then dinner at Beachwalk",
+   "location": "Kuta Beachfront",
+   "bookingLink": "https://www.getyourguide.com/kuta-district-l194358/sunset-tours-tc306/",
+   "platform": "On-site",
+   "rating": 4.2,
+   "insiderTip": "Free sunset walk, ice cream, street performers; Beachwalk has ocean-view dining",
+   "bestFor": [
+    "family",
+    "solo",
+    "honeymoon"
+   ],
+   "interests": [
+    "relaxation"
+   ],
+   "localPrice": 10,
+   "imageUrl": "assets/images/act-81.webp",
+   "isFree": false
+  },
+  {
+   "id": 82,
+   "name": "Jimbaran Seafood Dinner on the Beach",
+   "region": "Kuta",
+   "category": "Food",
+   "priceLow": 15.0,
+   "priceHigh": 40.0,
+   "duration": 2.5,
+   "bestTime": "Sunset dinner on the sand; arrive 5:30 PM for a table",
+   "location": "Jimbaran Bay",
+   "bookingLink": "https://www.getyourguide.com/kuta-district-l194358/dinner-tours-tc309/",
+   "platform": "On-site",
+   "rating": 4.4,
+   "insiderTip": "Grilled whole fish + corn by weight (~IDR 150-300K/person); negotiate the kilo price first",
+   "bestFor": [
+    "solo",
+    "honeymoon",
+    "family"
+   ],
+   "interests": [
+    "food"
+   ],
+   "localPrice": 12,
+   "localPriceHigh": 31,
+   "imageUrl": "assets/images/act-82.webp",
+   "isFree": false
+  },
+  {
+   "id": 83,
+   "name": "Full-Day Instagram Highlights Tour (south Bali best-spots)",
+   "region": "Multi-region",
+   "category": "Sightseeing / Photography",
+   "priceLow": 33.0,
+   "priceHigh": 55.0,
+   "duration": 11.0,
+   "bestTime": "Full day 7 AM-6 PM; private option available",
+   "location": "South Bali loop",
+   "bookingLink": "https://www.getyourguide.com/bali-l347/bali-instagram-tour-the-most-scenic-spots-t162114/",
+   "platform": "GetYourGuide",
+   "rating": 4.8,
+   "insiderTip": "4.8-rated bestseller covering Gate of Heaven, Tirta Gangga, Tukad Cepung, beaches — for photo-driven travelers",
+   "bestFor": [
+    "solo",
+    "friends"
+   ],
+   "interests": [
+    "culture"
+   ],
+   "localPrice": 15,
+   "localPriceHigh": 25,
+   "imageUrl": "assets/images/act-83.webp",
+   "isFree": false
+  },
+  {
+   "id": 84,
+   "name": "Canyoning (waterfall abseil) Small Group",
+   "region": "Multi-region",
+   "category": "Adventure",
+   "priceLow": 38.0,
+   "priceHigh": 130.0,
+   "duration": 4.0,
+   "bestTime": "Morning departures; year-round (river levels vary)",
+   "location": "Bali jungle (pickup available)",
+   "bookingLink": "https://www.getyourguide.com/bali-l347/canyoning-tc65/",
+   "platform": "GetYourGuide",
+   "rating": 4.7,
+   "insiderTip": "Abseil 15-25m waterfalls, natural slides and jumps; moderate fitness; gear provided",
+   "bestFor": [
+    "adventure",
+    "friends",
+    "solo"
+   ],
+   "interests": [
+    "adventure"
+   ],
+   "localPrice": 19,
+   "localPriceHigh": 65,
+   "imageUrl": "assets/images/act-84.webp",
+   "isFree": false
+  },
+  {
+   "id": 85,
+   "name": "Tanah Lot + Uluwatu South Bali Day Tour with Kecak",
+   "region": "Multi-region",
+   "category": "Culture / Sightseeing",
+   "priceLow": 30.0,
+   "priceHigh": 65.0,
+   "duration": 10.0,
+   "bestTime": "Afternoon loop ending at Uluwatu for Kecak at sunset",
+   "location": "Tabanan + Pecatu",
+   "bookingLink": "https://www.getyourguide.com/uluwatu-temple-l85364/",
+   "platform": "GetYourGuide",
+   "rating": 4.5,
+   "insiderTip": "Two of Bali's most iconic temples in one day; long but efficient loop",
+   "bestFor": [
+    "solo",
+    "honeymoon"
+   ],
+   "interests": [
+    "culture"
+   ],
+   "localPrice": 15,
+   "localPriceHigh": 32,
+   "imageUrl": "assets/images/act-85.webp",
+   "isFree": false
+  },
+  {
+   "id": 86,
+   "name": "3 Hidden Waterfalls + Sacred Water Blessing (Tirta Empul)",
+   "region": "Multi-region",
+   "category": "Nature / Wellness",
+   "priceLow": 38.0,
+   "priceHigh": 50.0,
+   "duration": 4.0,
+   "bestTime": "Morning start; blessing ceremony included",
+   "location": "North Ubud area",
+   "bookingLink": "https://www.getyourguide.com/bangli-city-l269190/bali-3-hidden-waterfalls-sacred-water-blessing-experience-t1356135/",
+   "platform": "GetYourGuide",
+   "rating": 4.7,
+   "insiderTip": "Lesser-known northern waterfalls plus purification ritual — the best Ubud-side half day",
+   "bestFor": [
+    "solo"
+   ],
+   "interests": [
+    "nature",
+    "relaxation"
+   ],
+   "localPrice": 18,
+   "localPriceHigh": 24,
+   "imageUrl": "assets/images/act-86.webp",
+   "isFree": false
+  },
+  {
+   "id": 87,
+   "name": "Gili Islands Snorkeling with Turtles (from Bali fast boat)",
+   "region": "Multi-region",
+   "category": "Nature / Adventure",
+   "priceLow": 25.0,
+   "priceHigh": 60.0,
+   "duration": 10.0,
+   "bestTime": "Full day; turtles year-round at Gili Meno",
+   "location": "Gili Trawangan / Gili Meno",
+   "bookingLink": "https://www.klook.com/en-US/activity/90952-gili-trawangan-snorkeling-experience-in-lombok/",
+   "platform": "Klook",
+   "rating": 4.6,
+   "insiderTip": "Underwater statues + turtle sanctuary; book fast boat early (2h each way)",
+   "bestFor": [
+    "adventure",
+    "friends"
+   ],
+   "interests": [
+    "adventure",
+    "nature"
+   ],
+   "localPrice": 22,
+   "localPriceHigh": 53,
+   "imageUrl": "assets/images/act-87.webp",
+   "isFree": false
+  },
+  {
+   "id": 88,
+   "name": "Balinese Traditional Dance Show + Dinner (Denpasar/Sanur)",
+   "region": "Multi-region",
+   "category": "Culture / Food",
+   "priceLow": 30.0,
+   "priceHigh": 60.0,
+   "duration": 3.0,
+   "bestTime": "Evening 7-9 PM",
+   "location": "Denpasar / Sanur arts venues",
+   "bookingLink": "https://www.klook.com/en-US/activity/171-devdan-show-bali/",
+   "platform": "Klook",
+   "rating": 4.5,
+   "insiderTip": "Legong or Barong dance with Balinese dinner; ideal low-energy evening",
+   "bestFor": [
+    "honeymoon",
+    "family"
+   ],
+   "interests": [
+    "culture",
+    "food"
+   ],
+   "localPrice": 26,
+   "localPriceHigh": 53,
+   "imageUrl": "assets/images/act-88.webp",
+   "isFree": false
+  },
+  {
+   "id": 89,
+   "name": "Private Driver Full Day (custom route, all regions)",
+   "region": "Multi-region",
+   "category": "Transport / Flexibility",
+   "priceLow": 40.0,
+   "priceHigh": 65.0,
+   "duration": 10.0,
+   "bestTime": "Any day; 10-hour hire standard",
+   "location": "Island-wide",
+   "bookingLink": "https://www.getyourguide.com/bali-l347/bali-private-car-and-minibus-charter-with-driver-t111028/",
+   "platform": "GetYourGuide",
+   "rating": 4.8,
+   "insiderTip": "IDR 600K-1M/day (~$40-65) — often cheaper than guided tours; book via hotel or Klook",
+   "bestFor": [
+    "family",
+    "solo",
+    "honeymoon",
+    "friends",
+    "nomad",
+    "adventure"
+   ],
+   "interests": [
+    "adventure",
+    "culture",
+    "nature"
+   ],
+   "localPrice": 20,
+   "localPriceHigh": 32,
+   "imageUrl": "assets/images/act-89.webp",
+   "isFree": false
+  },
+  {
+   "id": 90,
+   "name": "Bali Swing + Ubud Hidden Temples Half Day",
+   "region": "Ubud",
+   "category": "Adventure / Culture",
+   "priceLow": 25.0,
+   "priceHigh": 45.0,
+   "duration": 6.0,
+   "bestTime": "Morning swings + afternoon temples",
+   "location": "Tegallalang + Gianyar",
+   "bookingLink": "https://www.getyourguide.com/bali-swing-l158531/",
+   "platform": "GetYourGuide",
+   "rating": 4.6,
+   "insiderTip": "Combine the swing session with Pura Gunung Kawi for the classic Ubud half day",
+   "bestFor": [
+    "honeymoon",
+    "friends",
+    "solo"
+   ],
+   "interests": [
+    "adventure",
+    "culture"
+   ],
+   "localPrice": 21,
+   "localPriceHigh": 38,
+   "imageUrl": "assets/images/act-90.webp",
+   "isFree": false
+  },
+  {
+   "id": 91,
+   "name": "Campuhan Ridge Walk (Dawn Hike)",
+   "region": "Ubud",
+   "category": "Free / Nature",
+   "priceLow": 0,
+   "priceHigh": 0,
+   "duration": 1.5,
+   "bestTime": "6:00-7:30 AM (cooler, fewer people, golden light)",
+   "location": "Campuhan, West Ubud",
+   "bookingLink": "https://www.getyourguide.com/ubud-l32246/ubud-campuhan-ridge-walk-tegallalang-rice-terrace-more-t890889/",
+   "platform": "Free / Self-guided",
+   "rating": 4.3,
+   "insiderTip": "Start at the Warwick hotel car park before 7 AM — you'll beat the heat and have the ridge to yourself; end at a café with rice-field views for breakfast",
+   "bestFor": [
+    "All travelers",
+    "Solo",
+    "Couples",
+    "Families",
+    "Digital Nomads"
+   ],
+   "interests": [
+    "nature",
+    "wellness",
+    "photography"
+   ],
+   "localPrice": 0,
+   "localPriceHigh": 0,
+   "imageUrl": "assets/images/act-13.webp",
+   "isFree": true
+  },
+  {
+   "id": 92,
+   "name": "Balangan Beach Viewpoint & Golden Cliffs",
+   "region": "Uluwatu",
+   "category": "Free / Photography",
+   "priceLow": 0,
+   "priceHigh": 0,
+   "duration": 1,
+   "bestTime": "5:00-6:30 PM (sunset)",
+   "location": "Balangan, South Uluwatu",
+   "bookingLink": "https://www.getyourguide.com/uluwatu-l32247/",
+   "platform": "Free / Self-guided",
+   "rating": 4.6,
+   "insiderTip": "No safety barriers on the cliff edge — keep back for photos; the best golden-hour shots are from the left-hand rocks; parking is free if you walk down from the road",
+   "bestFor": [
+    "All travelers",
+    "Couples",
+    "Solo"
+   ],
+   "interests": [
+    "photography",
+    "nature",
+    "beach"
+   ],
+   "localPrice": 0,
+   "localPriceHigh": 0,
+   "imageUrl": "assets/images/act-49.webp",
+   "isFree": true
+  },
+  {
+   "id": 93,
+   "name": "Padang Padang Beach (Eat Pray Love Beach)",
+   "region": "Uluwatu",
+   "category": "Free / Beach",
+   "priceLow": 1,
+   "priceHigh": 1,
+   "duration": 2,
+   "bestTime": "8:00-10:00 AM or 4:00-6:00 PM",
+   "location": "Padang Padang, South Uluwatu",
+   "bookingLink": "https://www.getyourguide.com/uluwatu-l32247/",
+   "platform": "On-site",
+   "rating": 4.5,
+   "insiderTip": "Squeeze through the famous rock crevice entrance; swim only in the calm pool near the rocks (outer reef breaks are dangerous); the temple above offers the best photo angle",
+   "bestFor": [
+    "All travelers",
+    "Couples",
+    "Families"
+   ],
+   "interests": [
+    "beach",
+    "photography",
+    "nature"
+   ],
+   "localPrice": 0,
+   "localPriceHigh": 0,
+   "imageUrl": "assets/images/act-48.webp",
+   "isFree": true
+  },
+  {
+   "id": 94,
+   "name": "Nyang Nyang Beach (Secret White Sand)",
+   "region": "Uluwatu",
+   "category": "Free / Beach",
+   "priceLow": 0,
+   "priceHigh": 0,
+   "duration": 2.5,
+   "bestTime": "9:00 AM-12:00 PM (tide permitting)",
+   "location": "Nyang Nyang, Deep South Uluwatu",
+   "bookingLink": "https://www.getyourguide.com/uluwatu-l32247/",
+   "platform": "Free / Self-guided",
+   "rating": 4.7,
+   "insiderTip": "A 30-minute stair descent (then back up!) — bring water and start early; almost always empty, with a shipwreck half-buried in the sand that's a surreal photo prop",
+   "bestFor": [
+    "All travelers",
+    "Solo",
+    "Couples"
+   ],
+   "interests": [
+    "beach",
+    "nature",
+    "photography",
+    "adventure"
+   ],
+   "localPrice": 0,
+   "localPriceHigh": 0,
+   "imageUrl": "assets/images/act-50.webp",
+   "isFree": true
+  },
+  {
+   "id": 95,
+   "name": "Seminyak Beach Sunset Walk",
+   "region": "Seminyak",
+   "category": "Free / Relaxation",
+   "priceLow": 0,
+   "priceHigh": 0,
+   "duration": 1.5,
+   "bestTime": "5:30-7:00 PM",
+   "location": "Seminyak Beach, West Bali",
+   "bookingLink": "https://www.getyourguide.com/seminyak-l32245/",
+   "platform": "Free / Self-guided",
+   "rating": 4.4,
+   "insiderTip": "Walk from Double Six Beach north to Ku De Ta as the sun drops — golden light hits the sand around 6 PM; surfboards in the waves make iconic silhouettes",
+   "bestFor": [
+    "All travelers",
+    "Couples",
+    "Solo"
+   ],
+   "interests": [
+    "beach",
+    "relaxation",
+    "photography"
+   ],
+   "localPrice": 0,
+   "localPriceHigh": 0,
+   "imageUrl": "assets/images/act-79.webp",
+   "isFree": true
+  },
+  {
+   "id": 96,
+   "name": "Single Fin Bar Viewpoint (Sunday Cliff Sunset)",
+   "region": "Uluwatu",
+   "category": "Free / Photography",
+   "priceLow": 0,
+   "priceHigh": 0,
+   "duration": 2,
+   "bestTime": "4:30-6:30 PM (Sunday sessions with live music)",
+   "location": "Bingin, South Uluwatu",
+   "bookingLink": "https://www.getyourguide.com/uluwatu-l32247/",
+   "platform": "Free / Self-guided",
+   "rating": 4.6,
+   "insiderTip": "Buy one drink (~$5) or simply stand at the cliff rail — the view over Bingin surf break at sunset is the best free vantage point on the island",
+   "bestFor": [
+    "All travelers",
+    "Couples",
+    "Solo",
+    "Digital Nomads"
+   ],
+   "interests": [
+    "photography",
+    "beach",
+    "food"
+   ],
+   "localPrice": 0,
+   "localPriceHigh": 5,
+   "imageUrl": "assets/images/act-77.webp",
+   "isFree": true
+  },
+  {
+   "id": 97,
+   "name": "Love Anchor Market",
+   "region": "Canggu",
+   "category": "Free / Shopping",
+   "priceLow": 0,
+   "priceHigh": 0,
+   "duration": 1.5,
+   "bestTime": "11:00 AM-3:00 PM (weekends are liveliest)",
+   "location": "Jl. Batu Bolong, Canggu",
+   "bookingLink": "https://www.klook.com/en-US/things-to-do/canggu/",
+   "platform": "Free / Self-guided",
+   "rating": 4.2,
+   "insiderTip": "Browsing is free and the local designer stalls are great for inspiration even if you don't buy; bring cash — vendors prefer IDR notes",
+   "bestFor": [
+    "All travelers",
+    "Solo",
+    "Digital Nomads"
+   ],
+   "interests": [
+    "shopping",
+    "culture",
+    "food"
+   ],
+   "localPrice": 0,
+   "localPriceHigh": 0,
+   "imageUrl": "assets/images/act-33.webp",
+   "isFree": true
+  },
+  {
+   "id": 98,
+   "name": "Samadi Sunday Market",
+   "region": "Canggu",
+   "category": "Free / Food",
+   "priceLow": 0,
+   "priceHigh": 0,
+   "duration": 1.5,
+   "bestTime": "Sunday 8:00 AM-12:00 PM",
+   "location": "Samadi Bali, Jl. Pantai Batu Bolong",
+   "bookingLink": "https://www.klook.com/en-US/things-to-do/canggu/",
+   "platform": "Free / Self-guided",
+   "rating": 4.3,
+   "insiderTip": "Organic/vegan Sunday market — sampling is free and generous; pair it with the free yoga class that often runs same mornings",
+   "bestFor": [
+    "All travelers",
+    "Solo",
+    "Families"
+   ],
+   "interests": [
+    "food",
+    "wellness",
+    "culture"
+   ],
+   "localPrice": 0,
+   "localPriceHigh": 0,
+   "imageUrl": "assets/images/act-10.webp",
+   "isFree": true
+  },
+  {
+   "id": 99,
+   "name": "Ubud Art Market (Morning Browse)",
+   "region": "Ubud",
+   "category": "Free / Shopping",
+   "priceLow": 0,
+   "priceHigh": 0,
+   "duration": 1,
+   "bestTime": "6:30-8:30 AM (before tourist crowds)",
+   "location": "Jl. Raya Ubud, opposite Ubud Palace",
+   "bookingLink": "https://www.getyourguide.com/ubud-l32246/",
+   "platform": "Free / Self-guided",
+   "rating": 4.1,
+   "insiderTip": "Free to wander and photograph; vendors arrive at dawn — the early light through the market arches is a photographer's dream; haggle to 50-60% of the first price later in the day",
+   "bestFor": [
+    "All travelers",
+    "Couples",
+    "Solo"
+   ],
+   "interests": [
+    "shopping",
+    "culture",
+    "photography"
+   ],
+   "localPrice": 0,
+   "localPriceHigh": 0,
+   "imageUrl": "assets/images/act-17.webp",
+   "isFree": true
+  },
+  {
+   "id": 100,
+   "name": "Handara Gate Photo Stop",
+   "region": "North Bali",
+   "category": "Free / Photography",
+   "priceLow": 0,
+   "priceHigh": 0,
+   "duration": 0.5,
+   "bestTime": "6:30-8:00 AM (no queue)",
+   "location": "Handara, Bedugul highlands",
+   "bookingLink": "https://www.getyourguide.com/north-bali-l32244/",
+   "platform": "Free / Self-guided",
+   "rating": 4.5,
+   "insiderTip": "The gate itself is free to photograph from the road; paid entry only applies to the golf resort garden behind it; arrive before 8 AM to beat the influencer queue",
+   "bestFor": [
+    "All travelers",
+    "Couples",
+    "Solo"
+   ],
+   "interests": [
+    "photography",
+    "culture",
+    "nature"
+   ],
+   "localPrice": 0,
+   "localPriceHigh": 0,
+   "imageUrl": "assets/images/act-73.webp",
+   "isFree": true
+  },
+  {
+   "id": 101,
+   "name": "Gitgit Waterfall Walk",
+   "region": "North Bali",
+   "category": "Free / Nature",
+   "priceLow": 2,
+   "priceHigh": 2,
+   "duration": 1.5,
+   "bestTime": "8:00-10:00 AM",
+   "location": "Gitgit, Buleleng",
+   "bookingLink": "https://www.getyourguide.com/north-bali-l32244/",
+   "platform": "On-site",
+   "rating": 4.4,
+   "insiderTip": "Nominal $2 entrance, 5-minute walk on a paved path — one of Bali's most accessible waterfalls; the twin Gitgit falls further on is quieter and worth the extra 10 minutes",
+   "bestFor": [
+    "All travelers",
+    "Families",
+    "Couples"
+   ],
+   "interests": [
+    "nature",
+    "photography"
+   ],
+   "localPrice": 1,
+   "localPriceHigh": 2,
+   "imageUrl": "assets/images/act-74.webp",
+   "isFree": false
+  },
+  {
+   "id": 102,
+   "name": "Banjar Hot Springs Dip",
+   "region": "North Bali",
+   "category": "Free / Wellness",
+   "priceLow": 3,
+   "priceHigh": 3,
+   "duration": 1.5,
+   "bestTime": "9:00 AM-11:00 AM",
+   "location": "Banjar, near Lovina",
+   "bookingLink": "https://www.getyourguide.com/north-bali-l32244/",
+   "platform": "On-site",
+   "rating": 4.5,
+   "insiderTip": "$3 entrance for the sulfuric healing pools — locals have bathed here for centuries; bring a towel, the stone dragon fountains make a great photo, and combine with nearby Brahma Vihara Arama temple",
+   "bestFor": [
+    "All travelers",
+    "Couples",
+    "Families"
+   ],
+   "interests": [
+    "wellness",
+    "culture",
+    "nature"
+   ],
+   "localPrice": 2,
+   "localPriceHigh": 3,
+   "imageUrl": "assets/images/act-72.webp",
+   "isFree": false
+  },
+  {
+   "id": 103,
+   "name": "Jatiluwih Rice Terraces (UNESCO)",
+   "region": "North Bali",
+   "category": "Free / Nature",
+   "priceLow": 2,
+   "priceHigh": 2,
+   "duration": 2,
+   "bestTime": "7:00-9:00 AM (mist over the paddies)",
+   "location": "Jatiluwih, Tabanan highlands",
+   "bookingLink": "https://www.getyourguide.com/bali-l347/",
+   "platform": "On-site",
+   "rating": 4.6,
+   "insiderTip": "$2 entrance to a UNESCO World Heritage subak landscape — far less crowded than Tegallalang; walk the red path to the waterfall viewpoint for the classic drone-style panorama",
+   "bestFor": [
+    "All travelers",
+    "Couples",
+    "Families"
+   ],
+   "interests": [
+    "nature",
+    "photography",
+    "culture"
+   ],
+   "localPrice": 1,
+   "localPriceHigh": 2,
+   "imageUrl": "assets/images/act-2.webp",
+   "isFree": false
+  },
+  {
+   "id": 104,
+   "name": "Ubud Palace (Puri Agung) & Evening Dance",
+   "region": "Ubud",
+   "category": "Free / Culture",
+   "priceLow": 0,
+   "priceHigh": 0,
+   "duration": 1.5,
+   "bestTime": "7:30-9:00 PM (Kecak show nights)",
+   "location": "Jl. Raya Ubud, central Ubud",
+   "bookingLink": "https://www.getyourguide.com/ubud-l32246/",
+   "platform": "Free / Self-guided",
+   "rating": 4.2,
+   "insiderTip": "The palace courtyard is free to enter during the day; on Kecak show nights the outer courtyards still give you free glimpses of the performance from the perimeter — arrive by 7 PM for a standing spot",
+   "bestFor": [
+    "All travelers",
+    "Couples",
+    "Families"
+   ],
+   "interests": [
+    "culture",
+    "photography",
+    "food"
+   ],
+   "localPrice": 0,
+   "localPriceHigh": 0,
+   "imageUrl": "assets/images/act-88.webp",
+   "isFree": true
+  },
+  {
+   "id": 105,
+   "name": "Goa Gajah Elephant Cave Temple",
+   "region": "Ubud",
+   "category": "Free / Culture",
+   "priceLow": 2,
+   "priceHigh": 2,
+   "duration": 1.5,
+   "bestTime": "8:00-10:00 AM",
+   "location": "Bedulu, near Ubud",
+   "bookingLink": "https://www.getyourguide.com/ubud-l32246/",
+   "platform": "On-site",
+   "rating": 4.3,
+   "insiderTip": "$2 entry to an 11th-century rock-cut cave with bathing pools; quieter than the Monkey Forest and only 10 minutes from central Ubud — pair with the nearby Buddhist stupa garden",
+   "bestFor": [
+    "All travelers",
+    "Couples",
+    "Solo",
+    "Families"
+   ],
+   "interests": [
+    "culture",
+    "history",
+    "photography"
+   ],
+   "localPrice": 1,
+   "localPriceHigh": 2,
+   "imageUrl": "assets/images/act-7.webp",
+   "isFree": false
+  },
+  {
+   "id": 106,
+   "name": "Kuta Beach Sunset Promenade & Sky Watch",
+   "region": "Kuta",
+   "category": "Free / Beach",
+   "priceLow": 0,
+   "priceHigh": 0,
+   "duration": 1.5,
+   "bestTime": "5:30-6:30 PM",
+   "location": "Kuta Beach, West Bali",
+   "bookingLink": "https://www.getyourguide.com/kuta-l32248/",
+   "platform": "Free / Self-guided",
+   "rating": 4.1,
+   "insiderTip": "Bali's most famous sunset strip is completely free — walk the promenade as surfers exit the water; skip the crowds by watching from the Beachwalk rooftop level",
+   "bestFor": [
+    "All travelers",
+    "Families",
+    "Solo"
+   ],
+   "interests": [
+    "beach",
+    "photography",
+    "relaxation"
+   ],
+   "localPrice": 0,
+   "localPriceHigh": 0,
+   "imageUrl": "assets/images/act-78.webp",
+   "isFree": true
+  },
+  {
+   "id": 107,
+   "name": "Kuta Beach Walk",
+   "region": "Kuta",
+   "category": "Free / Beach",
+   "priceLow": 0,
+   "priceHigh": 0,
+   "duration": 2.0,
+   "bestTime": "Early morning",
+   "bestTimeNote": "Morning is best for flat water and fewer crowds",
+   "location": "Kuta Beach, Kuta, Bali",
+   "rating": 4.3,
+   "platform": "Free / Self-guided",
+   "bookingLink": "https://www.klook.com/en-US/things-to-do/kuta/",
+   "insiderTip": "Morning best for flat water and fewer crowds — swim side starts calm until 10 AM",
+   "bestFor": [
+    "solo",
+    "family",
+    "relaxation"
+   ],
+   "interests": [
+    "nature",
+    "relaxation"
+   ],
+   "imageUrl": "assets/images/act-78.webp",
+   "localPrice": 0,
+   "isFree": true
+  },
+  {
+   "id": 108,
+   "name": "Jimbaran Bay Sunset View",
+   "region": "Kuta",
+   "category": "Free / Photography",
+   "priceLow": 0,
+   "priceHigh": 0,
+   "duration": 1.5,
+   "bestTime": "5:30 PM",
+   "bestTimeNote": "Golden hour over the bay",
+   "location": "Jimbaran Bay, Bali",
+   "rating": 4.5,
+   "platform": "Free / Self-guided",
+   "bookingLink": "https://www.klook.com/en-US/things-to-do/jimbaran/",
+   "insiderTip": "Arrive 5:30 PM for golden hour — the bay turns amber and the fishing boats line up in the shallows",
+   "bestFor": [
+    "honeymoon",
+    "couples",
+    "friends"
+   ],
+   "interests": [
+    "nature",
+    "relaxation"
+   ],
+   "imageUrl": "assets/images/act-79.webp",
+   "localPrice": 0,
+   "isFree": true
+  },
+  {
+   "id": 109,
+   "name": "Sanur Beach Promenade",
+   "region": "Sanur",
+   "category": "Free / Nature",
+   "priceLow": 0,
+   "priceHigh": 0,
+   "duration": 2.0,
+   "bestTime": "6:00 AM",
+   "bestTimeNote": "Sunrise walk on the paved path",
+   "location": "Sanur Beach, Bali",
+   "rating": 4.4,
+   "platform": "Free / Self-guided",
+   "bookingLink": "https://www.klook.com/en-US/things-to-do/sanur/",
+   "insiderTip": "Sunrise walk, 5km paved path — flat, shaded by casuarina trees, cafés open early for post-walk coffee",
+   "bestFor": [
+    "solo",
+    "family",
+    "nomad"
+   ],
+   "interests": [
+    "nature",
+    "relaxation"
+   ],
+   "imageUrl": "assets/images/act-78.webp",
+   "localPrice": 0,
+   "isFree": true
+  },
+  {
+   "id": 110,
+   "name": "Uluwatu Cliffs Walk",
+   "region": "Uluwatu",
+   "category": "Free / Nature",
+   "priceLow": 0,
+   "priceHigh": 0,
+   "duration": 2.5,
+   "bestTime": "Late afternoon",
+   "bestTimeNote": "Walk from Suluban to Nyang Nyang",
+   "location": "Suluban Beach trail, Uluwatu",
+   "rating": 4.6,
+   "platform": "Free / Self-guided",
+   "bookingLink": "https://www.getyourguide.com/uluwatu-l32247/",
+   "insiderTip": "Walk from Suluban to Nyang Nyang (2h) — start at Suluban's sea cave, follow the ridge, end at the empty white-sand beach",
+   "bestFor": [
+    "solo",
+    "adventure",
+    "friends"
+   ],
+   "interests": [
+    "adventure",
+    "nature"
+   ],
+   "imageUrl": "assets/images/act-50.webp",
+   "localPrice": 0,
+   "isFree": true
+  },
+  {
+   "id": 111,
+   "name": "Tegenungan Waterfall Top View",
+   "region": "Ubud",
+   "category": "Free / Photography",
+   "priceLow": 0,
+   "priceHigh": 0,
+   "duration": 1.0,
+   "bestTime": "7:00 AM",
+   "bestTimeNote": "Before the day-trip buses arrive",
+   "location": "Tegenungan Waterfall, Ubud",
+   "rating": 4.2,
+   "platform": "Free / Self-guided",
+   "bookingLink": "https://www.klook.com/en-US/things-to-do/ubud/",
+   "insiderTip": "View from the top bridge is free — no entry fee needed for the viewpoint; the stair descent to the water costs extra",
+   "bestFor": [
+    "family",
+    "solo",
+    "friends"
+   ],
+   "interests": [
+    "nature",
+    "adventure"
+   ],
+   "imageUrl": "assets/images/act-11.webp",
+   "localPrice": 0,
+   "isFree": true
+  },
+  {
+   "id": 112,
+   "name": "Goa Gajah Temple Grounds",
+   "region": "Ubud",
+   "category": "Free / Culture",
+   "priceLow": 0,
+   "priceHigh": 2,
+   "duration": 1.5,
+   "bestTime": "8:00 AM",
+   "bestTimeNote": "Cool morning light for the stone carvings",
+   "location": "Goa Gajah, Bedulu, Ubud",
+   "rating": 4.3,
+   "platform": "Free / Self-guided",
+   "bookingLink": "https://www.klook.com/en-US/things-to-do/ubud/",
+   "insiderTip": "Temple grounds accessible without guide — the 11th-century elephant cave entrance is visible from the gardens",
+   "bestFor": [
+    "solo",
+    "family",
+    "nomad"
+   ],
+   "interests": [
+    "culture"
+   ],
+   "imageUrl": "assets/images/act-7.webp",
+   "localPrice": 0,
+   "isFree": true
+  },
+  {
+   "id": 113,
+   "name": "Taman Ayun Temple Garden",
+   "region": "Tabanan",
+   "category": "Free / Culture",
+   "priceLow": 0,
+   "priceHigh": 3,
+   "duration": 1.5,
+   "bestTime": "9:00 AM",
+   "bestTimeNote": "Morning light on the moat",
+   "location": "Mengwi, Tabanan",
+   "rating": 4.4,
+   "platform": "Free / Self-guided",
+   "bookingLink": "https://www.getyourguide.com/taman-ayun-temple-l45416/",
+   "insiderTip": "Royal temple with moat and gardens — the reflection of the multi-tiered meru towers in the moat is the classic shot",
+   "bestFor": [
+    "family",
+    "solo",
+    "honeymoon"
+   ],
+   "interests": [
+    "culture"
+   ],
+   "imageUrl": "assets/images/act-25.webp",
+   "localPrice": 0,
+   "isFree": true
+  },
+  {
+   "id": 114,
+   "name": "Berawa Beach Walk",
+   "region": "Canggu",
+   "category": "Free / Beach",
+   "priceLow": 0,
+   "priceHigh": 0,
+   "duration": 1.5,
+   "bestTime": "5:00 PM",
+   "bestTimeNote": "Sunset walk to Batu Bolong",
+   "location": "Berawa Beach, Canggu",
+   "rating": 4.3,
+   "platform": "Free / Self-guided",
+   "bookingLink": "https://www.klook.com/en-US/things-to-do/canggu/",
+   "insiderTip": "Sunset walk from Berawa to Batu Bolong — the beach path is fully walkable at low tide; finish with the Finns Beach Club view",
+   "bestFor": [
+    "solo",
+    "friends",
+    "nomad"
+   ],
+   "interests": [
+    "nature",
+    "relaxation"
+   ],
+   "imageUrl": "assets/images/act-34.webp",
+   "localPrice": 0,
+   "isFree": true
+  },
+  {
+   "id": 115,
+   "name": "Echo Beach Sunset",
+   "region": "Canggu",
+   "category": "Free / Photography",
+   "priceLow": 0,
+   "priceHigh": 0,
+   "duration": 2.0,
+   "bestTime": "5:30 PM",
+   "bestTimeNote": "Best sunset spot in Canggu",
+   "location": "Echo Beach, Canggu",
+   "rating": 4.5,
+   "platform": "Free / Self-guided",
+   "bookingLink": "https://www.klook.com/en-US/things-to-do/canggu/",
+   "insiderTip": "Best sunset spot in Canggu — the black-sand foreground with surfing silhouettes makes a striking frame; weekdays are calmer",
+   "bestFor": [
+    "solo",
+    "friends",
+    "nomad",
+    "honeymoon"
+   ],
+   "interests": [
+    "nature",
+    "relaxation"
+   ],
+   "imageUrl": "assets/images/act-34.webp",
+   "localPrice": 0,
+   "isFree": true
+  },
+  {
+   "id": 116,
+   "name": "Pererenan Beach",
+   "region": "Canggu",
+   "category": "Free / Beach",
+   "priceLow": 0,
+   "priceHigh": 0,
+   "duration": 2.0,
+   "bestTime": "Morning",
+   "bestTimeNote": "Quiet alternative to Batu Bolong",
+   "location": "Pererenan Beach, Canggu",
+   "rating": 4.2,
+   "platform": "Free / Self-guided",
+   "bookingLink": "https://www.klook.com/en-US/things-to-do/canggu/",
+   "insiderTip": "Quieter alternative to Batu Bolong — local surfers only; the reef break is a left-hander best at mid-tide",
+   "bestFor": [
+    "solo",
+    "nomad",
+    "family"
+   ],
+   "interests": [
+    "nature",
+    "adventure"
+   ],
+   "imageUrl": "assets/images/act-34.webp",
+   "localPrice": 0,
+   "isFree": true
+  },
+  {
+   "id": 117,
+   "name": "Seseh Beach",
+   "region": "Canggu",
+   "category": "Free / Beach",
+   "priceLow": 0,
+   "priceHigh": 0,
+   "duration": 2.0,
+   "bestTime": "Early morning",
+   "bestTimeNote": "Local fishing beach, no crowds",
+   "location": "Seseh Beach, Tabanan",
+   "rating": 4.1,
+   "platform": "Free / Self-guided",
+   "bookingLink": "https://www.klook.com/en-US/things-to-do/canggu/",
+   "insiderTip": "Local fishing beach, no crowds — fishermen haul nets at dawn; ask politely before photographing people",
+   "bestFor": [
+    "solo",
+    "nomad"
+   ],
+   "interests": [
+    "nature",
+    "culture"
+   ],
+   "imageUrl": "assets/images/act-34.webp",
+   "localPrice": 0,
+   "isFree": true
+  },
+  {
+   "id": 118,
+   "name": "Munduk Waterfall Trek",
+   "region": "North Bali",
+   "category": "Free / Nature",
+   "priceLow": 0,
+   "priceHigh": 2,
+   "duration": 2.5,
+   "bestTime": "7:30 AM",
+   "bestTimeNote": "Cool morning through coffee plantations",
+   "location": "Munduk Village, North Bali",
+   "rating": 4.6,
+   "platform": "Free / Self-guided",
+   "bookingLink": "https://www.getyourguide.com/munduk-l123763/",
+   "insiderTip": "Easy trek through coffee plantations — the mist clears around 9 AM; Munduk also has the island's best hiking base stays",
+   "bestFor": [
+    "solo",
+    "adventure",
+    "family"
+   ],
+   "interests": [
+    "adventure",
+    "nature"
+   ],
+   "imageUrl": "assets/images/act-75.webp",
+   "localPrice": 0,
+   "isFree": true
+  },
+  {
+   "id": 119,
+   "name": "Ulun Danu Temple Grounds",
+   "region": "North Bali",
+   "category": "Free / Culture",
+   "priceLow": 0,
+   "priceHigh": 4,
+   "duration": 1.5,
+   "bestTime": "8:00 AM",
+   "bestTimeNote": "Lake mist and soft morning light",
+   "location": "Beratan Lake, Bedugul",
+   "rating": 4.5,
+   "platform": "Free / Self-guided",
+   "bookingLink": "https://www.getyourguide.com/beratan-lake-l45412/",
+   "insiderTip": "Lake temple with floating pavilions — the 50k IDR grounds fee covers the entire lakeside park; the 11-tier meru appears to float at dawn",
+   "bestFor": [
+    "family",
+    "honeymoon",
+    "solo"
+   ],
+   "interests": [
+    "culture",
+    "nature"
+   ],
+   "imageUrl": "assets/images/act-71.webp",
+   "localPrice": 0,
+   "isFree": true
+  },
+  {
+   "id": 120,
+   "name": "Banyumala Twin Falls View",
+   "region": "North Bali",
+   "category": "Free / Photography",
+   "priceLow": 0,
+   "priceHigh": 2,
+   "duration": 1.5,
+   "bestTime": "9:00 AM",
+   "bestTimeNote": "Mid-morning light in the canyon",
+   "location": "Banyumala, Buleleng, North Bali",
+   "rating": 4.4,
+   "platform": "Free / Self-guided",
+   "bookingLink": "https://www.getyourguide.com/north-bali-l123763/",
+   "insiderTip": "Viewpoint from the top is free — a small donation at the bamboo gate; the twin falls split around a rock pillar in the valley below",
+   "bestFor": [
+    "solo",
+    "friends",
+    "honeymoon"
+   ],
+   "interests": [
+    "nature",
+    "adventure"
+   ],
+   "imageUrl": "assets/images/act-75.webp",
+   "localPrice": 0,
+   "isFree": true
+  },
+  {
+   "id": 121,
+   "name": "Lovina Beach Sunrise",
+   "region": "North Bali",
+   "category": "Free / Photography",
+   "priceLow": 0,
+   "priceHigh": 0,
+   "duration": 2.0,
+   "bestTime": "5:45 AM",
+   "bestTimeNote": "Best sunrise spot in North Bali",
+   "location": "Lovina Beach, Buleleng",
+   "rating": 4.3,
+   "platform": "Free / Self-guided",
+   "bookingLink": "https://www.getyourguide.com/north-bali-l123763/",
+   "insiderTip": "Best sunrise spot in North Bali — even without the dolphin boats, the calm black-sand beach and Mount Agung silhouette are worth the early start",
+   "bestFor": [
+    "solo",
+    "honeymoon",
+    "family"
+   ],
+   "interests": [
+    "nature",
+    "relaxation"
+   ],
+   "imageUrl": "assets/images/act-70.webp",
+   "localPrice": 0,
+   "isFree": true
+  },
+  {
+   "id": 122,
+   "name": "Villa Pool Day",
+   "region": "Multi-region",
+   "category": "Relaxation / Wellness",
+   "priceLow": 0,
+   "priceHigh": 0,
+   "duration": 2,
+   "bestTime": "Anytime",
+   "location": "",
+   "bookingLink": "",
+   "platform": "Free / Self-guided",
+   "rating": 4.5,
+   "insiderTip": "استمتع بيوم في المسبح الخاص بالفيلا — لا شيء أجمل من ساعة السباحة مع عصير استوائي",
+   "bestFor": [
+    "solo",
+    "family",
+    "honeymoon",
+    "friends",
+    "nomad",
+    "adventure"
+   ],
+   "interests": "relaxation, wellness",
+   "localPrice": 0,
+   "imageUrl": "assets/images/placeholder-activity.webp",
+   "isFree": true,
+   "isAlternative": true
+  },
+  {
+   "id": 123,
+   "name": "Beach Sunbathing",
+   "region": "Multi-region",
+   "category": "Relaxation / Nature",
+   "priceLow": 0,
+   "priceHigh": 0,
+   "duration": 2,
+   "bestTime": "Anytime",
+   "location": "",
+   "bookingLink": "",
+   "platform": "Free / Self-guided",
+   "rating": 4.5,
+   "insiderTip": "يوم على الشاطئ مع كتاب واسترخاء — احمل واقي الشمس وكتاباً جيداً وكرسي استلقاء",
+   "bestFor": [
+    "solo",
+    "family",
+    "honeymoon",
+    "friends",
+    "nomad",
+    "adventure"
+   ],
+   "interests": "relaxation, nature",
+   "localPrice": 0,
+   "imageUrl": "assets/images/placeholder-activity.webp",
+   "isFree": true,
+   "isAlternative": true
+  },
+  {
+   "id": 124,
+   "name": "Spa & Massage Day",
+   "region": "Multi-region",
+   "category": "Wellness / Relaxation",
+   "priceLow": 0,
+   "priceHigh": 0,
+   "duration": 2,
+   "bestTime": "Anytime",
+   "location": "",
+   "bookingLink": "",
+   "platform": "Free / Self-guided",
+   "rating": 4.5,
+   "insiderTip": "جلسة مساج بالي تقليدي — Bali massage ~IDR 150-300K في سبا محلي أصيل",
+   "bestFor": [
+    "solo",
+    "family",
+    "honeymoon",
+    "friends",
+    "nomad",
+    "adventure"
+   ],
+   "interests": "relaxation, wellness",
+   "localPrice": 0,
+   "imageUrl": "assets/images/placeholder-activity.webp",
+   "isFree": true,
+   "isAlternative": true
+  },
+  {
+   "id": 125,
+   "name": "Yoga & Meditation",
+   "region": "Ubud",
+   "category": "Wellness / Relaxation",
+   "priceLow": 0,
+   "priceHigh": 0,
+   "duration": 2,
+   "bestTime": "Anytime",
+   "location": "",
+   "bookingLink": "",
+   "platform": "Free / Self-guided",
+   "rating": 4.5,
+   "insiderTip": "جلسة يوجا في أحد المراكز الشهيرة — The Yoga Barn أو Radiance تقدمون جلسات دون ~$10-15",
+   "bestFor": [
+    "solo",
+    "family",
+    "honeymoon",
+    "friends",
+    "nomad",
+    "adventure"
+   ],
+   "interests": "relaxation, wellness",
+   "localPrice": 0,
+   "imageUrl": "assets/images/placeholder-activity.webp",
+   "isFree": true,
+   "isAlternative": true
+  },
+  {
+   "id": 126,
+   "name": "Coffee Shop Day",
+   "region": "Multi-region",
+   "category": "Food / Cafe",
+   "priceLow": 0,
+   "priceHigh": 0,
+   "duration": 2,
+   "bestTime": "Anytime",
+   "location": "",
+   "bookingLink": "",
+   "platform": "Free / Self-guided",
+   "rating": 4.5,
+   "insiderTip": "تجربة مقاهي بالي الشهيرة — Bali's specialty coffee scene is world-class; single-origin local beans",
+   "bestFor": [
+    "solo",
+    "family",
+    "honeymoon",
+    "friends",
+    "nomad",
+    "adventure"
+   ],
+   "interests": "food, relaxation",
+   "localPrice": 0,
+   "imageUrl": "assets/images/placeholder-activity.webp",
+   "isFree": true,
+   "isAlternative": true
+  },
+  {
+   "id": 127,
+   "name": "Sunrise Photography",
+   "region": "Multi-region",
+   "category": "Photography / Nature",
+   "priceLow": 0,
+   "priceHigh": 0,
+   "duration": 2,
+   "bestTime": "Anytime",
+   "location": "",
+   "bookingLink": "",
+   "platform": "Free / Self-guided",
+   "rating": 4.5,
+   "insiderTip": "تصوير شروق الشمس في موقع مميز — الشاطئ أو حقل أرز قبل 5:30 صباحاً، السماء الذهبية لا تُفوت",
+   "bestFor": [
+    "solo",
+    "family",
+    "honeymoon",
+    "friends",
+    "nomad",
+    "adventure"
+   ],
+   "interests": "photography, nature",
+   "localPrice": 0,
+   "imageUrl": "assets/images/placeholder-activity.webp",
+   "isFree": true,
+   "isAlternative": true
+  },
+  {
+   "id": 128,
+   "name": "Sunset Photography",
+   "region": "Multi-region",
+   "category": "Photography / Nature",
+   "priceLow": 0,
+   "priceHigh": 0,
+   "duration": 2,
+   "bestTime": "Anytime",
+   "location": "",
+   "bookingLink": "",
+   "platform": "Free / Self-guided",
+   "rating": 4.5,
+   "insiderTip": "تصوير غروب الشمس في موقع مميز — Tanah Lot وUluwatu أفضل المواقع، اصعد قبل 30 دقيقة",
+   "bestFor": [
+    "solo",
+    "family",
+    "honeymoon",
+    "friends",
+    "nomad",
+    "adventure"
+   ],
+   "interests": "photography, nature",
+   "localPrice": 0,
+   "imageUrl": "assets/images/placeholder-activity.webp",
+   "isFree": true,
+   "isAlternative": true
+  },
+  {
+   "id": 129,
+   "name": "Rice Field Photography",
+   "region": "Ubud",
+   "category": "Photography / Culture",
+   "priceLow": 0,
+   "priceHigh": 0,
+   "duration": 2,
+   "bestTime": "Anytime",
+   "location": "",
+   "bookingLink": "",
+   "platform": "Free / Self-guided",
+   "rating": 4.5,
+   "insiderTip": "تصوير حقول الأرز في تيغالالانج — أفضل وقت عند 7:00 صباحاً قبل حشود السياح",
+   "bestFor": [
+    "solo",
+    "family",
+    "honeymoon",
+    "friends",
+    "nomad",
+    "adventure"
+   ],
+   "interests": "photography, nature, culture",
+   "localPrice": 0,
+   "imageUrl": "assets/images/placeholder-activity.webp",
+   "isFree": true,
+   "isAlternative": true
+  },
+  {
+   "id": 130,
+   "name": "Temple Photography",
+   "region": "Multi-region",
+   "category": "Culture / Photography",
+   "priceLow": 0,
+   "priceHigh": 0,
+   "duration": 2,
+   "bestTime": "Anytime",
+   "location": "",
+   "bookingLink": "",
+   "platform": "Free / Self-guided",
+   "rating": 4.5,
+   "insiderTip": "تصوير المعابد البالية — ارتدِ السارونغ واحترس من القرود عند Uluwatu وUwatu",
+   "bestFor": [
+    "solo",
+    "family",
+    "honeymoon",
+    "friends",
+    "nomad",
+    "adventure"
+   ],
+   "interests": "photography, culture",
+   "localPrice": 0,
+   "imageUrl": "assets/images/placeholder-activity.webp",
+   "isFree": true,
+   "isAlternative": true
+  },
+  {
+   "id": 131,
+   "name": "Street Photography",
+   "region": "Multi-region",
+   "category": "Culture / Food",
+   "priceLow": 0,
+   "priceHigh": 0,
+   "duration": 2,
+   "bestTime": "Anytime",
+   "location": "",
+   "bookingLink": "",
+   "platform": "Free / Self-guided",
+   "rating": 4.5,
+   "insiderTip": "تصوير الحياة اليومية في بالي — الأسواق الصباحية والأزقة الخلفية هي الكنز الحقيقي",
+   "bestFor": [
+    "solo",
+    "family",
+    "honeymoon",
+    "friends",
+    "nomad",
+    "adventure"
+   ],
+   "interests": "photography, culture, food",
+   "localPrice": 0,
+   "imageUrl": "assets/images/placeholder-activity.webp",
+   "isFree": true,
+   "isAlternative": true
+  },
+  {
+   "id": 132,
+   "name": "Nature Walk",
+   "region": "Multi-region",
+   "category": "Nature / Wellness",
+   "priceLow": 0,
+   "priceHigh": 0,
+   "duration": 2,
+   "bestTime": "Anytime",
+   "location": "",
+   "bookingLink": "",
+   "platform": "Free / Self-guided",
+   "rating": 4.5,
+   "insiderTip": "مشي في الطبيعة لمدة ساعة — أي منتزه أخضر قريب، استمع للطيور وخذ نفساً عميقاً",
+   "bestFor": [
+    "solo",
+    "family",
+    "honeymoon",
+    "friends",
+    "nomad",
+    "adventure"
+   ],
+   "interests": "nature, wellness",
+   "localPrice": 0,
+   "imageUrl": "assets/images/placeholder-activity.webp",
+   "isFree": true,
+   "isAlternative": true
+  },
+  {
+   "id": 133,
+   "name": "Beach Walk",
+   "region": "Multi-region",
+   "category": "Nature / Beach",
+   "priceLow": 0,
+   "priceHigh": 0,
+   "duration": 2,
+   "bestTime": "Anytime",
+   "location": "",
+   "bookingLink": "",
+   "platform": "Free / Self-guided",
+   "rating": 4.5,
+   "insiderTip": "مشي على الشاطئ لمدة ساعة — المد المنخفض أفضل وقت للمشي على الرمل المبلل",
+   "bestFor": [
+    "solo",
+    "family",
+    "honeymoon",
+    "friends",
+    "nomad",
+    "adventure"
+   ],
+   "interests": "nature, relaxation",
+   "localPrice": 0,
+   "imageUrl": "assets/images/placeholder-activity.webp",
+   "isFree": true,
+   "isAlternative": true
+  },
+  {
+   "id": 134,
+   "name": "Village Walk",
+   "region": "Multi-region",
+   "category": "Culture / Nature",
+   "priceLow": 0,
+   "priceHigh": 0,
+   "duration": 2,
+   "bestTime": "Anytime",
+   "location": "",
+   "bookingLink": "",
+   "platform": "Free / Self-guided",
+   "rating": 4.5,
+   "insiderTip": "تجول في قرية بالية تقليدية — Penglipuran وTenganan أجمل قرى التراث البالي",
+   "bestFor": [
+    "solo",
+    "family",
+    "honeymoon",
+    "friends",
+    "nomad",
+    "adventure"
+   ],
+   "interests": "culture, nature",
+   "localPrice": 0,
+   "imageUrl": "assets/images/placeholder-activity.webp",
+   "isFree": true,
+   "isAlternative": true
+  },
+  {
+   "id": 135,
+   "name": "Market Stroll",
+   "region": "Multi-region",
+   "category": "Shopping / Food",
+   "priceLow": 0,
+   "priceHigh": 0,
+   "duration": 2,
+   "bestTime": "Anytime",
+   "location": "",
+   "bookingLink": "",
+   "platform": "Free / Self-guided",
+   "rating": 4.5,
+   "insiderTip": "تجول في الأسواق المحلية — سوق الصباح المحلي تجربة أصيلة، وجرّب التفاوض بلطف",
+   "bestFor": [
+    "solo",
+    "family",
+    "honeymoon",
+    "friends",
+    "nomad",
+    "adventure"
+   ],
+   "interests": "shopping, food, culture",
+   "localPrice": 0,
+   "imageUrl": "assets/images/placeholder-activity.webp",
+   "isFree": true,
+   "isAlternative": true
+  },
+  {
+   "id": 136,
+   "name": "Temple Grounds Walk",
+   "region": "Multi-region",
+   "category": "Culture / Nature",
+   "priceLow": 0,
+   "priceHigh": 0,
+   "duration": 2,
+   "bestTime": "Anytime",
+   "location": "",
+   "bookingLink": "",
+   "platform": "Free / Self-guided",
+   "rating": 4.5,
+   "insiderTip": "تجول في حدائق المعابد — حدائق Uluwatu وTirta Empul هادئة وجميلة في الصباح الباكر",
+   "bestFor": [
+    "solo",
+    "family",
+    "honeymoon",
+    "friends",
+    "nomad",
+    "adventure"
+   ],
+   "interests": "culture, photography",
+   "localPrice": 0,
+   "imageUrl": "assets/images/placeholder-activity.webp",
+   "isFree": true,
+   "isAlternative": true
+  },
+  {
+   "id": 137,
+   "name": "Sunset Cliff Walk",
+   "region": "Uluwatu",
+   "category": "Photography / Nature",
+   "priceLow": 0,
+   "priceHigh": 0,
+   "duration": 2,
+   "bestTime": "Anytime",
+   "location": "",
+   "bookingLink": "",
+   "platform": "Free / Self-guided",
+   "rating": 4.5,
+   "insiderTip": "ممشى الغروب على الجرف — Uluwatu cliffs المسار الساحلي عند الغروب مشهد مجاني لا يُنسى",
+   "bestFor": [
+    "solo",
+    "family",
+    "honeymoon",
+    "friends",
+    "nomad",
+    "adventure"
+   ],
+   "interests": "photography, nature, wellness",
+   "localPrice": 0,
+   "imageUrl": "assets/images/placeholder-activity.webp",
+   "isFree": true,
+   "isAlternative": true
+  },
+  {
+   "id": 138,
+   "name": "Cloud & Stargazing Night",
+   "region": "Multi-region",
+   "category": "Nature / Photography",
+   "priceLow": 0,
+   "priceHigh": 0,
+   "duration": 2,
+   "bestTime": "Anytime",
+   "location": "",
+   "bookingLink": "",
+   "platform": "Free / Self-guided",
+   "rating": 4.5,
+   "insiderTip": "ليلة مراقبة النجوم — ارتفع عن الساحل إلى Kintamani حيث سماء صافية وميلكي واي واضحة",
+   "bestFor": [
+    "solo",
+    "family",
+    "honeymoon",
+    "friends",
+    "nomad",
+    "adventure"
+   ],
+   "interests": "photography, nature, relaxation",
+   "localPrice": 0,
+   "imageUrl": "assets/images/placeholder-activity.webp",
+   "isFree": true,
+   "isAlternative": true
+  },
+  {
+   "id": 139,
+   "name": "Journaling & Sketching Day",
+   "region": "Multi-region",
+   "category": "Wellness / Relaxation",
+   "priceLow": 0,
+   "priceHigh": 0,
+   "duration": 2,
+   "bestTime": "Anytime",
+   "location": "",
+   "bookingLink": "",
+   "platform": "Free / Self-guided",
+   "rating": 4.5,
+   "insiderTip": "يوم تدوين ورسم — اكتب رحلتك وارسم شروق الشمس مع قهوة بالية، هدية لنفسك لا تُقدر بثمن",
+   "bestFor": [
+    "solo",
+    "family",
+    "honeymoon",
+    "friends",
+    "nomad",
+    "adventure"
+   ],
+   "interests": "relaxation, photography",
+   "localPrice": 0,
+   "imageUrl": "assets/images/placeholder-activity.webp",
+   "isFree": true,
+   "isAlternative": true
+  },
+  {
+   "id": 140,
+   "name": "Hammock & Reading Day",
+   "region": "Multi-region",
+   "category": "Relaxation / Wellness",
+   "priceLow": 0,
+   "priceHigh": 0,
+   "duration": 2,
+   "bestTime": "Anytime",
+   "location": "",
+   "bookingLink": "",
+   "platform": "Free / Self-guided",
+   "rating": 4.5,
+   "insiderTip": "يوم أرجوحة وقراءة — أُرجوحة معلقة بين النخيل مع كتاب وشاي بارد، استرخاء بالمعنى الحرفي",
+   "bestFor": [
+    "solo",
+    "family",
+    "honeymoon",
+    "friends",
+    "nomad",
+    "adventure"
+   ],
+   "interests": "relaxation, wellness",
+   "localPrice": 0,
+   "imageUrl": "assets/images/placeholder-activity.webp",
+   "isFree": true,
+   "isAlternative": true
+  },
+  {
+   "id": 141,
+   "name": "Cloud Watching & Reflection",
+   "region": "Multi-region",
+   "category": "Wellness / Photography",
+   "priceLow": 0,
+   "priceHigh": 0,
+   "duration": 2,
+   "bestTime": "Anytime",
+   "location": "",
+   "bookingLink": "",
+   "platform": "Free / Self-guided",
+   "rating": 4.5,
+   "insiderTip": "يوم مراقبة الغيوم والتأمل — استلقِ في الحقل الأخضر وراقب الغيوم تمر، عقلك سيشكرك",
+   "bestFor": [
+    "solo",
+    "family",
+    "honeymoon",
+    "friends",
+    "nomad",
+    "adventure"
+   ],
+   "interests": "photography, relaxation, wellness",
+   "localPrice": 0,
+   "imageUrl": "assets/images/placeholder-activity.webp",
+   "isFree": true,
+   "isAlternative": true
+  }
+ ]
+}

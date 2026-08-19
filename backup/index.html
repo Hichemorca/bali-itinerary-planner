@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bali Interactive Itinerary Planner — Your Perfect Bali Trip in 2 Minutes</title>
+  <meta name="description" content="Plan your perfect Bali trip with our interactive itinerary planner. Personalized day-by-day plans with budget tiers, insider tips, and booking links.">
+  <meta name="keywords" content="Bali itinerary planner, custom Bali trip plan, Bali day-by-day itinerary, Bali travel planner, Bali trip cost">
+  <meta property="og:title" content="Bali Interactive Itinerary Planner — Built in 2 Minutes">
+  <meta property="og:description" content="Personalized day-by-day Bali plans with budget tiers, insider tips and ready-to-book links. Take the 2-minute quiz.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bali-itinerary-planner.netlify.app/">
+  <meta property="og:image" content="assets/images/hero-bg.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-white text-[#212121]">
+
+  <!-- NAV -->
+  <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur border-b border-gray-100">
+    <div class="max-w-6xl mx-auto px-5 py-3 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2">
+        <i class="fa-solid fa-leaf text-[#2E7D32] text-xl"></i>
+        <span class="font-heading font-bold text-lg text-[#1B5E20]">BaliPlan</span>
+      </a>
+      <a href="quiz.html" class="btn-primary">Start Your Quiz</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero-bg pt-28 pb-20 md:pt-36 md:pb-28">
+    <div class="max-w-6xl mx-auto px-5 text-center">
+      <span class="inline-block px-4 py-1 rounded-full bg-[#F9A825]/20 text-[#8a5a00] font-semibold text-sm mb-5">
+        Trusted by travelers planning 7M+ annual Bali visits
+      </span>
+      <h1 class="font-heading font-extrabold text-4xl md:text-6xl text-white leading-tight mb-6">
+        Your Perfect Bali Itinerary —<br>Built in 2 Minutes
+      </h1>
+      <p class="text-white/90 text-lg md:text-xl max-w-2xl mx-auto mb-9">
+        Stop drowning in 40 open tabs and unrealistic blog itineraries. Answer 5 quick questions and get a
+        realistic, budget-aware, day-by-day Bali plan with insider tips and ready-to-book links.
+      </p>
+      <a href="quiz.html" class="btn-gold text-lg px-10 py-4 inline-flex items-center gap-3">
+        Start Your Quiz <i class="fa-solid fa-arrow-right"></i>
+      </a>
+      <p class="text-white/70 text-sm mt-5"><i class="fa-solid fa-clock mr-1"></i> Takes 2 minutes &nbsp;•&nbsp; No signup required</p>
+    </div>
+  </header>
+
+  <!-- PROBLEM / VALUE -->
+  <section class="py-16 bg-[#F5F5F5]">
+    <div class="max-w-6xl mx-auto px-5">
+      <h2 class="font-heading font-bold text-3xl text-center mb-4">Why Most Bali Plans Fail</h2>
+      <p class="text-center text-[#757575] max-w-2xl mx-auto mb-12">
+        First-timers make the same three mistakes — and each one costs hours of a precious trip.
+      </p>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-2xl p-7 shadow-sm border border-gray-100">
+          <div class="w-12 h-12 rounded-full bg-red-50 flex items-center justify-center mb-4">
+            <i class="fa-solid fa-circle-xmark text-red-400 text-xl"></i>
+          </div>
+          <h3 class="font-semibold text-lg mb-2">Information overload</h3>
+          <p class="text-[#757575] text-sm">Hundreds of "things to do" lists with no prices, no durations, and no idea what fits together.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-7 shadow-sm border border-gray-100">
+          <div class="w-12 h-12 rounded-full bg-red-50 flex items-center justify-center mb-4">
+            <i class="fa-solid fa-car-side text-red-400 text-xl"></i>
+          </div>
+          <h3 class="font-semibold text-lg mb-2">Unrealistic itineraries</h3>
+          <p class="text-[#757575] text-sm">Ubud in the morning, Uluwatu at sunset — that's a 3-hour drive. Our plan groups activities by region with real travel times.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-7 shadow-sm border border-gray-100">
+          <div class="w-12 h-12 rounded-full bg-red-50 flex items-center justify-center mb-4">
+            <i class="fa-solid fa-wallet text-red-400 text-xl"></i>
+          </div>
+          <h3 class="font-semibold text-lg mb-2">Budget surprises</h3>
+          <p class="text-[#757575] text-sm">Beach clubs and sunrise treks blow budgets fast. We match every day to your daily spend level.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUE POINTS -->
+  <section class="py-16">
+    <div class="max-w-6xl mx-auto px-5">
+      <h2 class="font-heading font-bold text-3xl text-center mb-12">What You Get</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="w-16 h-16 rounded-2xl bg-[#2E7D32]/10 flex items-center justify-center mx-auto mb-5">
+            <i class="fa-solid fa-sack-dollar text-[#2E7D32] text-2xl"></i>
+          </div>
+          <h3 class="font-semibold text-lg mb-2">Budget-Tiered Plans</h3>
+          <p class="text-[#757575] text-sm">Choose Backpacker ($25-50/day), Mid-Range ($50-150/day) or Luxury ($150+/day) — every activity and day fits your number.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 rounded-2xl bg-[#F9A825]/15 flex items-center justify-center mx-auto mb-5">
+            <i class="fa-solid fa-user-group text-[#D98A00] text-2xl"></i>
+          </div>
+          <h3 class="font-semibold text-lg mb-2">Built for YOUR Trip</h3>
+          <p class="text-[#757575] text-sm">Solo, family with kids, honeymoon, friends' getaway or digital nomad — the plan adapts to who you're traveling with.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 rounded-2xl bg-[#2E7D32]/10 flex items-center justify-center mx-auto mb-5">
+            <i class="fa-solid fa-link text-[#2E7D32] text-2xl"></i>
+          </div>
+          <h3 class="font-semibold text-lg mb-2">Ready-to-Book Links</h3>
+          <p class="text-[#757575] text-sm">Every activity comes with a verified booking link (GetYourGuide, Viator, Klook), best visiting time, and an insider tip.</p>
+        </div>
+      </div>
+
+      <div class="mt-14 bg-[#1B5E20] rounded-3xl p-8 md:p-12 text-center text-white relative overflow-hidden">
+        <i class="fa-solid fa-quote-left absolute top-6 left-8 text-white/20 text-5xl"></i>
+        <p class="font-heading text-xl md:text-2xl max-w-3xl mx-auto mb-6">
+          "Every day feels full but never frantic. We spent 10 days in Bali and never once asked 'what should we do now?'"
+        </p>
+        <p class="text-white/80 text-sm">— Sample traveler feedback from our preview plan</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="py-16 bg-[#F5F5F5]">
+    <div class="max-w-4xl mx-auto px-5">
+      <h2 class="font-heading font-bold text-3xl text-center mb-12">How It Works</h2>
+      <div class="space-y-6">
+        <div class="flex items-start gap-5">
+          <div class="w-10 h-10 rounded-full bg-[#F9A825] text-white font-bold flex items-center justify-center shrink-0">1</div>
+          <div>
+            <h3 class="font-semibold">Take the 5-question quiz</h3>
+            <p class="text-[#757575] text-sm">Trip length, daily budget, travel style, interests and favorite region — done in about 2 minutes.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-5">
+          <div class="w-10 h-10 rounded-full bg-[#F9A825] text-white font-bold flex items-center justify-center shrink-0">2</div>
+          <div>
+            <h3 class="font-semibold">Get your personalized day-by-day plan</h3>
+            <p class="text-[#757575] text-sm">A realistic schedule with timings, travel-time estimates, crowd warnings and insider tips from locals.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-5">
+          <div class="w-10 h-10 rounded-full bg-[#F9A825] text-white font-bold flex items-center justify-center shrink-0">3</div>
+          <div>
+            <h3 class="font-semibold">Unlock, download & go</h3>
+            <p class="text-[#757575] text-sm">Unlock your full itinerary for $29 (or $19 launch price), download the printable PDF and book every activity with one click.</p>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-10">
+        <a href="quiz.html" class="btn-primary text-lg px-10 py-4 inline-flex items-center gap-3">
+          Start Your Quiz <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#1B2B25] text-white/80 py-10">
+    <div class="max-w-6xl mx-auto px-5 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <i class="fa-solid fa-leaf text-[#F9A825]"></i>
+        <span class="font-heading font-bold text-white">BaliPlan</span>
+      </div>
+      <p class="text-sm text-white/60">© 2026 BaliPlan. Prices and availability subject to change; verify before booking.</p>
+      <div class="flex gap-5 text-sm">
+        <a href="privacy.html" class="hover:text-white">Privacy</a>
+        <a href="contact.html" class="hover:text-white">Contact</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

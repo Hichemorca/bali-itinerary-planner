@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /quiz.html
+Disallow: /result.html
+Disallow: /thank-you.html
+
+User-agent: GPTBot
+Disallow: /
+
+Sitemap: https://bali-itinerary-planner.netlify.app/sitemap.xml

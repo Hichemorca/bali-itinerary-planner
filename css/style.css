@@ -1,0 +1,136 @@
+/* ============================================================
+ * BaliPlan — Theme & UI styles
+ * Palette: Bali Green #2E7D32 / Deep Green #1B5E20,
+ *          Gold #F9A825, White #FFFFFF, Grey #F5F5F5
+ * ============================================================ */
+
+:root {
+  --green: #2E7D32;
+  --green-deep: #1B5E20;
+  --gold: #F9A825;
+  --gold-dark: #7a4f00;
+  --text: #212121;
+  --grey: #757575;
+}
+
+body {
+  font-family: "Inter", "Open Sans", system-ui, sans-serif;
+  color: var(--text);
+}
+.font-heading {
+  font-family: "Poppins", "Montserrat", system-ui, sans-serif;
+}
+
+/* Hero */
+.hero-bg {
+  background: linear-gradient(rgba(20, 50, 25, 0.72), rgba(20, 50, 25, 0.78)),
+    url("../assets/images/hero-bg.jpg") center/cover no-repeat;
+}
+
+/* Buttons */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--green);
+  color: #fff;
+  font-weight: 600;
+  padding: 0.65rem 1.5rem;
+  border-radius: 0.75rem;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+.btn-primary:hover { background: var(--green-deep); transform: translateY(-1px); }
+
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--gold);
+  color: #4a3000;
+  font-weight: 700;
+  padding: 0.65rem 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 14px rgba(249, 168, 37, 0.4);
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+.btn-gold:hover { background: #f5b041; transform: translateY(-1px); }
+
+/* Quiz option transition */
+.opt-btn { transition: all 0.18s ease; }
+
+/* Fade-in between questions */
+.fade-in { animation: fadeUp 0.35s ease; }
+
+/* Lazy-load image fade-in */
+.img-lazy { opacity: 0; transition: opacity 0.4s ease; }
+.img-loaded { opacity: 1; }
+
+/* Map responsiveness on small screens */
+#bali-map { min-height: 240px; }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Free-activity cards: light green background + green accent */
+/* Phase 6: scroll-triggered fade-up animation for day cards */
+.card-fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.card-fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .card-fade-up { opacity: 1; transform: none; }
+}
+
+/* Phase 6: dark mode palette (applied when <html> has .dark class) */
+.dark body,
+html.dark {
+  background-color: #1A1F1C !important;
+  color: #E8F0EA !important;
+}
+.dark .bg-white { background-color: #242B27 !important; border-color: #333B36 !important; }
+.dark .bg-gray-50 { background-color: #2A312C !important; }
+.dark .bg-gray-100 { background-color: #2A312C !important; }
+.dark .text-\[\#757575\] { color: #A8B5AD !important; }
+.dark .text-\[\#9E9E9E\] { color: #9AA8A0 !important; }
+.dark .border-gray-100 { border-color: #333B36 !important; }
+.dark .border-gray-200 { border-color: #3A423D !important; }
+.dark .border-gray-300 { border-color: #4A544E !important; }
+.dark nav.bg-white { background-color: #202723 !important; border-color: #2D352F !important; }
+.dark .bg-\[\#F5F5F5\] { background-color: #1A1F1C !important; }
+.dark .bg-\[\#F9A825\]\/15 { background-color: rgba(249,168,37,0.12) !important; }
+.dark .bg-sky-50\/70 { background-color: rgba(14,94,133,0.15) !important; }
+.dark .text-\[\#212121\] { color: #E8F0EA !important; }
+.dark .btn-primary, .dark .bg-\[\#2E7D32\] { background-color: #2E7D32 !important; }
+.dark input, .dark .bg-\[\#F5F5F5\], .dark .border-dashed { border-color: #3A423D !important; }
+.dark .free-activity-card { background-color: #1E2E20 !important; }
+.dark .fixed.bottom-0 { background-color: rgba(32,39,35,0.95) !important; border-color: #2D352F !important; }
+.dark #bali-map .leaflet-container { background: #171c18; }
+
+/* Phase 6: consistent 4:3 activity photos (800x600 source) with object-fit cover */
+.activity-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 12px 12px 0 0;
+  margin-top: 8px;
+}
+
+.free-activity-card {
+  background-color: #F1F8E9 !important;
+  border-color: #A5D6A7 !important;
+  border-left: 4px solid #2E7D32;
+}
+
+/* Print styles */
+@media print {
+  .hero-bg, nav, #unlock-banner, #email-capture { background: white !important; }
+  .fixed { position: static; }
+  body { background: white; }
+}
