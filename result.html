@@ -15,6 +15,39 @@
   <link rel="preload" href="css/style.css" as="style">
   <link rel="stylesheet" href="css/style.css">
 
+  <!-- SEO BLOCK START -->
+  <meta name="description" content="Your personalized Bali itinerary with day-by-day activities, prices, booking links, an interactive map, and downloadable PDF and calendar export.">
+  <meta name="keywords" content="Bali itinerary planner, Bali trip planner, Bali day-by-day itinerary, Bali travel itinerary, Bali itinerary PDF, free Bali trip plan">
+  <meta name="author" content="BaliPlan">
+  <link rel="canonical" href="https://bali-itinerary-planner.netlify.app/result">
+  <meta property="og:title" content="Your Bali Itinerary — Day-by-Day Plan | BaliPlan">
+  <meta property="og:description" content="Your personalized Bali itinerary with day-by-day activities, prices, booking links, an interactive map, and downloadable PDF and calendar export.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bali-itinerary-planner.netlify.app/result">
+  <meta property="og:image" content="https://bali-itinerary-planner.netlify.app/assets/images/og-social-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Bali Interactive Itinerary Planner — your personalized Bali trip plan">
+  <meta property="og:site_name" content="BaliPlan">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Your Bali Itinerary — Day-by-Day Plan | BaliPlan">
+  <meta name="twitter:description" content="Your personalized Bali itinerary with day-by-day activities, prices, booking links, an interactive map, and downloadable PDF and calendar export.">
+  <meta name="twitter:image" content="https://bali-itinerary-planner.netlify.app/assets/images/og-social-card.png">
+  <meta name="twitter:image:alt" content="Bali Interactive Itinerary Planner">
+  <meta name="robots" content="noindex">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Your Bali Itinerary Result",
+  "url": "https://bali-itinerary-planner.netlify.app/result",
+  "description": "Personalized day-by-day Bali itinerary result page with PDF, map, and calendar export.",
+  "isPartOf": { "@id": "https://bali-itinerary-planner.netlify.app/#website" },
+  "robots": "noindex"
+}
+</script>
+  <!-- SEO BLOCK END -->
 </head>
 <body class="bg-[#F5F5F5] text-[#212121]">
 
@@ -62,8 +95,26 @@
     <!-- Phase 6: Day 1 free preview (visible before payment) -->
     <div id="day1-preview" class="mb-8 print:hidden"></div>
 
+    <!-- Unlock CTA (shown until paid) -->
+    <div id="unlock-banner" class="bg-[#F9A825] rounded-2xl p-6 mb-8 flex flex-col md:flex-row items-center gap-5 print:hidden">
+      <i class="fa-solid fa-unlock text-3xl text-[#7a4f00]"></i>
+      <div class="flex-1 text-center md:text-left">
+        <p class="font-bold text-[#4a3000] text-lg">Unlock the full plan — printable PDF + all booking links</p>
+        <p class="text-[#6b4800] text-sm">One payment of $29. Download instantly, use offline on your phone.</p>
+      </div>
+      <div class="flex items-center gap-3">
+        <div class="text-center">
+          <span class="block text-xs line-through text-[#7a4f00]/60">$29</span>
+          <span class="block font-extrabold text-xl text-[#4a3000]">$19</span>
+          <span class="block text-[10px] text-[#7a4f00]">launch offer</span>
+        </div>
+        <a href="https://gum.co/your-product-id" class="gumroad-button bg-[#212121] hover:bg-black text-white font-bold px-6 py-3 rounded-xl" data-gumroad-single-product="true">
+          <i class="fa-solid fa-lock-open mr-2"></i>Unlock — $19
+        </a>
+      </div>
+    </div>
 
-    <!-- Email capture (optional) -->
+    <!-- Email capture (before unlock) -->
     <div id="email-capture" class="bg-white rounded-2xl border border-gray-100 p-6 mb-8 print:hidden">
       <form id="email-form" class="flex flex-col md:flex-row gap-3">
         <div class="flex-1">
@@ -147,8 +198,10 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="js/itinerary-engine.js?v=ph13"></script>
   <script src="js/map-calendar.js?v=ph13"></script>
-  <script src="js/pdf-generator.js?v=ph8"></script>
+  <script src="js/pdf-generator.js?v=ph13"></script>
+  <script src="js/gumroad-integration.js?v=ph13"></script>
   <script src="js/analytics.js"></script>
   <script src="js/result.js?v=ph13"></script>
+  <script src="https://gumroad.com/js/gumroad.js"></script>
 </body>
 </html>
