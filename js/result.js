@@ -77,11 +77,15 @@ async function init() {
     plan.driverInfo = plan.transport;
   }
 
+  // Phase 13: expose plan days for seasonal swap logic
+  window.__baliPlanDays = plan.days;
   renderHeader();
   renderQuickSummary();
   renderDay1Preview();
   renderDays();
   renderBudgetBreakdown();
+  // Phase 13: seasonal panel + apply any previously saved swaps
+  if (window.BaliSeasonal && window.BaliSeasonal.loadSeasonal) window.BaliSeasonal.renderResultPanel();
   wirePDFButton();
   wireMapAndCalendar();
   applyPurchaseState();
@@ -242,17 +246,17 @@ function renderDays() {
         ? `<div class="inline-flex items-center gap-1 mt-1.5 text-xs font-semibold text-[#2E7D32] bg-[#2E7D32]/10 px-2 py-1 rounded-full"><i class="fa-solid fa-piggy-bank"></i>Save ~$${saving} booking locally (~$${localPrice})</div>`
         : "";
       return `
-        <div class="bg-white rounded-2xl border border-gray-100 p-5 flex gap-4 items-start ${driverRow} ${freeRow}">
+        <div class="activity-row bg-white rounded-2xl border border-gray-100 p-5 flex gap-4 items-start ${driverRow} ${freeRow}">
           <div class="text-center shrink-0 w-16">
-            <div class="text-xs font-bold text-[#2E7D32] uppercase tracking-wide">${item.startTime}</div>
+            <div class="slot-time text-xs font-bold text-[#2E7D32] uppercase tracking-wide">${item.startTime}</div>
             <div class="text-xs text-[#757575]">to ${item.endTime}</div>
             ${item.travelBefore ? `<div class="text-[10px] text-[#757575] mt-1"><i class="fa-solid fa-car mr-1"></i>${item.travelBefore}</div>` : ""}
           </div>
           <div class="flex-1 min-w-0">
-            <div class="flex items-start justify-between gap-2">
-              <h4 class="font-bold"><i class="fa-solid ${actIcon.icon} mr-1.5 ${actIcon.cls}"></i>${a.name}${freeBadge ? ` ${freeBadge}` : ""}</h4>
+          <div class="flex items-start justify-between gap-2">
+            <h4 class="activity-name font-bold"><i class="fa-solid ${actIcon.icon} mr-1.5 ${actIcon.cls}"></i>${a.name}${freeBadge ? ` ${freeBadge}` : ""}</h4>
               <div class="shrink-0 text-right">
-                <span class="block text-sm font-bold text-[#2E7D32]">${price}</span>
+                <span class="activity-price block text-sm font-bold text-[#2E7D32]">${price}</span>
                 ${rating}
               </div>
             </div>
@@ -301,7 +305,7 @@ function renderDays() {
       const DAY_COLORS = ["bg-[#2E7D32]", "bg-[#F9A825]", "bg-[#0288D1]", "bg-[#6A1B9A]", "bg-[#E65100]"];
       const dayColor = DAY_COLORS[(day.dayNum - 1) % DAY_COLORS.length];
       return `
-      <section class="print:break-before-page card-fade-up">
+      <section id="day-${day.dayNum}" class="print:break-before-page card-fade-up">
         <div class="flex items-center gap-3 mb-4">
           <div class="w-11 h-11 rounded-full ${dayColor} text-white font-heading font-bold flex items-center justify-center">${day.dayNum}</div>
           <h3 class="font-heading font-bold text-xl">Day ${day.dayNum}</h3>

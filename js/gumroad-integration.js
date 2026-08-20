@@ -24,6 +24,8 @@ const GUMROAD_PRICE = 19; // launch price (set in Gumroad dashboard: fixed price
   // The thank-you page then points back to result.html.
 })();
 
+// TEMPORARILY DISABLED (payment gateway removed from the site).
+// To re-enable: restore this module in result.html and re-add the unlock banner.
 /**
  * Mark the visitor as purchased so the unlock banner adapts.
  */
