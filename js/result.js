@@ -81,6 +81,7 @@ async function init() {
   renderQuickSummary();
   renderDay1Preview();
   renderDays();
+  renderBudgetBreakdown();
   wirePDFButton();
   wireMapAndCalendar();
   applyPurchaseState();
@@ -114,11 +115,42 @@ function renderHeader() {
   document.getElementById("plan-summary").textContent =
     `${plan.days.filter(d => !d.isFlex).reduce((n, d) => n + d.activities.filter(a => !a.isBreak && !a.isDriver).length, 0)} activities • 100% zero-repeat schedule • ${plan.days.filter(d => d.isFlex).length} flexible day${plan.days.filter(d => d.isFlex).length !== 1 ? "s" : ""}`;
   if (plan.driverInfo) {
-    document.getElementById("driver-note").innerHTML =
-      `<i class="fa-solid fa-van-shuttle mr-2"></i>Your plan includes a full-day <b>private driver (~$${Math.round(plan.driverInfo.priceLow)}–$${Math.round(plan.driverInfo.priceHigh)}/day)</b> — the most cost-effective way to cover long routes. Book locally via your hotel or on Klook.`;
+    const tier = answers.budgetTier || "mid";
+    if (tier === "budget") {
+      document.getElementById("driver-note").innerHTML =
+        `<i class="fa-solid fa-van-shuttle mr-2"></i>Your plan includes a full-day <b>private driver (~$${plan.driverDailyCost}/day)</b>. On a budget, negotiate the local rate (~$35–40) with your hotel or via Klook/Traveloka — or swap individual days for a <b>shared tourist shuttle ($5–10/seat)</b> and rent a <b>scooter (~$6/day)</b> for short routes.`;
+    } else {
+      document.getElementById("driver-note").innerHTML =
+        `<i class="fa-solid fa-van-shuttle mr-2"></i>Your plan includes a full-day <b>private driver (~$${Math.round(plan.driverInfo.priceLow)}–$${Math.round(plan.driverInfo.priceHigh)}/day)</b> — the most cost-effective way to cover long routes. Book locally via your hotel or on Klook.`;
+    }
   }
 }
 
+function renderBudgetBreakdown() {
+  // Phase 12: transparent daily budget breakdown — driver vs scheduled activities.
+  const driver = plan.driverInfo;
+  const actCost = plan.activityCostPerDay || 0;
+  const driverCost = plan.driverDailyCost || 0;
+  if (!driver || (actCost === 0 && driverCost === 0)) return;
+  const total = actCost + driverCost;
+  const driverPct = total > 0 ? Math.round((driverCost / total) * 100) : 0;
+  const actPct = 100 - driverPct;
+  const note = document.getElementById("driver-note");
+  if (note) {
+    note.insertAdjacentHTML("afterend", `
+      <div class="mx-auto max-w-5xl px-4 mt-3 print:hidden" id="budget-breakdown">
+        <div class="flex items-center gap-2 text-xs text-[#757575] mb-1">
+          <span><b>~$${driverCost}/day driver</b></span>
+          <span class="ml-auto"><b>~$${actCost}/day activities</b> &nbsp;= <b>~$${total}/day total</b></span>
+        </div>
+        <div class="w-full h-2.5 rounded-full bg-[#E0E0E0] overflow-hidden flex" role="img" aria-label="Daily budget split">
+          <div style="width:${driverPct}%" class="h-full bg-[#2E7D32]" title="Driver"></div>
+          <div style="width:${actPct}%" class="h-full bg-[#F9A825]" title="Activities"></div>
+        </div>
+        <p class="text-[11px] text-[#9E9E9E] mt-1">Your plan's daily estimate: transport + scheduled activities. Meals, hotels and flights are not included.</p>
+      </div>`);
+  }
+}
 function renderDays() {
   // Phase 6: interest icon for activity cards (🏄 adventure, 🏛 culture, 🌿 nature, 🧘 relaxation/wellness, 🍽 food, 🛍 shopping, 📸 photography)
   function activityIcon(a) {

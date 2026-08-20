@@ -576,13 +576,27 @@ function buildDailyItinerary(filteredActivities, tripDuration, budgetTier, prefe
     days.push(day);
   }
 
-  // Budget summary: approximate daily activity spend (activities + average driver cost)
-  const transportCost = transport ? (transport.priceLow + transport.priceHigh) / 2 : 30;
+  // Budget summary: approximate daily activity spend (activities + driver).
+  // Phase 12: tier-based driver cost — budget travelers typically negotiate a
+  // local rate (~$35-40/day, the driver's own localPrice), while mid/luxury
+  // trips use the standard average rate.
+  const driverDailyCost = transport
+    ? (budgetTier === 'budget' ? (transport.localPrice || transport.priceLow || 40)
+        : (transport.priceLow + transport.priceHigh) / 2)
+    : 0;
   const avgCostPerDay = totalCountScheduled > 0
-    ? Math.round(totalActivityCost / tripDuration + transportCost)
+    ? Math.round(totalActivityCost / tripDuration + driverDailyCost)
     : 0;
 
-  return { days, estimatedActivityCostPerDay: avgCostPerDay, warnings, transport, freeCountScheduled };
+  return {
+    days,
+    estimatedActivityCostPerDay: avgCostPerDay,
+    warnings,
+    transport,
+    freeCountScheduled,
+    driverDailyCost: Math.round(driverDailyCost),
+    activityCostPerDay: totalCountScheduled > 0 ? Math.round(totalActivityCost / tripDuration) : 0,
+  };
 }
 
 function fmtTime(h) {
