@@ -61,6 +61,8 @@
   async function loadSeasonal() {
     if (SEASONAL_EVENTS.length) return SEASONAL_EVENTS;
     const cached = localStorage.getItem(STORAGE_DATA);
+    // A cached empty array came from a previous failed fetch — never reuse it.
+    const cachedValid = cached && cached !== "[]" ? cached : null;
     let lastErr = null;
     // Retry the fetch a few times — network flakiness (e.g. on slow CI links)
     // must not leave the seasonal panel empty when the file is bundled with the site.
@@ -74,9 +76,9 @@
         return SEASONAL_EVENTS;
       } catch (e) {
         lastErr = e;
-        if (cached) {
-          try { SEASONAL_EVENTS = JSON.parse(cached) || []; } catch (_) { SEASONAL_EVENTS = []; }
-          return SEASONAL_EVENTS;
+        if (cachedValid) {
+          try { SEASONAL_EVENTS = JSON.parse(cachedValid) || []; } catch (_) { SEASONAL_EVENTS = []; }
+          if (SEASONAL_EVENTS.length) return SEASONAL_EVENTS;
         }
         await new Promise(r => setTimeout(r, 400 * (attempt + 1)));
       }
