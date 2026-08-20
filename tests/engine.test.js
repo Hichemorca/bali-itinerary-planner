@@ -263,6 +263,42 @@ console.log("\nRegression tests:");
   assert(!/Math\.random/.test(engSrc), "no Math.random in engine (deterministic)");
 }
 
+// 4. Phase 12: budget-tier driver cost is cheaper than mid, and both are
+//    returned in the plan breakdown (driverDailyCost, activityCostPerDay)
+{
+  const acts = DATA.activities;
+  const tiers = ["budget", "mid", "luxury"];
+  const out = {};
+  tiers.forEach((tier) => {
+    const plan = engine.buildDailyItinerary(acts, 5, tier, "Ubud");
+    out[tier] = plan;
+    assert(
+      typeof plan.driverDailyCost === "number" && plan.driverDailyCost >= 0,
+      `${tier}: driverDailyCost is a number >= 0`
+    );
+    assert(
+      typeof plan.activityCostPerDay === "number" && plan.activityCostPerDay >= 0,
+      `${tier}: activityCostPerDay is a number >= 0`
+    );
+    assert(
+      plan.estimatedActivityCostPerDay >= plan.driverDailyCost,
+      `${tier}: total/day >= driver/day`
+    );
+  });
+  assert(
+    out.budget.driverDailyCost < out.mid.driverDailyCost,
+    `budget driverDailyCost (${out.budget.driverDailyCost}) < mid (${out.mid.driverDailyCost})`
+  );
+  assert(
+    out.budget.driverDailyCost <= 40,
+    `budget driverDailyCost <= $40 (negotiated local rate)`
+  );
+  assert(
+    out.mid.driverDailyCost === Math.round((40 + 65) / 2),
+    `mid driverDailyCost = avg(priceLow, priceHigh) = $${out.mid.driverDailyCost}`
+  );
+}
+
 // ---------- Summary ----------
 console.log(`\n${"=".repeat(50)}`);
 console.log(`PASSED: ${passed}  FAILED: ${failed}`);

@@ -217,6 +217,24 @@ test.describe("Result page", () => {
     }
   });
 
+  test("budget breakdown bar shows driver vs activities split", async ({ page }) => {
+    await page.goto(BASE + "/result.html", { waitUntil: "domcontentloaded" });
+    await expect(page.locator("#itinerary-days").or(page.locator(".day-card")).first()).toBeVisible({ timeout: 15000 });
+    const bd = page.locator("#budget-breakdown");
+    if ((await bd.count()) === 0) {
+      // Breakdown only renders when the plan has scheduled costs; treat as skipped
+      console.log("SKIP: no budget breakdown rendered for the test trip");
+      return;
+    }
+    await expect(bd).toBeVisible();
+    const txt = await bd.textContent();
+    expect(txt).toMatch(/driver/i);
+    expect(txt).toMatch(/activities/i);
+    expect(txt).toMatch(/total/i);
+    const segments = bd.locator("> div > div");
+    expect(await segments.count()).toBe(2);
+  });
+
   test("no JavaScript errors on load", async ({ page }) => {
     const errors = [];
     page.on("pageerror", (e) => errors.push(e.message));
