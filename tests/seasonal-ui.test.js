@@ -1,5 +1,5 @@
 /**
- * Seasonal banner & swap flow UI tests (Phase 13)
+ * Seasonal banner & swap flow UI tests (Phase 13; Phase 14: immediate Added-state re-render test)
  */
 const fs = require("fs");
 const path = require("path");
@@ -127,6 +127,32 @@ test.describe("Result page seasonal panel and swap", () => {
     expect(swaps.length).toBe(1);
     expect(String(swaps[0].dayNum)).toBe(dayNum);
     expect(swaps[0].seasonalId).toMatch(/^S\d+$/);
+  });
+
+  test("panel shows Added button immediately after swap (no reload) — Phase 14 re-render fix", async ({ page }) => {
+    await page.goto(BASE + "/result.html", { waitUntil: "domcontentloaded" });
+    await expect(page.locator("#itinerary-days").or(page.locator(".day-card")).first()).toBeVisible({ timeout: 15000 });
+    const trigger = page.locator("#seasonal-panel button.seasonal-swap-trigger").first();
+    await trigger.waitFor({ state: "visible", timeout: 20000 }).catch(async () => {
+      await page.waitForTimeout(1500);
+    });
+    const seasonalId = await trigger.getAttribute("data-seasonal-id");
+    expect(seasonalId).toMatch(/^S\d+$/);
+    // The row containing this trigger must NOT yet show an Added button
+    expect(await page.locator("#seasonal-panel [data-seasonal-id=" + seasonalId + "]").locator("button", { hasText: /^Added$/ }).count()).toBe(0);
+    await expect(trigger).toBeVisible({ timeout: 10000 });
+    await trigger.click();
+    const modal = page.locator("#seasonal-swap-modal");
+    await expect(modal).toBeVisible({ timeout: 10000 });
+    await page.locator("#seasonal-swap-modal button.seasonal-day-pick").first().click();
+    await expect(modal).toBeHidden({ timeout: 10000 });
+    // Immediately (without reload) the same event row must show the disabled "Added" button.
+    // performSwap re-renders the panel asynchronously (seasonal.json fetch), so poll briefly.
+    const addedBtn = page.locator("#seasonal-panel [data-seasonal-id=" + seasonalId + "]").locator("button", { hasText: /^Added$/ }).first();
+    await expect(addedBtn).toBeVisible({ timeout: 20000 });
+    expect(await addedBtn.isDisabled()).toBe(true);
+    // And the page must contain NO enabled Add-to-Day trigger for this event anymore
+    expect(await page.locator("#seasonal-panel").locator("[data-seasonal-id=" + seasonalId + "] button.seasonal-swap-trigger").count()).toBe(0);
   });
 
   test("saved swaps re-apply on page reload", async ({ page }) => {

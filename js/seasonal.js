@@ -10,6 +10,11 @@
 (function () {
   "use strict";
 
+  /** HTML-escape helper: every dynamic string injected via innerHTML must pass through esc() */
+  function esc(s) {
+    return String(s || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+  }
+
   const STORAGE_PICKED = "baliSeasonalPicked";
   const STORAGE_SWAPS = "baliSeasonalSwaps";
   const STORAGE_DATA = "baliSeasonalData";
@@ -133,12 +138,12 @@
       (ev.isFree ? '<span class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-green-500/90 text-white text-[10px] font-bold uppercase tracking-wide">Free</span>' : '') +
       '</div>' +
       '<div class="p-5 flex flex-col flex-1">' +
-      '<h3 class="font-heading font-bold text-base leading-snug mb-1">' + ev.name + "</h3>" +
-      '<p class="text-[#757575] text-xs mb-3"><i class="fa-solid fa-location-dot mr-1 text-[#2E7D32]"></i>' + (ev.regionLabel || ev.region) + "</p>" +
-      '<p class="text-[#424242] text-xs leading-relaxed mb-3 flex-1">' + (ev.description || "") + "</p>" +
+      '<h3 class="font-heading font-bold text-base leading-snug mb-1">' + esc(ev.name) + "</h3>" +
+      '<p class="text-[#757575] text-xs mb-3"><i class="fa-solid fa-location-dot mr-1 text-[#2E7D32]"></i>' + esc(ev.regionLabel || ev.region) + "</p>" +
+      '<p class="text-[#424242] text-xs leading-relaxed mb-3 flex-1">' + esc(ev.description || "") + "</p>" +
       '<div class="flex items-center justify-between mt-auto pt-2">' +
       '<span class="flex items-center gap-2">' +
-      '<span class="text-xs text-[#757575]"><i class="fa-solid fa-calendar-days mr-1"></i>' + ev.displayDates + "</span>" +
+      '<span class="text-xs text-[#757575]"><i class="fa-solid fa-calendar-days mr-1"></i>' + esc(ev.displayDates) + "</span>" +
       "</span>" + price +
       "</div>" +
       (extra || "") +
@@ -196,8 +201,8 @@
       '<div class="flex items-start gap-4 mb-5">' +
       '<div class="w-14 h-14 rounded-xl flex items-center justify-center shrink-0" style="background:' + act.gradient + ';"><i class="fa-solid ' + act.icon + ' text-white text-2xl"></i></div>' +
       "<div>" +
-      '<h3 class="font-heading font-bold text-lg">' + ev.name + "</h3>" +
-      '<p class="text-xs text-[#757575]"><i class="fa-solid fa-calendar-days mr-1"></i>' + ev.displayDates + "</p>" +
+      '<h3 class="font-heading font-bold text-lg">' + esc(ev.name) + "</h3>" +
+      '<p class="text-xs text-[#757575]"><i class="fa-solid fa-calendar-days mr-1"></i>' + esc(ev.displayDates) + "</p>" +
       "</div></div>" +
       '<p class="text-sm text-[#424242] mb-4">Choose which day of your plan should feature this event. We\'ll replace that day\'s main activity with it, keeping your schedule balanced.</p>' +
       '<div class="space-y-2 mb-5">' +
@@ -206,7 +211,7 @@
         const first = mains[0] && mains[0].act ? mains[0].act.name : "Day " + d.dayNum;
         return '<button class="seasonal-day-pick w-full text-left rounded-xl border border-gray-200 px-4 py-3 hover:border-[#2E7D32] hover:bg-green-50 transition-colors" data-day="' + d.dayNum + '">' +
           '<span class="font-semibold text-sm">Day ' + d.dayNum + "</span> " +
-          '<span class="text-xs text-[#757575]">— replaces: ' + first + "</span></button>";
+          '<span class="text-xs text-[#757575]">— replaces: ' + esc(first) + "</span></button>";
       }).join("") : '<p class="text-sm text-[#757575]">No swappable days found.</p>') +
       "</div>" +
       '<div class="flex gap-3">' +
@@ -244,11 +249,10 @@
     swaps.push({ dayNum: dayNum, seasonalId: ev.id });
     localStorage.setItem(STORAGE_SWAPS, JSON.stringify(swaps));
     applySwapsToDOM(dayNum, act);
-    const panel = document.getElementById("seasonal-panel");
-    if (panel) {
-      const btn = panel.querySelector('[data-swap="' + dayNum + "-" + ev.id + '"]');
-      if (btn) { btn.innerHTML = '<i class="fa-solid fa-check mr-1"></i>Added to Day ' + dayNum; btn.disabled = true; btn.classList.add("bg-green-600"); }
-    }
+    // Re-render the panel so the swapped event immediately shows "Added"
+    // (the old data-swap=... selector matched nothing because buttons only
+    // carry data-seasonal-id, so the Added state never appeared before).
+    if (document.getElementById("seasonal-panel")) renderResultPanel();
   }
 
   /** Apply one swap to the rendered day card (works pre/post full re-apply) */
@@ -307,6 +311,8 @@
       if (shown.length >= 5) break;
     }
     const days = window.__baliPlanDays || [];
+    // Compute pickable days ONCE (Phase 14): previously recomputed for every shown event
+    const pickable = days.filter(d => d.activities && d.activities.filter(a => !a.isBreak).length > 0);
     const picked = localStorage.getItem(STORAGE_PICKED);
     if (picked) {
       const ev = events.find(e => e.id === picked);
@@ -334,12 +340,11 @@
         const price = ev.isFree ? '<span class="text-xs font-semibold text-green-700">Free</span>'
           : '<span class="text-xs font-semibold text-amber-800">$' + (ev.priceLow || ev.priceHigh || 0) + (ev.priceHigh && ev.priceHigh !== ev.priceLow ? "–$" + ev.priceHigh : "") + "</span>";
         const wasSwapped = swappedIds.has(ev.id);
-        const pickable = days.filter(d => d.activities && d.activities.filter(a => !a.isBreak).length > 0);
         return '<div class="flex items-center gap-4 bg-white rounded-xl border border-gray-100 p-4" data-seasonal-id="' + ev.id + '">' +
           '<div class="w-12 h-12 rounded-lg flex items-center justify-center shrink-0" style="background:' + ev.gradient + ';"><i class="fa-solid ' + ev.icon + ' text-white text-lg"></i></div>' +
           '<div class="flex-1 min-w-0">' +
-          '<h4 class="font-semibold text-sm leading-snug">' + ev.name + "</h4>" +
-          '<p class="text-[11px] text-[#9E9E9E]"><i class="fa-solid fa-location-dot mr-1"></i>' + (ev.regionLabel || ev.region) + " · " + ev.displayDates + " · " + ev.bestTime + "</p>" +
+          '<h4 class="font-semibold text-sm leading-snug">' + esc(ev.name) + "</h4>" +
+          '<p class="text-[11px] text-[#9E9E9E]"><i class="fa-solid fa-location-dot mr-1"></i>' + esc(ev.regionLabel || ev.region) + " · " + esc(ev.displayDates) + " · " + esc(ev.bestTime) + "</p>" +
           "</div>" + price +
           '<div class="shrink-0">' +
           (wasSwapped
