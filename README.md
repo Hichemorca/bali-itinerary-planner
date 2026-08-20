@@ -6,7 +6,17 @@ A static, fully client-side website that generates personalized day-by-day Bali 
 
 > **Note:** the Gumroad payment gateway is **temporarily disabled** — the site is free to use. The placeholder `your-product-id` remains in `js/gumroad-integration.js` until a product is created; when ready, follow the "Gumroad Setup" section below.
 
-## Latest: v6 — SEO, Social Sharing & CI (Phase 11)
+## Latest: v7 — Budget Balance & Transparency (Phase 12)
+
+A 5-day budget-tier trip previously showed only free activities because the full-day private driver ($40–65/day) consumed 37–54% of the $120/day budget cap. Three changes fix this:
+
+1. **Tier-based driver cost** (`js/itinerary-engine.js`): the daily estimate now uses the driver's negotiated local rate (`localPrice`, ~$40/day) for the **budget** tier instead of the standard average price; mid and luxury keep the average rate. `driverDailyCost` and `activityCostPerDay` are returned in the plan object for transparent breakdowns.
+2. **Budget-tier driver note** (`js/result.js`): on the result page, budget plans get guidance for cheaper alternatives — negotiate the local rate with your hotel, Klook/Traveloka, or swap days for shared tourist shuttles ($5–10/seat) and scooter rentals (~$6/day).
+3. **Daily budget breakdown bar**: a new `#budget-breakdown` strip under the plan header shows **~$X/day driver + ~$Y/day activities = ~$Z/day total** as a green/gold split bar, so travelers immediately see how their daily estimate is composed (meals/hotels/flights excluded).
+
+**Tests:** 12 new engine assertions verify the tier cost logic (`budget < mid`, `budget <= $40`, breakdown fields present across all tiers), and a new Playwright test confirms the breakdown bar renders with both segments. Full suite: **25,088 engine assertions + 18 UI/analytics tests — all green**, on CI and locally.
+
+## Latest archive: v6 — SEO, Social Sharing & CI (Phase 11)
 
 Every page now ships with a complete SEO head block: `meta description`, `keywords`, `author`, canonical URL, full Open Graph set (title/description/type/URL/image/dimensions/alt/site name/locale) and Twitter Card (`summary_large_image` with image + alt). The landing page and quiz page carry **JSON-LD structured data** (`WebSite` + `SoftwareApplication` with rating markup on the index; `WebPage` with `isPartOf` on quiz/result/privacy/contact). A custom **1200×630 social sharing card** (`assets/images/og-social-card.png`) is generated from Python/Pillow in the Bali green/gold theme. `sitemap.xml` lists only the indexable pages (result page stays `noindex` by design).
 
@@ -14,7 +24,7 @@ GA4 tracking (`js/analytics.js`) was hardened: the `dataLayer` is initialized be
 
 **GitHub Actions CI is live and green**: `.github/workflows/ci.yml` runs the full suite (`npm test` = engine + 17 UI tests) on every push/PR to `master` (Node 22, Chromium pre-installed, local `http.server` on port 8000). The Netlify deploy workflow gracefully skips when the `NETLIFY_AUTH_TOKEN` secret is not set (production deploys are managed via the sandbox). A `package-lock.json` was added because `setup-node`'s npm cache requires it.
 
-## Previous: v5 — Automated Test Suite (Phase 10)
+## Archive: v5 — Automated Test Suite (Phase 10)
 
 - **Engine tests** (`tests/engine.test.js`, Node.js): **25,076 assertions** across **all 648 possible quiz combinations** (4 durations × 3 budgets × 3 trip types × 6 interests × 9 regions), verifying zero-repeat scheduling, free/paid balance, meal breaks, flex days, region rotation, and stats consistency. **All green.**
 - **UI tests** (`tests/ui.test.js`, Playwright): **14 browser tests** that actually click through the site — full quiz flow, PDF download, ICS calendar download (validates `BEGIN:VCALENDAR` content), Google Calendar links, share link prefill, edit-plan mode, star rating, email capture, rainy-day toggle, dark mode, back-to-top, and a no-JavaScript-errors-on-load check. **14/14 passing.**
