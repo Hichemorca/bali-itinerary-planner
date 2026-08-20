@@ -50,6 +50,17 @@ test.describe("Homepage seasonal banner", () => {
   });
 });
 
+// Wait for the result page to finish building the plan (result.js sets
+// window.__baliPlanDays once the itinerary is ready). On slow CI runners the
+// page can take many seconds, and the seasonal panel must be re-checked only
+// after the plan exists — otherwise it renders with "No days yet" placeholders.
+async function waitForPlan(page) {
+  await page.waitForFunction(
+    () => (window.__baliPlanDays || []).length > 0,
+    { timeout: 30000 },
+  );
+}
+
 test.describe("Result page seasonal panel and swap", () => {
   test.beforeEach(async ({ page }) => {
     await page.addInitScript((answers) => localStorage.setItem("baliAnswers", JSON.stringify(answers)), QUIZ_ANSWERS);
@@ -63,6 +74,7 @@ test.describe("Result page seasonal panel and swap", () => {
   test("seasonal panel renders with Add-to-Day buttons", async ({ page }) => {
     await page.goto(BASE + "/result.html", { waitUntil: "domcontentloaded" });
     await expect(page.locator("#itinerary-days").or(page.locator(".day-card")).first()).toBeVisible({ timeout: 15000 });
+    await waitForPlan(page);
     // The seasonal panel may render a touch later (fetch + retry under slow links),
     // so poll for at least one trigger until the plan has rendered.
     // On diagnosis failure, capture the exact panel state so the CI log says why.
@@ -120,6 +132,7 @@ test.describe("Result page seasonal panel and swap", () => {
   test("saved swaps re-apply on page reload", async ({ page }) => {
     await page.goto(BASE + "/result.html", { waitUntil: "domcontentloaded" });
     await expect(page.locator("#itinerary-days").or(page.locator(".day-card")).first()).toBeVisible({ timeout: 15000 });
+    await waitForPlan(page);
     const trigger = page.locator("#seasonal-panel button.seasonal-swap-trigger").first();
     await trigger.waitFor({ state: "visible", timeout: 20000 }).catch(async () => {
       await page.waitForTimeout(1500);
