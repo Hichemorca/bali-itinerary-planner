@@ -54,6 +54,10 @@ test.describe("Result page seasonal panel and swap", () => {
   test.beforeEach(async ({ page }) => {
     await page.addInitScript((answers) => localStorage.setItem("baliAnswers", JSON.stringify(answers)), QUIZ_ANSWERS);
     await page.addInitScript((events) => localStorage.setItem("baliSeasonalData", JSON.stringify(events)), SEASONAL_EVENTS_CACHE);
+    await page.addInitScript(() => {
+      window.__diagErrors = [];
+      window.addEventListener("error", (e) => (window.__diagErrors || []).push(String(e.message)));
+    });
   });
 
   test("seasonal panel renders with Add-to-Day buttons", async ({ page }) => {
@@ -61,13 +65,21 @@ test.describe("Result page seasonal panel and swap", () => {
     await expect(page.locator("#itinerary-days").or(page.locator(".day-card")).first()).toBeVisible({ timeout: 15000 });
     // The seasonal panel may render a touch later (fetch + retry under slow links),
     // so poll for at least one trigger until the plan has rendered.
+    // On diagnosis failure, capture the exact panel state so the CI log says why.
     const triggerCount = await page.locator("#seasonal-panel button.seasonal-swap-trigger").first().waitFor({ state: "visible", timeout: 20000 }).then(() =>
       page.locator("#seasonal-panel button.seasonal-swap-trigger").count()
     ).catch(async () => {
       await page.waitForTimeout(1500);
       return page.locator("#seasonal-panel button.seasonal-swap-trigger").count();
     });
-    expect(triggerCount).toBeGreaterThanOrEqual(1);
+    if (triggerCount < 1) {
+      const diag = await page.evaluate(() => ({
+        panelHTML: (document.getElementById("seasonal-panel").innerHTML || "").slice(0, 300),
+        daysLen: (window.__baliPlanDays || []).length,
+        scriptErrors: window.__diagErrors || null,
+      }));
+      throw new Error("seasonal panel rendered no Add-to-Day buttons — diag: " + JSON.stringify(diag));
+    }
     await expect(page.locator("#seasonal-panel .fa-location-dot").first()).toBeVisible();
   });
 
@@ -114,6 +126,8 @@ test.describe("Result page seasonal panel and swap", () => {
     });
     await expect(trigger).toBeVisible({ timeout: 10000 });
     await trigger.click();
+    const modal = page.locator("#seasonal-swap-modal");
+    await expect(modal).toBeVisible({ timeout: 10000 });
     await page.locator("#seasonal-swap-modal button.seasonal-day-pick").first().click();
     await expect(page.locator(".activity-row.seasonal-row").first()).toBeVisible({ timeout: 10000 });
     const seasonalId = await page.locator(".activity-row.seasonal-row").first().getAttribute("data-seasonal-id");
@@ -121,7 +135,11 @@ test.describe("Result page seasonal panel and swap", () => {
     // Reload (fresh page, same localStorage) — swapped event now shows an "Added" button, not a swap trigger
     await page.reload({ waitUntil: "domcontentloaded" });
     await expect(page.locator("#itinerary-days").or(page.locator(".day-card")).first()).toBeVisible({ timeout: 15000 });
-    await expect(page.locator(".activity-row.seasonal-row").first()).toBeVisible({ timeout: 15000 });
+    const reapplyWait = await page.locator(".activity-row.seasonal-row").first().waitFor({ state: "visible", timeout: 20000 }).catch(async () => {
+      await page.waitForTimeout(1500);
+      return null;
+    });
+    await expect(page.locator(".activity-row.seasonal-row").first()).toBeVisible({ timeout: 10000 });
     const reId = await page.locator(".activity-row.seasonal-row").first().getAttribute("data-seasonal-id");
     expect(reId).toBe(seasonalId);
     // The seasonal panel should still reference the event (Added state for swapped event)
