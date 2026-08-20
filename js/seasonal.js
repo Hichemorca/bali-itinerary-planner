@@ -61,20 +61,28 @@
   async function loadSeasonal() {
     if (SEASONAL_EVENTS.length) return SEASONAL_EVENTS;
     const cached = localStorage.getItem(STORAGE_DATA);
-    try {
-      const res = await fetch("data/seasonal.json?v=ph15", { cache: "no-store" });
-      if (!res.ok) throw new Error("seasonal.json HTTP " + res.status);
-      const d = await res.json();
-      SEASONAL_EVENTS = d.events || [];
-      localStorage.setItem(STORAGE_DATA, JSON.stringify(SEASONAL_EVENTS));
-    } catch (e) {
-      if (cached) {
-        try { SEASONAL_EVENTS = JSON.parse(cached) || []; } catch (_) { SEASONAL_EVENTS = []; }
-      } else {
-        console.warn("seasonal.js: could not load seasonal.json", e);
-        SEASONAL_EVENTS = [];
+    let lastErr = null;
+    // Retry the fetch a few times — network flakiness (e.g. on slow CI links)
+    // must not leave the seasonal panel empty when the file is bundled with the site.
+    for (let attempt = 0; attempt < 3; attempt++) {
+      try {
+        const res = await fetch("data/seasonal.json?v=ph15", { cache: "no-store" });
+        if (!res.ok) throw new Error("seasonal.json HTTP " + res.status);
+        const d = await res.json();
+        SEASONAL_EVENTS = d.events || [];
+        localStorage.setItem(STORAGE_DATA, JSON.stringify(SEASONAL_EVENTS));
+        return SEASONAL_EVENTS;
+      } catch (e) {
+        lastErr = e;
+        if (cached) {
+          try { SEASONAL_EVENTS = JSON.parse(cached) || []; } catch (_) { SEASONAL_EVENTS = []; }
+          return SEASONAL_EVENTS;
+        }
+        await new Promise(r => setTimeout(r, 400 * (attempt + 1)));
       }
     }
+    console.warn("seasonal.js: could not load seasonal.json after retries", lastErr);
+    SEASONAL_EVENTS = [];
     return SEASONAL_EVENTS;
   }
 

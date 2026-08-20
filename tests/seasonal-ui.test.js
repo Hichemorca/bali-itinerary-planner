@@ -47,7 +47,14 @@ test.describe("Result page seasonal panel and swap", () => {
   test("seasonal panel renders with Add-to-Day buttons", async ({ page }) => {
     await page.goto(BASE + "/result.html", { waitUntil: "domcontentloaded" });
     await expect(page.locator("#itinerary-days").or(page.locator(".day-card")).first()).toBeVisible({ timeout: 15000 });
-    const triggerCount = await page.locator("#seasonal-panel button.seasonal-swap-trigger").count({ timeout: 15000 });
+    // The seasonal panel may render a touch later (fetch + retry under slow links),
+    // so poll for at least one trigger until the plan has rendered.
+    const triggerCount = await page.locator("#seasonal-panel button.seasonal-swap-trigger").first().waitFor({ state: "visible", timeout: 20000 }).then(() =>
+      page.locator("#seasonal-panel button.seasonal-swap-trigger").count()
+    ).catch(async () => {
+      await page.waitForTimeout(1500);
+      return page.locator("#seasonal-panel button.seasonal-swap-trigger").count();
+    });
     expect(triggerCount).toBeGreaterThanOrEqual(1);
     await expect(page.locator("#seasonal-panel .fa-location-dot").first()).toBeVisible();
   });
@@ -57,7 +64,10 @@ test.describe("Result page seasonal panel and swap", () => {
     await expect(page.locator("#itinerary-days").or(page.locator(".day-card")).first()).toBeVisible({ timeout: 15000 });
     // Open the swap modal via the panel
     const trigger = page.locator("#seasonal-panel button.seasonal-swap-trigger").first();
-    await expect(trigger).toBeVisible({ timeout: 15000 });
+    await trigger.waitFor({ state: "visible", timeout: 20000 }).catch(async () => {
+      await page.waitForTimeout(1500);
+    });
+    await expect(trigger).toBeVisible({ timeout: 10000 });
     await trigger.click();
     const modal = page.locator("#seasonal-swap-modal");
     await expect(modal).toBeVisible({ timeout: 10000 });
@@ -87,7 +97,10 @@ test.describe("Result page seasonal panel and swap", () => {
     await page.goto(BASE + "/result.html", { waitUntil: "domcontentloaded" });
     await expect(page.locator("#itinerary-days").or(page.locator(".day-card")).first()).toBeVisible({ timeout: 15000 });
     const trigger = page.locator("#seasonal-panel button.seasonal-swap-trigger").first();
-    await expect(trigger).toBeVisible({ timeout: 15000 });
+    await trigger.waitFor({ state: "visible", timeout: 20000 }).catch(async () => {
+      await page.waitForTimeout(1500);
+    });
+    await expect(trigger).toBeVisible({ timeout: 10000 });
     await trigger.click();
     await page.locator("#seasonal-swap-modal button.seasonal-day-pick").first().click();
     await expect(page.locator(".activity-row.seasonal-row").first()).toBeVisible({ timeout: 10000 });
