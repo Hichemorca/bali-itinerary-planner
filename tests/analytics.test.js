@@ -40,21 +40,24 @@ test.describe("GA4 analytics health", () => {
     await page.locator(".opt-btn[data-value='Ubud']").first().click();
     // Capture quiz-page events before the submit navigates away
     quizEvents.push(...(await page.evaluate(() =>
-      window.dataLayer
+      (window.dataLayer || [])
         .map((a) => a && a[1])
         .filter((n) => typeof n === "string")
     )));
     await page.getByRole("button", { name: /show my itinerary/i }).first().click();
     // completeQuiz fires synchronously on the quiz page during submit, before navigation
     quizEvents.push(...(await page.evaluate(() =>
-      window.dataLayer
+      (window.dataLayer || [])
         .map((a) => a && a[1])
         .filter((n) => typeof n === "string")
     ).catch(() => [])));
     await expect(page).toHaveURL(/result\.html/);
-    await page.waitForTimeout(800);
+    // Wait for the plan to actually render (the Tailwind CDN can stall script
+    // execution when the network is flaky, so a fixed 800ms wait is unreliable)
+    await expect(page.locator("#itinerary-days").first()).toBeVisible({ timeout: 30000 });
+    await page.waitForTimeout(500);
     const events = await page.evaluate(() =>
-      window.dataLayer
+      (window.dataLayer || [])
         .map((a) => a && a[1])
         .filter((n) => typeof n === "string")
     );

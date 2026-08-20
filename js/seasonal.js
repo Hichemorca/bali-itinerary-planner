@@ -204,6 +204,7 @@
       "</div></div>";
     modal.classList.remove("hidden");
     modal.classList.add("flex");
+    modal.style.display = "flex";
     document.getElementById("seasonal-modal-cancel").addEventListener("click", () => closeModal());
     modal.addEventListener("click", (e) => { if (e.target === modal) closeModal(); });
     modal.querySelectorAll(".seasonal-day-pick").forEach(btn => {
@@ -213,7 +214,13 @@
 
   function closeModal() {
     const modal = document.getElementById("seasonal-swap-modal");
-    if (modal) { modal.classList.add("hidden"); modal.classList.remove("flex"); }
+    if (modal) {
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+      // Inline style ensures the modal is actually hidden even when the
+      // Tailwind CDN fails to load (`.hidden` class has no effect then).
+      modal.style.display = "none";
+    }
   }
 
   /** Core swap: replace an activity on the chosen day with the seasonal event at its slot */
