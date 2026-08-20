@@ -1,0 +1,700 @@
+{
+  "note": "Seasonal events for Bali. monthStart/monthEnd are 1-12 (annual, no year). dayStart/dayEnd are approximate day ranges within the month. isNotice: true marks planning warnings (not bookable activities). Sources: verified 2026 Bali festival calendars (thebitjoy.com, ubudfoodfestival.com, ubudwritersfestival.com, hanginggardensofbali.com, bali.com).",
+  "events": [
+    {
+      "id": "S1",
+      "name": "Mekotek Bamboo Festival",
+      "region": "Badung",
+      "regionLabel": "Munggu Village, Badung",
+      "monthStart": 1,
+      "monthEnd": 2,
+      "displayDates": "January – February (Purnama moon)",
+      "description": "Villagers parade clashing bamboo poles and climb human pyramids to ward off evil spirits — a thunderous, daring village tradition.",
+      "priceLow": 1,
+      "priceHigh": 3,
+      "priceNote": "Donation 20,000–50,000 IDR",
+      "interests": [
+        "culture"
+      ],
+      "bestFor": [
+        "solo",
+        "adventure",
+        "culture"
+      ],
+      "bestTime": "Morning (8:00 AM – 11:00 AM)",
+      "slot": "morning",
+      "isFree": false,
+      "icon": "fa-drum",
+      "gradient": "linear-gradient(135deg, #8D6E63 0%, #5D4037 100%)",
+      "rating": 4.4
+    },
+    {
+      "id": "S2",
+      "name": "Chinese New Year Celebrations",
+      "region": "Denpasar",
+      "regionLabel": "Denpasar & North Bali temples",
+      "monthStart": 1,
+      "monthEnd": 2,
+      "displayDates": "January – February (Lunar New Year)",
+      "description": "Lion dances, lantern parades and temple ceremonies at Ling Gwan Kiong (Singaraja) and Pura Aditya Jaya — Bali's Chinese-Indonesian community celebration.",
+      "priceLow": 0,
+      "priceHigh": 0,
+      "priceNote": "Free",
+      "interests": [
+        "culture",
+        "food"
+      ],
+      "bestFor": [
+        "family",
+        "culture",
+        "food"
+      ],
+      "bestTime": "Morning to early afternoon",
+      "slot": "morning",
+      "isFree": true,
+      "icon": "fa-lantern",
+      "gradient": "linear-gradient(135deg, #E53935 0%, #B71C1C 100%)",
+      "rating": 4.6
+    },
+    {
+      "id": "S3",
+      "name": "Melasti Purification Ceremonies",
+      "region": "Coastal Bali",
+      "regionLabel": "Kuta, Seminyak, Sanur, Tanah Lot, Uluwatu beaches",
+      "monthStart": 3,
+      "monthEnd": 3,
+      "displayDates": "March 17–18 (before Nyepi)",
+      "description": "Thousands of white-clad devotees carry temple heirlooms in procession to the sea for the annual purification before Nyepi.",
+      "priceLow": 0,
+      "priceHigh": 0,
+      "priceNote": "Free",
+      "interests": [
+        "culture",
+        "nature"
+      ],
+      "bestFor": [
+        "solo",
+        "culture",
+        "nature"
+      ],
+      "bestTime": "Morning procession (8:00 AM)",
+      "slot": "morning",
+      "isFree": true,
+      "icon": "fa-water",
+      "gradient": "linear-gradient(135deg, #4FC3F7 0%, #0288D1 100%)",
+      "rating": 4.8
+    },
+    {
+      "id": "S4",
+      "name": "Ogoh-Ogoh Parade (Nyepi Eve)",
+      "region": "Island-wide",
+      "regionLabel": "Kuta, Seminyak, Ubud, Sanur",
+      "monthStart": 3,
+      "monthEnd": 3,
+      "displayDates": "March 18 (evening, before Nyepi)",
+      "description": "Giant demon effigies paraded with gamelan drums and fire, then burned — the most photogenic night of the year in Bali.",
+      "priceLow": 0,
+      "priceHigh": 0,
+      "priceNote": "Free",
+      "interests": [
+        "culture",
+        "adventure"
+      ],
+      "bestFor": [
+        "solo",
+        "adventure",
+        "culture"
+      ],
+      "bestTime": "Evening (5:00 – 9:00 PM)",
+      "slot": "evening",
+      "isFree": true,
+      "icon": "fa-fire",
+      "gradient": "linear-gradient(135deg, #FF6F00 0%, #BF360C 100%)",
+      "rating": 4.9
+    },
+    {
+      "id": "S5",
+      "name": "Nyepi — Day of Silence (Planning Notice)",
+      "region": "Island-wide",
+      "regionLabel": "All of Bali",
+      "monthStart": 3,
+      "monthEnd": 3,
+      "displayDates": "March 19 (24-hour island shutdown)",
+      "description": "Planning notice: the entire island goes silent for 24 hours — airport closed, no traffic, lights off, everyone stays indoors. Arrange Nyepi packages with your hotel.",
+      "priceLow": 0,
+      "priceHigh": 0,
+      "priceNote": "Not a bookable event",
+      "interests": [
+        "culture"
+      ],
+      "bestFor": [],
+      "bestTime": "All day (24h silence)",
+      "slot": "morning",
+      "isFree": true,
+      "isNotice": true,
+      "icon": "fa-ban",
+      "gradient": "linear-gradient(135deg, #37474F 0%, #263238 100%)",
+      "rating": 4.7
+    },
+    {
+      "id": "S6",
+      "name": "Omed-Omedan Kissing Festival",
+      "region": "Denpasar",
+      "regionLabel": "Sesetan Village, Denpasar",
+      "monthStart": 3,
+      "monthEnd": 3,
+      "displayDates": "March 20 (day after Nyepi)",
+      "description": "A joyful post-Nyepi tradition where young villagers embrace and throw water on each other to celebrate the return to life after silence.",
+      "priceLow": 0,
+      "priceHigh": 0,
+      "priceNote": "Free",
+      "interests": [
+        "culture"
+      ],
+      "bestFor": [
+        "solo",
+        "culture"
+      ],
+      "bestTime": "Late morning (11:00 AM)",
+      "slot": "morning",
+      "isFree": true,
+      "icon": "fa-heart",
+      "gradient": "linear-gradient(135deg, #EC407A 0%, #AD1457 100%)",
+      "rating": 4.3
+    },
+    {
+      "id": "S7",
+      "name": "Bali Spirit Festival",
+      "region": "Ubud",
+      "regionLabel": "The Yoga Barn & Puri Padi, Ubud",
+      "monthStart": 3,
+      "monthEnd": 3,
+      "displayDates": "Mid-March (5 days)",
+      "description": "Five days of yoga, dance, meditation, world music concerts and ecstatic dance with 100+ international teachers — Bali's flagship wellness festival.",
+      "priceLow": 50,
+      "priceHigh": 80,
+      "priceNote": "Single-day pass $50–80 (full pass $200–400)",
+      "interests": [
+        "relaxation",
+        "culture",
+        "nature"
+      ],
+      "bestFor": [
+        "solo",
+        "honeymoon",
+        "relaxation"
+      ],
+      "bestTime": "Morning workshops (8:00 AM)",
+      "slot": "morning",
+      "isFree": false,
+      "icon": "fa-spa",
+      "gradient": "linear-gradient(135deg, #AB47BC 0%, #6A1B9A 100%)",
+      "rating": 4.7
+    },
+    {
+      "id": "S8",
+      "name": "Ubud Food Festival",
+      "region": "Ubud",
+      "regionLabel": "Taman Kuliner Ubud",
+      "monthStart": 5,
+      "monthEnd": 5,
+      "displayDates": "May 28–31",
+      "description": "Southeast Asia's most celebrated culinary festival: chef-led dining, cooking demos, food markets and night market with 50+ stalls of Indonesian cuisine.",
+      "priceLow": 10,
+      "priceHigh": 20,
+      "priceNote": "Day pass 150,000–300,000 IDR",
+      "interests": [
+        "food",
+        "culture"
+      ],
+      "bestFor": [
+        "food",
+        "solo",
+        "honeymoon"
+      ],
+      "bestTime": "Afternoon sessions (2:00 PM)",
+      "slot": "afternoon",
+      "isFree": false,
+      "icon": "fa-utensils",
+      "gradient": "linear-gradient(135deg, #FFA726 0%, #E65100 100%)",
+      "rating": 4.8
+    },
+    {
+      "id": "S9",
+      "name": "Bali Arts Festival",
+      "region": "Denpasar",
+      "regionLabel": "Taman Werdhi Budaya Art Centre, Denpasar",
+      "monthStart": 6,
+      "monthEnd": 7,
+      "displayDates": "June 13 – July 11",
+      "description": "Bali's largest cultural festival — a full month of daily Legong and Kecak dances, gamelan competitions, craft workshops and art exhibitions.",
+      "priceLow": 0,
+      "priceHigh": 0,
+      "priceNote": "Most events free",
+      "interests": [
+        "culture",
+        "food",
+        "relaxation"
+      ],
+      "bestFor": [
+        "family",
+        "culture",
+        "honeymoon"
+      ],
+      "bestTime": "Evening performances (7:00 PM)",
+      "slot": "afternoon",
+      "isFree": true,
+      "icon": "fa-masks-theater",
+      "gradient": "linear-gradient(135deg, #F9A825 0%, #F57F17 100%)",
+      "rating": 4.8
+    },
+    {
+      "id": "S10",
+      "name": "Galungan & Kuningan",
+      "region": "Island-wide",
+      "regionLabel": "All of Bali",
+      "monthStart": 6,
+      "monthEnd": 6,
+      "displayDates": "June 17–27 (10-day celebration)",
+      "description": "Bali's most important Hindu festival: victory of good over evil. Streets island-wide are draped in bamboo penjor arches — the most photogenic time to visit.",
+      "priceLow": 0,
+      "priceHigh": 0,
+      "priceNote": "Free",
+      "interests": [
+        "culture"
+      ],
+      "bestFor": [
+        "family",
+        "culture",
+        "honeymoon",
+        "solo"
+      ],
+      "bestTime": "Morning temple visits (8:00 AM)",
+      "slot": "morning",
+      "isFree": true,
+      "icon": "fa-street-view",
+      "gradient": "linear-gradient(135deg, #66BB6A 0%, #2E7D32 100%)",
+      "rating": 4.9
+    },
+    {
+      "id": "S11",
+      "name": "Tenganan Pandan War (Usaba Sambah)",
+      "region": "East Bali",
+      "regionLabel": "Tenganan Village, near Candidasa",
+      "monthStart": 6,
+      "monthEnd": 6,
+      "displayDates": "June 21–23",
+      "description": "An ancient ritual combat with thorny pandan leaves in one of Bali's oldest traditional villages — raw, unique and unforgettable.",
+      "priceLow": 0,
+      "priceHigh": 1,
+      "priceNote": "Free / small donation",
+      "interests": [
+        "culture",
+        "adventure"
+      ],
+      "bestFor": [
+        "adventure",
+        "culture",
+        "solo"
+      ],
+      "bestTime": "Morning ritual (9:00 AM)",
+      "slot": "morning",
+      "isFree": false,
+      "icon": "fa-shield-halved",
+      "gradient": "linear-gradient(135deg, #43A047 0%, #1B5E20 100%)",
+      "rating": 4.6
+    },
+    {
+      "id": "S12",
+      "name": "Bali Kite Festival",
+      "region": "Sanur",
+      "regionLabel": "Padang Galak & Sanur Beach",
+      "monthStart": 7,
+      "monthEnd": 8,
+      "displayDates": "July – August (windy season)",
+      "description": "Village teams fly giant handcrafted kites up to 20m long over the beach, accompanied by gamelan — one of Bali's most colorful traditions.",
+      "priceLow": 0,
+      "priceHigh": 0,
+      "priceNote": "Free",
+      "interests": [
+        "nature",
+        "culture"
+      ],
+      "bestFor": [
+        "family",
+        "nature",
+        "culture"
+      ],
+      "bestTime": "Afternoon winds (3:00 PM)",
+      "slot": "afternoon",
+      "isFree": true,
+      "icon": "fa-wind",
+      "gradient": "linear-gradient(135deg, #29B6F6 0%, #0277BD 100%)",
+      "rating": 4.5
+    },
+    {
+      "id": "S13",
+      "name": "Lovina Festival",
+      "region": "North Bali",
+      "regionLabel": "Lovina Beach",
+      "monthStart": 7,
+      "monthEnd": 7,
+      "displayDates": "Late July (~July 24)",
+      "description": "North Bali's showcase of traditional dance, music, crafts and local food on Lovina's calm black-sand beach, plus dolphin-watching season is at its peak.",
+      "priceLow": 0,
+      "priceHigh": 0,
+      "priceNote": "Most events free",
+      "interests": [
+        "nature",
+        "culture",
+        "relaxation"
+      ],
+      "bestFor": [
+        "family",
+        "relaxation",
+        "nature"
+      ],
+      "bestTime": "Morning dolphins (6:00 AM) / afternoon festival",
+      "slot": "morning",
+      "isFree": true,
+      "icon": "fa-dolphin",
+      "gradient": "linear-gradient(135deg, #4DD0E1 0%, #00838F 100%)",
+      "rating": 4.4
+    },
+    {
+      "id": "S14",
+      "name": "Ubud Village Jazz Festival",
+      "region": "Ubud",
+      "regionLabel": "Ubud center",
+      "monthStart": 8,
+      "monthEnd": 8,
+      "displayDates": "August 7–8",
+      "description": "Two evenings of intimate open-air jazz with Indonesian and international artists — Ubud's most elegant weekend of the year.",
+      "priceLow": 15,
+      "priceHigh": 30,
+      "priceNote": "Tickets $15–30",
+      "interests": [
+        "relaxation",
+        "food",
+        "culture"
+      ],
+      "bestFor": [
+        "honeymoon",
+        "solo",
+        "relaxation"
+      ],
+      "bestTime": "Evening (7:00 PM)",
+      "slot": "evening",
+      "isFree": false,
+      "icon": "fa-music",
+      "gradient": "linear-gradient(135deg, #5C6BC0 0%, #283593 100%)",
+      "rating": 4.7
+    },
+    {
+      "id": "S15",
+      "name": "Sanur Village Festival",
+      "region": "Sanur",
+      "regionLabel": "Sanur Beach promenade",
+      "monthStart": 8,
+      "monthEnd": 8,
+      "displayDates": "Late August (one week)",
+      "description": "A week of arts, traditional games, water sports, food bazaars and environmental activities along Sanur's sunrise beachfront.",
+      "priceLow": 0,
+      "priceHigh": 0,
+      "priceNote": "Free",
+      "interests": [
+        "culture",
+        "food",
+        "nature"
+      ],
+      "bestFor": [
+        "family",
+        "food",
+        "nature"
+      ],
+      "bestTime": "Afternoon to sunset (4:00 PM)",
+      "slot": "afternoon",
+      "isFree": true,
+      "icon": "fa-umbrella-beach",
+      "gradient": "linear-gradient(135deg, #FFD54F 0%, #F9A825 100%)",
+      "rating": 4.3
+    },
+    {
+      "id": "S16",
+      "name": "Ubud Writers & Readers Festival",
+      "region": "Ubud",
+      "regionLabel": "Ubud Palace & surrounding venues",
+      "monthStart": 10,
+      "monthEnd": 10,
+      "displayDates": "October 21–25",
+      "description": "One of the world's leading literary festivals: 100+ author talks, panels and storytelling sessions with global writers and thinkers.",
+      "priceLow": 0,
+      "priceHigh": 40,
+      "priceNote": "Some sessions free; premium $20–40",
+      "interests": [
+        "culture"
+      ],
+      "bestFor": [
+        "solo",
+        "culture"
+      ],
+      "bestTime": "Afternoon sessions (2:00 PM)",
+      "slot": "afternoon",
+      "isFree": false,
+      "icon": "fa-book-open",
+      "gradient": "linear-gradient(135deg, #8D6E63 0%, #4E342E 100%)",
+      "rating": 4.6
+    },
+    {
+      "id": "S17",
+      "name": "Uluwatu Village Festival",
+      "region": "Uluwatu",
+      "regionLabel": "Uluwatu cliffs & village",
+      "monthStart": 10,
+      "monthEnd": 10,
+      "displayDates": "Late October",
+      "description": "A celebration of Uluwatu's coastal heritage with Kecak performances at the cliff temple, local markets and surf-culture showcases.",
+      "priceLow": 10,
+      "priceHigh": 25,
+      "priceNote": "Tickets $10–25",
+      "interests": [
+        "culture",
+        "adventure"
+      ],
+      "bestFor": [
+        "adventure",
+        "culture",
+        "honeymoon"
+      ],
+      "bestTime": "Sunset Kecak (6:00 PM)",
+      "slot": "evening",
+      "isFree": false,
+      "icon": "fa-cliff",
+      "gradient": "linear-gradient(135deg, #FF8A65 0%, #D84315 100%)",
+      "rating": 4.5
+    },
+    {
+      "id": "S18",
+      "name": "Legian Beach Festival",
+      "region": "Seminyak",
+      "regionLabel": "Legian Beach",
+      "monthStart": 11,
+      "monthEnd": 11,
+      "displayDates": "Mid-November",
+      "description": "Live music, beach sports, local food stalls and art along Legian's shoreline — the start of the shoulder season's best-value weeks.",
+      "priceLow": 0,
+      "priceHigh": 0,
+      "priceNote": "Free",
+      "interests": [
+        "relaxation",
+        "food",
+        "nature"
+      ],
+      "bestFor": [
+        "family",
+        "relaxation",
+        "food"
+      ],
+      "bestTime": "Late afternoon (4:00 PM)",
+      "slot": "afternoon",
+      "isFree": true,
+      "icon": "fa-guitar",
+      "gradient": "linear-gradient(135deg, #7E57C2 0%, #4527A0 100%)",
+      "rating": 4.2
+    },
+    {
+      "id": "S19",
+      "name": "Pemuteran Bay Festival",
+      "region": "North Bali",
+      "regionLabel": "Pemuteran, West of Lovina",
+      "monthStart": 12,
+      "monthEnd": 12,
+      "displayDates": "Mid-December",
+      "description": "A coastal festival celebrating Pemuteran's coral reef restoration project with ocean conservation talks, snorkeling and village feasts.",
+      "priceLow": 5,
+      "priceHigh": 15,
+      "priceNote": "Tickets $5–15",
+      "interests": [
+        "nature",
+        "culture"
+      ],
+      "bestFor": [
+        "nature",
+        "family",
+        "adventure"
+      ],
+      "bestTime": "Morning snorkeling (8:00 AM)",
+      "slot": "morning",
+      "isFree": false,
+      "icon": "fa-fish",
+      "gradient": "linear-gradient(135deg, #26A69A 0%, #00695C 100%)",
+      "rating": 4.4
+    },
+    {
+      "id": "S20",
+      "name": "Denpasar Festival",
+      "region": "Denpasar",
+      "regionLabel": "Denpasar city center",
+      "monthStart": 12,
+      "monthEnd": 12,
+      "displayDates": "Late December",
+      "description": "The capital's year-end celebration of food, music and civic pride with street performances and a night market around Renon Square.",
+      "priceLow": 0,
+      "priceHigh": 0,
+      "priceNote": "Free",
+      "interests": [
+        "food",
+        "culture"
+      ],
+      "bestFor": [
+        "food",
+        "family",
+        "culture"
+      ],
+      "bestTime": "Evening (6:00 PM)",
+      "slot": "evening",
+      "isFree": true,
+      "icon": "fa-city",
+      "gradient": "linear-gradient(135deg, #FFCA28 0%, #FF8F00 100%)",
+      "rating": 4.1
+    },
+    {
+      "id": "S21",
+      "name": "Christmas & New Year Beach Dinners",
+      "region": "Nusa Dua",
+      "regionLabel": "Jimbaran & Nusa Dua beaches",
+      "monthStart": 12,
+      "monthEnd": 1,
+      "displayDates": "December 24 – January 1",
+      "description": "Seafood grills on the sand at Jimbaran and festive gala dinners at Nusa Dua resorts — book 3+ weeks ahead in peak season.",
+      "priceLow": 30,
+      "priceHigh": 60,
+      "priceNote": "Per person $30–60",
+      "interests": [
+        "food",
+        "relaxation"
+      ],
+      "bestFor": [
+        "honeymoon",
+        "family",
+        "relaxation"
+      ],
+      "bestTime": "Sunset dinner (6:30 PM)",
+      "slot": "evening",
+      "isFree": false,
+      "icon": "fa-utensils",
+      "gradient": "linear-gradient(135deg, #EF5350 0%, #880E4F 100%)",
+      "rating": 4.6
+    },
+    {
+      "id": "S22",
+      "name": "Nusa Dua Lights Festival",
+      "region": "Nusa Dua",
+      "regionLabel": "Nusa Dua & BTDC area",
+      "monthStart": 12,
+      "monthEnd": 1,
+      "displayDates": "December – early January",
+      "description": "The resort district glows with festive light installations, Christmas trees and family-friendly evening strolls by the lagoon.",
+      "priceLow": 0,
+      "priceHigh": 0,
+      "priceNote": "Free",
+      "interests": [
+        "relaxation",
+        "culture"
+      ],
+      "bestFor": [
+        "family",
+        "honeymoon"
+      ],
+      "bestTime": "Evening (7:00 PM)",
+      "slot": "evening",
+      "isFree": true,
+      "icon": "fa-lightbulb",
+      "gradient": "linear-gradient(135deg, #FDD835 0%, #9E9D24 100%)",
+      "rating": 4.2
+    },
+    {
+      "id": "S23",
+      "name": "Suwat Water Festival (Siat Yeh)",
+      "region": "East Bali",
+      "regionLabel": "Suwat Village, Gianyar",
+      "monthStart": 1,
+      "monthEnd": 3,
+      "displayDates": "January – March",
+      "description": "A sacred river water-cleansing ritual that turns into a joyful water fight — play hard after respecting the blessing ceremony.",
+      "priceLow": 0,
+      "priceHigh": 0,
+      "priceNote": "Free",
+      "interests": [
+        "culture",
+        "adventure"
+      ],
+      "bestFor": [
+        "adventure",
+        "culture",
+        "family"
+      ],
+      "bestTime": "Morning ceremony (9:00 AM)",
+      "slot": "morning",
+      "isFree": true,
+      "icon": "fa-droplet",
+      "gradient": "linear-gradient(135deg, #4DD0E1 0%, #006064 100%)",
+      "rating": 4.3
+    },
+    {
+      "id": "S24",
+      "name": "Bali Kite Season Finale at Sanur",
+      "region": "Sanur",
+      "regionLabel": "Padang Galak Beach",
+      "monthStart": 9,
+      "monthEnd": 9,
+      "displayDates": "September",
+      "description": "The windy month when village kite teams compete for the last time before the season ends — giant kites against a dry-season blue sky.",
+      "priceLow": 0,
+      "priceHigh": 0,
+      "priceNote": "Free",
+      "interests": [
+        "nature",
+        "culture"
+      ],
+      "bestFor": [
+        "family",
+        "nature"
+      ],
+      "bestTime": "Afternoon (2:00 PM)",
+      "slot": "afternoon",
+      "isFree": true,
+      "icon": "fa-wind",
+      "gradient": "linear-gradient(135deg, #90CAF9 0%, #1565C0 100%)",
+      "rating": 4.3
+    },
+    {
+      "id": "S25",
+      "name": "Ubud Sacred Rituals & Full Moon Ceremonies",
+      "region": "Ubud",
+      "regionLabel": "Tirta Empul & Tegenungan area",
+      "monthStart": 4,
+      "monthEnd": 10,
+      "displayDates": "April – October (dry season)",
+      "description": "The dry season is Bali's ceremony season: full-moon temple rituals, purification at Tirta Empul and open-air dance nights at the palace.",
+      "priceLow": 0,
+      "priceHigh": 5,
+      "priceNote": "Free–small donation",
+      "interests": [
+        "culture",
+        "nature"
+      ],
+      "bestFor": [
+        "solo",
+        "culture",
+        "nature"
+      ],
+      "bestTime": "Sunrise ceremony (6:00 AM)",
+      "slot": "morning",
+      "isFree": false,
+      "icon": "fa-moon",
+      "gradient": "linear-gradient(135deg, #CE93D8 0%, #6A1B9A 100%)",
+      "rating": 4.5
+    }
+  ]
+}
