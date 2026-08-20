@@ -313,6 +313,12 @@
       if (ev && days.length) openSwapModal(ev);
       localStorage.removeItem(STORAGE_PICKED);
     }
+    // Days may be populated AFTER this render (result.js order varies);
+    // re-render once when the plan becomes available so the swap buttons appear.
+    if (!days.length) {
+      setTimeout(() => renderResultPanel(), 1200);
+      return;
+    }
     let swaps = [];
     try { swaps = JSON.parse(localStorage.getItem(STORAGE_SWAPS) || "[]"); } catch (_) { swaps = []; }
     const swappedIds = new Set(swaps.map(s => s.seasonalId));
