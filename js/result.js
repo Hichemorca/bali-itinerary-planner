@@ -490,7 +490,7 @@ document.getElementById("email-form").addEventListener("submit", (e) => {
     const saved = JSON.parse(localStorage.getItem("baliAnswers") || "{}");
     saved.email = email;
     localStorage.setItem("baliAnswers", JSON.stringify(saved));
-    e.target.innerHTML = `<p class="text-sm text-[#2E7D32] font-semibold"><i class="fa-solid fa-circle-check mr-1"></i>Saved! We'll send your plan to ${email}.</p>`;
+    e.target.innerHTML = `<p class="text-sm text-[#2E7D32] font-semibold"><i class="fa-solid fa-circle-check mr-1"></i>Saved! Your email is attached to your plan for future updates.</p>`;
   }
 });
 

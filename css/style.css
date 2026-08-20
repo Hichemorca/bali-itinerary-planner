@@ -21,10 +21,16 @@ body {
   font-family: "Poppins", "Montserrat", system-ui, sans-serif;
 }
 
+/* Phase 15: global keyboard focus indicator (accessibility) */
+:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 2px;
+}
+
 /* Hero */
 .hero-bg {
   background: linear-gradient(rgba(20, 50, 25, 0.72), rgba(20, 50, 25, 0.78)),
-    url("../assets/images/hero-bg.jpg") center/cover no-repeat;
+    url("../assets/images/hero-bg.webp") center/cover no-repeat;
 }
 
 /* Buttons */
