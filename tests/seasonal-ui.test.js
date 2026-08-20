@@ -1,9 +1,16 @@
 /**
  * Seasonal banner & swap flow UI tests (Phase 13)
  */
+const fs = require("fs");
+const path = require("path");
 const { test, expect } = require("@playwright/test");
 
 const BASE = process.env.PLAYWRIGHT_BASE_URL || "http://localhost:8000";
+// Pre-load the curated seasonal events from disk so the tests never depend on
+// fetching data/seasonal.json over the network (flaky on some CI links).
+// seasonal.js seed-prefers the localStorage cache, so this mirrors production.
+const SEASONAL_EVENTS_PATH = path.join(__dirname, "..", "data", "seasonal.json");
+const SEASONAL_EVENTS_CACHE = JSON.parse(fs.readFileSync(SEASONAL_EVENTS_PATH, "utf8")).events;
 const QUIZ_ANSWERS = {
   tripDuration: 5,
   budgetTier: "mid",
@@ -13,6 +20,10 @@ const QUIZ_ANSWERS = {
 };
 
 test.describe("Homepage seasonal banner", () => {
+  test.beforeEach(async ({ page }) => {
+    await page.addInitScript((events) => localStorage.setItem("baliSeasonalData", JSON.stringify(events)), SEASONAL_EVENTS_CACHE);
+  });
+
   test("banner shows seasonal event cards with dates and prices", async ({ page }) => {
     await page.goto(BASE + "/index.html", { waitUntil: "domcontentloaded" });
     await expect(page.locator("#seasonal-banner section")).toBeVisible({ timeout: 20000 });
@@ -42,6 +53,7 @@ test.describe("Homepage seasonal banner", () => {
 test.describe("Result page seasonal panel and swap", () => {
   test.beforeEach(async ({ page }) => {
     await page.addInitScript((answers) => localStorage.setItem("baliAnswers", JSON.stringify(answers)), QUIZ_ANSWERS);
+    await page.addInitScript((events) => localStorage.setItem("baliSeasonalData", JSON.stringify(events)), SEASONAL_EVENTS_CACHE);
   });
 
   test("seasonal panel renders with Add-to-Day buttons", async ({ page }) => {
