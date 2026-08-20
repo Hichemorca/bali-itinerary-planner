@@ -6,7 +6,17 @@ A static, fully client-side website that generates personalized day-by-day Bali 
 
 > **Note:** the Gumroad payment gateway is **temporarily disabled** — the site is free to use. The placeholder `your-product-id` remains in `js/gumroad-integration.js` until a product is created; when ready, follow the "Gumroad Setup" section below.
 
-## Latest: v7 — Budget Balance & Transparency (Phase 12)
+## Latest: v8 — Seasonal Activities & Day Substitution (Phase 13)
+
+The site now features a curated **seasonal events database** (`data/seasonal.json`) with **25 Bali festivals and seasonal activities** (Nyepi, Galungan, Bali Arts Festival, Ubud Food Festival, Kite Festival, Christmas markets, full-moon ceremonies and more), each with start/end month ranges, price ranges (free events included), region, best time of day and slot (morning/afternoon/evening).
+
+1. **Homepage banner** (`index.html` + `js/seasonal.js`): an attractive card banner showcases up to 4 upcoming/current events closest to today's month, each with icon, region, date range and price. "Book in My Plan" links to the quiz carrying the picked event.
+2. **Result-page panel**: a Seasonal Highlights section lists events relevant to the traveler, each with an **Add to a Day** button.
+3. **Day substitution**: picking a day opens a modal listing each day's main activity; on confirmation the day's main activity is **replaced by the seasonal event in its matching time slot** (morning/afternoon/evening placement), and the event shows as a golden seasonal row. Swaps persist via `localStorage` and re-apply on reload/print/PDF/ICS export. Nyepi is handled as a no-travel notice.
+
+**Tests:** `tests/seasonal-schema.test.js` (627 data-schema + 46 logic assertions: month ranges incl. year-wrap, prices, free-event consistency, monthly coverage) and `tests/seasonal-ui.test.js` (5 Playwright tests: banner rendering, booking redirect, swap modal flow, reload persistence). Full suite: **25,088 engine assertions + 23 UI/analytics/seasonal tests — all green** on CI and locally.
+
+## Latest archive: v7 — Budget Balance & Transparency (Phase 12)
 
 A 5-day budget-tier trip previously showed only free activities because the full-day private driver ($40–65/day) consumed 37–54% of the $120/day budget cap. Three changes fix this:
 
