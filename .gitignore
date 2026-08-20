@@ -8,3 +8,4 @@ data/*.bak
 # OS junk
 .DS_Store
 Thumbs.db
+pnpm-lock.yaml
