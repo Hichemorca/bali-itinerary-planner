@@ -218,7 +218,11 @@ function updateButtons() {
   const btnSubmit = document.getElementById("btn-submit");
 
   if (btnPrev) btnPrev.disabled = current === 0;
+  
+  // Fix: Next should ONLY show if NOT last page AND answered
   if (btnNext) btnNext.classList.toggle("hidden", isLast || !answered);
+  
+  // Fix: Submit should ONLY show if IS last page AND answered
   if (btnSubmit) btnSubmit.classList.toggle("hidden", !isLast || !answered);
 }
 

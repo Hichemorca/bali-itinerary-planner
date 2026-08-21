@@ -45,10 +45,24 @@ window.trackFunnel = {
 };
 
 /* ---------- Image fade-in on lazy load ---------- */
-document.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll("img[loading='lazy']").forEach(function (img) {
-    img.classList.add("img-lazy");
-    if (img.complete) { img.classList.add("img-loaded"); }
-    else { img.addEventListener("load", function () { img.classList.add("img-loaded"); }); }
-  });
-});
+// Use MutationObserver to handle dynamically injected images (result cards)
+(function() {
+  const observeImages = () => {
+    const images = document.querySelectorAll("img[loading='lazy']:not(.img-lazy-ready)");
+    images.forEach(img => {
+      img.classList.add("img-lazy-ready");
+      img.classList.add("img-lazy");
+      if (img.complete) {
+        img.classList.add("img-loaded");
+      } else {
+        img.addEventListener("load", () => img.classList.add("img-loaded"), { once: true });
+        img.addEventListener("error", () => img.classList.add("img-loaded"), { once: true });
+      }
+    });
+  };
+
+  // Run on load and whenever DOM changes
+  document.addEventListener("DOMContentLoaded", observeImages);
+  const observer = new MutationObserver(observeImages);
+  observer.observe(document.body, { childList: true, subtree: true });
+})();

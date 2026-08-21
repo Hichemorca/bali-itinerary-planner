@@ -43,9 +43,8 @@ test.describe("Index page", () => {
 test.describe("Quiz flow", () => {
   test("full 4-question flow completes and stores answers", async ({ page }) => {
     await page.goto(BASE + "/quiz.html", { waitUntil: "domcontentloaded" });
-    // Q1: duration — click the 10-day option
-    await page.locator(".opt-btn[data-value='10']").first().click();
-    await expect(page.locator("#btn-next")).toBeVisible();
+    // Q1: date_range
+    await page.selectOption("#trip-duration", "10");
     await page.locator("#btn-next").click();
     // Q2: budget tier
     await page.locator(".opt-btn[data-value='mid']").first().click();
@@ -56,7 +55,7 @@ test.describe("Quiz flow", () => {
     await page.locator("#btn-next").click();
     // Q4: region
     await page.locator(".opt-btn[data-value='Ubud']").first().click();
-    await page.getByRole("button", { name: /show my itinerary/i }).or(page.getByRole("button", { name: /itinerary/i })).first().click();
+    await page.locator("#btn-submit").click();
     await expect(page).toHaveURL(/result\.html/);
     const stored = await page.evaluate(() => localStorage.getItem("baliAnswers"));
     expect(stored).not.toBeNull();

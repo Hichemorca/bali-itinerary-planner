@@ -81,11 +81,11 @@ async function init() {
   window.__baliPlanDays = plan.days;
   renderHeader();
   renderQuickSummary();
+  renderTotalCostCalculator(); // Move cost calc up
+  renderAccommodationGuide(); // Move stay guide up
   renderDay1Preview();
   renderDays();
   renderBudgetBreakdown();
-  renderTotalCostCalculator();
-  renderAccommodationGuide();
   // Phase 13: seasonal panel + apply any previously saved swaps
   if (window.BaliSeasonal && window.BaliSeasonal.loadSeasonal) window.BaliSeasonal.renderResultPanel();
   wirePDFButton();
@@ -216,8 +216,7 @@ function renderDays() {
       if (rainyMode && day.rainySwapIdx !== undefined && item === day.activities[day.rainySwapIdx] && !item.isDriver) {
         return `<div class="bg-gray-50 rounded-2xl border border-gray-200 p-5 opacity-60"><div class="flex gap-4 items-start"><div class="flex-1"><h4 class="font-bold line-through text-gray-500">${a.name}</h4><p class="text-xs text-gray-500 mt-1"><i class="fa-solid fa-cloud-rain mr-1"></i>Replaced by rainy-day backup below</p></div></div></div>`;
       }
-      const price = a.priceHigh > 0 ? `$${Math.round(a.priceLow)}–$${Math.round(a.priceHigh)}` : "Free";
-      const driverRow = item.isDriver ? `bg-[#2E7D32]/[0.06] border-[#2E7D32]/30` : "";
+      
       // Phase 5: meal-break rows render as compact neutral schedule rows
       if (item.isBreak) {
         return `
@@ -232,14 +231,31 @@ function renderDays() {
             <div class="shrink-0 text-xs text-[#9E9E9E] font-semibold">${item.endTime}</div>
           </div>`;
       }
-      const freeAct = !item.isDriver && (a.isFree || a.priceHigh <= 1);
+
+      // NEW: Compact Driver Row (Fix: remove taxi image and replace with 1-2 lines)
+      if (item.isDriver) {
+        return `
+          <div class="bg-[#2E7D32]/[0.06] border border-[#2E7D32]/20 rounded-xl px-5 py-3 flex items-center gap-4">
+            <div class="text-center shrink-0 w-16">
+              <div class="text-xs font-bold text-[#2E7D32] uppercase tracking-wide">${item.startTime}</div>
+            </div>
+            <div class="flex-1 min-w-0">
+              <h4 class="font-semibold text-sm text-[#1B5E20]"><i class="fa-solid fa-van-shuttle mr-1.5"></i>Private Driver Pickup</h4>
+              <p class="text-[11px] text-[#2E7D32]/80 mt-0.5">Your driver will meet you at the hotel lobby. Total driving: ${day.travelHours.toFixed(1)}h.</p>
+            </div>
+            <div class="shrink-0 text-xs text-[#2E7D32] font-bold">~$${Math.round(a.localPrice || a.priceLow)}/day</div>
+          </div>`;
+      }
+
+      const price = a.priceHigh > 0 ? `$${Math.round(a.priceLow)}–$${Math.round(a.priceHigh)}` : "Free";
+      const freeAct = (a.isFree || a.priceHigh <= 1);
       const freeRow = freeAct ? `free-activity-card` : "";
       const freeBadge = freeAct
         ? `<span class="inline-flex items-center gap-1 text-[10px] font-extrabold uppercase tracking-wider text-[#1B5E20] bg-[#C8E6C9] border border-[#A5D6A7] px-2 py-0.5 rounded-full"><i class="fa-solid fa-hand-holding-heart"></i>Free activity</span>`
         : "";
       const rating = a.rating ? `<span class="text-[#F9A825] text-xs font-semibold">★ ${a.rating.toFixed(1)}</span>` : "";
       const imgHtml = a.imageUrl
-        ? `<img src="${a.imageUrl}" alt="${a.name.replace(/"/g, "")}" loading="lazy" decoding="async" onerror="this.src='assets/images/placeholder-activity.webp'" class="activity-image">`
+        ? `<img src="${a.imageUrl}" alt="${a.name.replace(/"/g, "")}" loading="lazy" decoding="async" onerror="this.src='assets/images/placeholder-activity.webp'" class="activity-image img-lazy">`
         : "";
       const actIcon = activityIcon(a);
       const localPrice = a.localPrice || 0;
@@ -247,8 +263,9 @@ function renderDays() {
       const savingsHtml = saving >= 5
         ? `<div class="inline-flex items-center gap-1 mt-1.5 text-xs font-semibold text-[#2E7D32] bg-[#2E7D32]/10 px-2 py-1 rounded-full"><i class="fa-solid fa-piggy-bank"></i>Save ~$${saving} booking locally (~$${localPrice})</div>`
         : "";
+      
       return `
-        <div class="activity-row bg-white rounded-2xl border border-gray-100 p-5 flex gap-4 items-start ${driverRow} ${freeRow}">
+        <div class="activity-row bg-white rounded-2xl border border-gray-100 p-5 flex gap-4 items-start ${freeRow}">
           <div class="text-center shrink-0 w-16">
             <div class="slot-time text-xs font-bold text-[#2E7D32] uppercase tracking-wide">${item.startTime}</div>
             <div class="text-xs text-[#757575]">to ${item.endTime}</div>
@@ -266,7 +283,7 @@ function renderDays() {
             ${imgHtml}
             ${a.insiderTip ? `<p class="text-xs text-[#757575] mt-2 bg-[#F5F5F5] rounded-lg px-3 py-2"><i class="fa-solid fa-lightbulb text-[#F9A825] mr-1"></i>${a.insiderTip}</p>` : ""}
             ${savingsHtml}
-            ${item.isDriver ? `<div class="inline-flex items-center gap-1.5 mt-2 text-xs font-semibold text-[#1B5E20] bg-[#2E7D32]/10 px-3 py-2 rounded-lg"><i class="fa-solid fa-van-shuttle"></i>Book locally — via hotel or Klook (~$${Math.round(a.localPrice || a.priceLow)} locally)</div>` : (bookableLink(a) ? `<a href="${a.bookingLink}" target="_blank" rel="noopener" class="inline-block mt-2 text-xs font-semibold text-white bg-[#2E7D32] hover:bg-[#1B5E20] px-4 py-2 rounded-lg"><i class="fa-solid fa-ticket mr-1"></i>Book on ${a.platform || "Web"}</a>` : "")}${freeAct ? `<div class="inline-flex items-center gap-1.5 mt-2 text-xs font-semibold text-[#1B5E20] bg-[#C8E6C9] px-3 py-2 rounded-lg"><i class="fa-solid fa-door-open"></i>Free activity — no booking required. Just show up!</div>` : ""}
+            ${(bookableLink(a) ? `<a href="${a.bookingLink}" target="_blank" rel="noopener" class="inline-block mt-2 text-xs font-semibold text-white bg-[#2E7D32] hover:bg-[#1B5E20] px-4 py-2 rounded-lg"><i class="fa-solid fa-ticket mr-1"></i>Book on ${a.platform || "Web"}</a>` : "")}${freeAct ? `<div class="inline-flex items-center gap-1.5 mt-2 text-xs font-semibold text-[#1B5E20] bg-[#C8E6C9] px-3 py-2 rounded-lg"><i class="fa-solid fa-door-open"></i>Free activity — no booking required. Just show up!</div>` : ""}
             <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(a.name + ' ' + (a.region || 'Bali'))}" target="_blank" rel="noopener" class="inline-block mt-2 ml-2 text-xs font-semibold text-[#757575] hover:underline"><i class="fa-solid fa-map-pin mr-1"></i>View Map</a>
             <button onclick="window.BaliMapCal.openGoogleCalendarAdd(activitiesById[${a.id}], ${day.dayNum}, '${item.startTime}')" class="inline-block mt-2 ml-2 text-xs font-semibold text-[#0288D1] hover:underline"><i class="fa-regular fa-calendar mr-1"></i>Add to calendar</button>
           </div>
@@ -367,7 +384,8 @@ function renderQuickSummary() {
 }
 
 function renderTotalCostCalculator() {
-  const container = document.getElementById("itinerary-days");
+  const container = document.getElementById("cost-calculator-container");
+  if (!container) return;
   const duration = Number(answers.tripDuration) || 7;
   const activityDaily = plan.estimatedActivityCostPerDay || 50;
   const foodDaily = answers.budgetTier === 'luxury' ? 80 : (answers.budgetTier === 'mid' ? 40 : 20);
@@ -379,8 +397,8 @@ function renderTotalCostCalculator() {
   const totalFixed = visaFee + levyFee;
   const grandTotal = totalActivities + totalFood + totalFixed;
 
-  const html = `
-    <section class="bg-[#1B2B25] rounded-3xl p-8 text-white mt-12 mb-8 print:hidden">
+  container.innerHTML = `
+    <section class="bg-[#1B2B25] rounded-3xl p-8 text-white print:hidden">
       <h3 class="font-heading font-bold text-2xl mb-2"><i class="fa-solid fa-calculator text-[#F9A825] mr-2"></i>Estimated Trip Budget</h3>
       <p class="text-white/60 text-sm mb-6">Based on your ${answers.tripDuration}-day ${answers.budgetTier} plan. Flights & hotels not included.</p>
       
@@ -405,10 +423,11 @@ function renderTotalCostCalculator() {
       <p class="text-[10px] text-white/40 mt-6 italic">*Calculated using current average prices. Driver tips (IDR 50k-100k/day) are not included but highly appreciated.</p>
     </section>
   `;
-  container.insertAdjacentHTML("afterend", html);
 }
 
 function renderAccommodationGuide() {
+  const container = document.getElementById("accommodation-guide-container");
+  if (!container) return;
   const region = answers.preferredRegion || "none";
   const guide = {
     Ubud: {
@@ -450,8 +469,8 @@ function renderAccommodationGuide() {
     link: "https://www.booking.com/searchresults.en-gb.html?ss=Bali"
   };
 
-  const html = `
-    <section class="bg-white rounded-3xl border border-gray-100 p-8 mb-8 print:hidden">
+  container.innerHTML = `
+    <section class="bg-white rounded-3xl border border-gray-100 p-8 print:hidden">
       <div class="flex flex-col md:flex-row gap-8 items-center">
         <div class="md:w-1/3">
           <img src="assets/images/hero-bg.webp" class="rounded-2xl h-48 w-full object-cover shadow-lg" alt="Bali Accommodation">
@@ -468,9 +487,6 @@ function renderAccommodationGuide() {
       </div>
     </section>
   `;
-  
-  const calculator = document.querySelector('section.bg-\\[\\#1B2B25\\]');
-  if (calculator) calculator.insertAdjacentHTML("afterend", html);
 }
 
 // Phase 6: Day 1 preview — always visible before payment to build trust

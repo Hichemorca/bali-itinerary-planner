@@ -121,7 +121,7 @@ html.dark {
 /* Phase 6: consistent 4:3 activity photos (800x600 source) with object-fit cover */
 .activity-image {
   width: 100%;
-  height: 200px;
+  height: 160px;
   object-fit: cover;
   object-position: center;
   border-radius: 12px 12px 0 0;
