@@ -29,9 +29,12 @@ test.describe("GA4 analytics health", () => {
     const quizEvents = [];
     const resultEvents = [];
     await page.goto("/quiz.html", { waitUntil: "domcontentloaded" });
-    await page.locator(".opt-btn").first().waitFor({ state: "visible", timeout: 20000 });
-    await page.locator(".opt-btn[data-value='5']").first().click();
+    // Date step
+    await page.locator("#start-date").waitFor({ state: "visible", timeout: 20000 });
+    await page.locator("#start-date").fill("2026-09-01");
+    await page.locator("#trip-duration").selectOption("7");
     await page.locator("#btn-next").click();
+    // Budget step
     await page.locator(".opt-btn[data-value='budget']").first().click();
     await page.locator("#btn-next").click();
     await page.locator(".opt-btn[data-value='family']").first().click();

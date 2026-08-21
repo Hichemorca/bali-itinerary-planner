@@ -6,17 +6,11 @@
 
 const QUESTIONS = [
   {
-    id: "tripDuration",
-    key: "tripDuration",
-    question: "How long is your Bali trip?",
-    subtitle: "Longer trips get a wider mix of regions.",
-    options: [
-      { value: 5,  label: "5 days",        hint: "South Bali highlights" },
-      { value: 7,  label: "7 days",        hint: "Highlights + one day trip" },
-      { value: 10, label: "10 days",       hint: "Island-wide exploration" },
-      { value: 14, label: "14 days",       hint: "Deep dive incl. North Bali" },
-    ],
-    type: "single",
+    id: "tripDates",
+    key: "tripDates",
+    question: "When are you planning to visit Bali?",
+    subtitle: "We'll check for seasonal events and weather during your stay.",
+    type: "date_range",
   },
   {
     id: "budgetTier",
@@ -76,34 +70,79 @@ const TYPE_KEYWORDS = {
 let current = 0;
 const answers = {};
 
-// Phase 6: support resuming a previous quiz ("Edit Plan" flow) or a shared plan link
-try {
-  const prev = JSON.parse(localStorage.getItem("baliAnswers") || "{}");
-  const params = new URLSearchParams(location.search);
-  const edit = params.get("edit");
-  const share = params.get("share");
-  let shared = null;
-  if (share) shared = JSON.parse(decodeURIComponent(share));
-  if (edit || shared) {
-    const s = shared || {};
-    if (s.d) answers.tripDuration = String(s.d);
-    if (s.b) answers.budgetTier = s.b;
-    if (s.t) answers.tripType = s.t.split(",").filter(Boolean);
-    if (s.r) answers.preferredRegion = s.r;
-  } else if (prev.tripType && Array.isArray(prev.interests)) {
-    answers.tripType = [...new Set([...prev.interests, ...prev.tripType.split(/,\s*/).filter(Boolean)])];
-  }
-  if (!shared) {
-    if (prev.tripDuration) answers.tripDuration = String(prev.tripDuration);
-    if (prev.budgetTier) answers.budgetTier = prev.budgetTier;
-    if (prev.preferredRegion) answers.preferredRegion = prev.preferredRegion;
-  }
-} catch (e) { /* ignore */ }
+  // Phase 6: support resuming a previous quiz ("Edit Plan" flow) or a shared plan link
+  try {
+    const prev = JSON.parse(localStorage.getItem("baliAnswers") || "{}");
+    const params = new URLSearchParams(location.search);
+    const edit = params.get("edit");
+    const share = params.get("share");
+    let shared = null;
+    if (share) shared = JSON.parse(decodeURIComponent(share));
+    if (edit || shared) {
+      const s = shared || {};
+      if (s.d) answers.tripDuration = String(s.d);
+      if (s.b) answers.budgetTier = s.b;
+      if (s.t) answers.tripType = s.t.split(",").filter(Boolean);
+      if (s.r) answers.preferredRegion = s.r;
+      if (s.sd) answers.startDate = s.sd;
+    } else if (prev.tripType && Array.isArray(prev.interests)) {
+      answers.tripType = [...new Set([...prev.interests, ...prev.tripType.split(/,\s*/).filter(Boolean)])];
+    }
+    if (!shared) {
+      if (prev.tripDuration) answers.tripDuration = String(prev.tripDuration);
+      if (prev.budgetTier) answers.budgetTier = prev.budgetTier;
+      if (prev.preferredRegion) answers.preferredRegion = prev.preferredRegion;
+      if (prev.startDate) answers.startDate = prev.startDate;
+    }
+  } catch (e) { /* ignore */ }
 
 function renderQuestion() {
   const q = QUESTIONS[current];
   const container = document.getElementById("question-container");
   const saved = answers[q.key];
+
+  if (q.type === "date_range") {
+    const start = answers.startDate || "";
+    const duration = answers.tripDuration || "";
+    container.innerHTML = `
+      <div class="fade-in">
+        <span class="inline-block px-3 py-1 rounded-full bg-[#2E7D32]/10 text-[#2E7D32] text-xs font-semibold mb-4">Question ${current + 1}</span>
+        <h2 class="font-heading font-bold text-2xl md:text-3xl mb-2">${q.question}</h2>
+        <p class="text-[#757575] mb-7">${q.subtitle}</p>
+        <div class="space-y-6 max-w-sm">
+          <div>
+            <label class="block text-sm font-bold text-[#212121] mb-2">Arrival Date</label>
+            <input type="date" id="start-date" value="${start}" 
+              class="w-full px-5 py-4 rounded-2xl border-2 border-gray-200 focus:border-[#2E7D32] outline-none transition-all">
+          </div>
+          <div>
+            <label class="block text-sm font-bold text-[#212121] mb-2">Duration (Nights)</label>
+            <select id="trip-duration" class="w-full px-5 py-4 rounded-2xl border-2 border-gray-200 focus:border-[#2E7D32] outline-none transition-all bg-white">
+              <option value="" disabled ${!duration ? 'selected' : ''}>Select duration...</option>
+              <option value="3" ${duration == 3 ? 'selected' : ''}>3 nights (Quick escape)</option>
+              <option value="5" ${duration == 5 ? 'selected' : ''}>5 nights (Highlights)</option>
+              <option value="7" ${duration == 7 ? 'selected' : ''}>7 nights (Standard)</option>
+              <option value="10" ${duration == 10 ? 'selected' : ''}>10 nights (Island-wide)</option>
+              <option value="14" ${duration == 14 ? 'selected' : ''}>14 nights (Deep dive)</option>
+            </select>
+          </div>
+        </div>
+      </div>`;
+    
+    const inputDate = document.getElementById("start-date");
+    const inputDur = document.getElementById("trip-duration");
+    
+    const update = () => {
+      answers.startDate = inputDate.value;
+      answers.tripDuration = inputDur.value;
+      updateButtons();
+    };
+    
+    inputDate.addEventListener("change", update);
+    inputDur.addEventListener("change", update);
+    updateButtons();
+    return;
+  }
 
   let optHtml = q.options.map((o, i) => {
     const selected = Array.isArray(saved) ? saved.includes(o.value) : saved === o.value;
@@ -164,12 +203,23 @@ function renderQuestion() {
 function updateButtons() {
   const q = QUESTIONS[current];
   const saved = answers[q.key];
-  const answered = q.type === "multi" ? (saved && saved.length > 0) : saved !== undefined && saved !== "";
+  let answered = false;
+  if (q.type === "date_range") {
+    answered = !!(answers.startDate && answers.tripDuration);
+  } else if (q.type === "multi") {
+    answered = (saved && saved.length > 0);
+  } else {
+    answered = saved !== undefined && saved !== "";
+  }
   const isLast = current === QUESTIONS.length - 1;
 
-  document.getElementById("btn-prev").disabled = current === 0;
-  document.getElementById("btn-next").classList.toggle("hidden", isLast || !answered);
-  document.getElementById("btn-submit").classList.toggle("hidden", !isLast || !answered);
+  const btnPrev = document.getElementById("btn-prev");
+  const btnNext = document.getElementById("btn-next");
+  const btnSubmit = document.getElementById("btn-submit");
+
+  if (btnPrev) btnPrev.disabled = current === 0;
+  if (btnNext) btnNext.classList.toggle("hidden", isLast || !answered);
+  if (btnSubmit) btnSubmit.classList.toggle("hidden", !isLast || !answered);
 }
 
 document.getElementById("btn-prev").addEventListener("click", () => {
@@ -193,6 +243,7 @@ document.getElementById("btn-submit").addEventListener("click", () => {
   // Fill sensible defaults if anything missing
   const full = {
     tripDuration: Number(answers.tripDuration) || 7,
+    startDate: answers.startDate || new Date().toISOString().split('T')[0],
     budgetTier: answers.budgetTier || "mid",
     tripType: tripType,
     interests: interests.length ? interests : ["nature", "relaxation"],

@@ -84,6 +84,8 @@ async function init() {
   renderDay1Preview();
   renderDays();
   renderBudgetBreakdown();
+  renderTotalCostCalculator();
+  renderAccommodationGuide();
   // Phase 13: seasonal panel + apply any previously saved swaps
   if (window.BaliSeasonal && window.BaliSeasonal.loadSeasonal) window.BaliSeasonal.renderResultPanel();
   wirePDFButton();
@@ -265,6 +267,7 @@ function renderDays() {
             ${a.insiderTip ? `<p class="text-xs text-[#757575] mt-2 bg-[#F5F5F5] rounded-lg px-3 py-2"><i class="fa-solid fa-lightbulb text-[#F9A825] mr-1"></i>${a.insiderTip}</p>` : ""}
             ${savingsHtml}
             ${item.isDriver ? `<div class="inline-flex items-center gap-1.5 mt-2 text-xs font-semibold text-[#1B5E20] bg-[#2E7D32]/10 px-3 py-2 rounded-lg"><i class="fa-solid fa-van-shuttle"></i>Book locally — via hotel or Klook (~$${Math.round(a.localPrice || a.priceLow)} locally)</div>` : (bookableLink(a) ? `<a href="${a.bookingLink}" target="_blank" rel="noopener" class="inline-block mt-2 text-xs font-semibold text-white bg-[#2E7D32] hover:bg-[#1B5E20] px-4 py-2 rounded-lg"><i class="fa-solid fa-ticket mr-1"></i>Book on ${a.platform || "Web"}</a>` : "")}${freeAct ? `<div class="inline-flex items-center gap-1.5 mt-2 text-xs font-semibold text-[#1B5E20] bg-[#C8E6C9] px-3 py-2 rounded-lg"><i class="fa-solid fa-door-open"></i>Free activity — no booking required. Just show up!</div>` : ""}
+            <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(a.name + ' ' + (a.region || 'Bali'))}" target="_blank" rel="noopener" class="inline-block mt-2 ml-2 text-xs font-semibold text-[#757575] hover:underline"><i class="fa-solid fa-map-pin mr-1"></i>View Map</a>
             <button onclick="window.BaliMapCal.openGoogleCalendarAdd(activitiesById[${a.id}], ${day.dayNum}, '${item.startTime}')" class="inline-block mt-2 ml-2 text-xs font-semibold text-[#0288D1] hover:underline"><i class="fa-regular fa-calendar mr-1"></i>Add to calendar</button>
           </div>
         </div>`;
@@ -338,14 +341,136 @@ function renderQuickSummary() {
   const actCount = schedDays.reduce((n, d) => n + d.activities.filter(a => !a.isBreak && !a.isDriver).length, 0);
   const altCount = schedDays.reduce((n, d) => n + d.activities.filter(a => a.act && a.act.isAlternative && !a.act.isBreak).length, 0);
   const freeCount = schedDays.reduce((n, d) => n + d.activities.filter(a => a.act && (a.act.isFree || a.priceHigh <= 1) && !a.isDriver && !a.isBreak).length, 0);
+  
+  const start = answers.startDate ? new Date(answers.startDate) : null;
+  const dateStr = start ? start.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : 'Flexible Dates';
+  
   document.getElementById("quick-summary").innerHTML = `
     <div class="flex flex-wrap gap-3 items-stretch">
-      <div class="flex-1 min-w-[140px] bg-white rounded-2xl border border-gray-100 px-5 py-4"><div class="text-2xl font-heading font-extrabold text-[#2E7D32]">${answers.tripDuration}</div><div class="text-xs text-[#757575] uppercase tracking-wide">Days</div></div>
-      <div class="flex-1 min-w-[140px] bg-white rounded-2xl border border-gray-100 px-5 py-4"><div class="text-2xl font-heading font-extrabold text-[#2E7D32]">${actCount}</div><div class="text-xs text-[#757575] uppercase tracking-wide">Activities</div></div>
-      <div class="flex-1 min-w-[140px] bg-white rounded-2xl border border-gray-100 px-5 py-4"><div class="text-2xl font-heading font-extrabold text-[#1B5E20]">${freeCount}</div><div class="text-xs text-[#757575] uppercase tracking-wide">Free 🆓</div></div>
-      <div class="flex-1 min-w-[140px] bg-white rounded-2xl border border-gray-100 px-5 py-4"><div class="text-2xl font-heading font-extrabold text-[#F9A825]">${altCount}</div><div class="text-xs text-[#757575] uppercase tracking-wide">Relax Days 🔄</div></div>
-      <div class="flex-1 min-w-[140px] bg-white rounded-2xl border border-gray-100 px-5 py-4"><div class="text-2xl font-heading font-extrabold text-[#2E7D32]">$${plan.estimatedActivityCostPerDay}</div><div class="text-xs text-[#757575] uppercase tracking-wide">Avg / day</div></div>
+      <div class="flex-1 min-w-[140px] bg-white rounded-2xl border border-gray-100 px-5 py-4">
+        <div class="text-2xl font-heading font-extrabold text-[#2E7D32]">${answers.tripDuration}</div>
+        <div class="text-xs text-[#757575] uppercase tracking-wide">Nights</div>
+      </div>
+      <div class="flex-1 min-w-[140px] bg-white rounded-2xl border border-gray-100 px-5 py-4">
+        <div class="text-sm font-bold text-[#212121]">${dateStr}</div>
+        <div class="text-xs text-[#757575] uppercase tracking-wide mt-1">Travel Period</div>
+      </div>
+      <div class="flex-1 min-w-[140px] bg-white rounded-2xl border border-gray-100 px-5 py-4">
+        <div class="text-2xl font-heading font-extrabold text-[#1B5E20]">${freeCount}</div>
+        <div class="text-xs text-[#757575] uppercase tracking-wide">Free 🆓</div>
+      </div>
+      <div class="flex-1 min-w-[140px] bg-white rounded-2xl border border-gray-100 px-5 py-4">
+        <div class="text-2xl font-heading font-extrabold text-[#2E7D32]">$${plan.estimatedActivityCostPerDay}</div>
+        <div class="text-xs text-[#757575] uppercase tracking-wide">Avg / day</div>
+      </div>
     </div>`;
+}
+
+function renderTotalCostCalculator() {
+  const container = document.getElementById("itinerary-days");
+  const duration = Number(answers.tripDuration) || 7;
+  const activityDaily = plan.estimatedActivityCostPerDay || 50;
+  const foodDaily = answers.budgetTier === 'luxury' ? 80 : (answers.budgetTier === 'mid' ? 40 : 20);
+  
+  const totalActivities = activityDaily * duration;
+  const totalFood = foodDaily * duration;
+  const visaFee = 32; // ~500k IDR
+  const levyFee = 10; // 150k IDR
+  const totalFixed = visaFee + levyFee;
+  const grandTotal = totalActivities + totalFood + totalFixed;
+
+  const html = `
+    <section class="bg-[#1B2B25] rounded-3xl p-8 text-white mt-12 mb-8 print:hidden">
+      <h3 class="font-heading font-bold text-2xl mb-2"><i class="fa-solid fa-calculator text-[#F9A825] mr-2"></i>Estimated Trip Budget</h3>
+      <p class="text-white/60 text-sm mb-6">Based on your ${answers.tripDuration}-day ${answers.budgetTier} plan. Flights & hotels not included.</p>
+      
+      <div class="space-y-4">
+        <div class="flex justify-between border-b border-white/10 pb-3">
+          <span class="text-white/70">Activities & Transport (${duration} days)</span>
+          <span class="font-bold">$${totalActivities}</span>
+        </div>
+        <div class="flex justify-between border-b border-white/10 pb-3">
+          <span class="text-white/70">Estimated Food & Drinks ($${foodDaily}/day)</span>
+          <span class="font-bold">$${totalFood}</span>
+        </div>
+        <div class="flex justify-between border-b border-white/10 pb-3">
+          <span class="text-white/70">Official Fees (e-VOA + Bali Levy)</span>
+          <span class="font-bold">$${totalFixed}</span>
+        </div>
+        <div class="flex justify-between pt-2">
+          <span class="text-lg font-bold">Estimated Total</span>
+          <span class="text-2xl font-heading font-extrabold text-[#F9A825]">$${grandTotal}</span>
+        </div>
+      </div>
+      <p class="text-[10px] text-white/40 mt-6 italic">*Calculated using current average prices. Driver tips (IDR 50k-100k/day) are not included but highly appreciated.</p>
+    </section>
+  `;
+  container.insertAdjacentHTML("afterend", html);
+}
+
+function renderAccommodationGuide() {
+  const region = answers.preferredRegion || "none";
+  const guide = {
+    Ubud: {
+      title: "Ubud — The Cultural Heart",
+      pros: "Rice terraces, waterfalls, yoga, authentic Balinese vibes.",
+      stay: "Tegalalang or central Ubud for convenience.",
+      link: "https://www.booking.com/searchresults.en-gb.html?ss=Ubud"
+    },
+    Seminyak: {
+      title: "Seminyak — Upscale Beach Vibe",
+      pros: "Beach clubs, luxury shopping, world-class dining.",
+      stay: "Near Petitenget Beach for the best action.",
+      link: "https://www.booking.com/searchresults.en-gb.html?ss=Seminyak"
+    },
+    Canggu: {
+      title: "Canggu — Surf & Cafe Culture",
+      pros: "Digital nomad hub, surfing, trendy cafes, nightlife.",
+      stay: "Batu Bolong or Berawa areas.",
+      link: "https://www.booking.com/searchresults.en-gb.html?ss=Canggu"
+    },
+    Uluwatu: {
+      title: "Uluwatu — Clifftop Paradise",
+      pros: "Best beaches, surfing, iconic clifftop temples.",
+      stay: "Bingin or Padang Padang for sunset views.",
+      link: "https://www.booking.com/searchresults.en-gb.html?ss=Uluwatu"
+    },
+    "North Bali": {
+      title: "North Bali — Peaceful Nature",
+      pros: "Dolphins, quiet beaches, hidden waterfalls.",
+      stay: "Lovina or Munduk for mountain views.",
+      link: "https://www.booking.com/searchresults.en-gb.html?ss=Lovina"
+    }
+  };
+
+  const selected = guide[region] || {
+    title: "Where to Base Yourself?",
+    pros: "For this island-wide plan, we recommend splitting your stay.",
+    stay: "Split between Ubud (3 nights) and Seminyak/Canggu (4 nights).",
+    link: "https://www.booking.com/searchresults.en-gb.html?ss=Bali"
+  };
+
+  const html = `
+    <section class="bg-white rounded-3xl border border-gray-100 p-8 mb-8 print:hidden">
+      <div class="flex flex-col md:flex-row gap-8 items-center">
+        <div class="md:w-1/3">
+          <img src="assets/images/hero-bg.webp" class="rounded-2xl h-48 w-full object-cover shadow-lg" alt="Bali Accommodation">
+        </div>
+        <div class="md:w-2/3">
+          <span class="inline-block px-3 py-1 rounded-full bg-[#E8F5E9] text-[#2E7D32] text-xs font-bold uppercase tracking-wider mb-3">Stay Recommendation</span>
+          <h3 class="font-heading font-bold text-2xl mb-3">${selected.title}</h3>
+          <p class="text-gray-600 text-sm mb-4"><strong>Why:</strong> ${selected.pros}</p>
+          <p class="text-gray-600 text-sm mb-6"><strong>Pro Tip:</strong> ${selected.stay}</p>
+          <a href="${selected.link}" target="_blank" class="inline-flex items-center gap-2 bg-[#2E7D32] text-white px-6 py-3 rounded-xl font-bold hover:bg-[#1B5E20] transition-all">
+            Find Hotels in ${region === 'none' ? 'Bali' : region} <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+  `;
+  
+  const calculator = document.querySelector('section.bg-\\[\\#1B2B25\\]');
+  if (calculator) calculator.insertAdjacentHTML("afterend", html);
 }
 
 // Phase 6: Day 1 preview — always visible before payment to build trust
