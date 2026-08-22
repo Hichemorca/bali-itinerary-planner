@@ -8,3 +8,8 @@ data/*.bak
 # OS junk
 .DS_Store
 Thumbs.db
+
+# Dependencies and logs
+node_modules/
+test-results/
+.netlify/
