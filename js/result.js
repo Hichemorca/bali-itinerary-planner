@@ -497,7 +497,7 @@ function renderDay1Preview() {
   const rows = (day1.activities || []).map(item => {
     const a = item.act;
     if (item.isBreak) return `<div class="flex items-center gap-3 text-xs text-[#757575] py-1"><span class="w-16 text-center font-semibold">${item.startTime}</span><i class="fa-solid fa-utensils text-[#757575]"></i><span>${a.name}</span></div>`;
-    if (item.isDriver) return `<div class="flex items-center gap-3 text-xs text-[#2E7D32] py-1 font-semibold"><span class="w-16 text-center">${item.startTime}</span><i class="fa-solid fa-van-shuttle"></i><span>Private driver included (~$${Math.round(a.priceLow)}-$${Math.round(a.priceHigh)}/day)</span></div>`;
+    if (item.isDriver) return `<div class="flex items-center gap-3 text-xs text-[#2E7D32] py-1 font-semibold"><span class="w-16 text-center">${item.startTime}</span><i class="fa-solid fa-van-shuttle"></i><span>Private driver included (~$${Math.round(plan.driverDailyCost)}/day)</span></div>`;
     const price = a.priceHigh > 0 ? `$${Math.round(a.priceLow)}-$${Math.round(a.priceHigh)}` : "Free";
     return `<div class="flex items-center gap-3 text-sm py-1.5"><span class="w-16 text-center font-semibold text-[#2E7D32]">${item.startTime}</span><i class="fa-solid fa-location-dot text-[#2E7D32]"></i><span class="flex-1">${a.name}${item.travelBefore ? ` <span class="text-xs text-[#757575]">${item.travelBefore}</span>` : ""}</span><span class="font-bold text-[#2E7D32]">${price}</span></div>`;
   }).join("");
@@ -513,14 +513,18 @@ function renderDay1Preview() {
 }
 
 function wirePDFButton() {
-  document.getElementById("btn-pdf").addEventListener("click", () => {
+  const download = () => {
     window.BaliPDF.generatePDF(
       plan,
       { tripType: answers.tripType, budgetTier: answers.budgetTier, preferredRegion: answers.preferredRegion },
       { tripDuration: answers.tripDuration, estimatedCostPerDay: plan.estimatedActivityCostPerDay }
     );
     if (window.gtag) window.gtag("event", "download_pdf", {});
-  });
+  };
+  const btnMain = document.getElementById("btn-pdf");
+  const btnBanner = document.getElementById("btn-pdf-banner");
+  if (btnMain) btnMain.addEventListener("click", download);
+  if (btnBanner) btnBanner.addEventListener("click", download);
 }
 
 function wireMapAndCalendar() {

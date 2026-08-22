@@ -40,9 +40,21 @@
     return null;
   }
 
+  /** Get the month to use for seasonal calculations (trip start date or current date) */
+  function getReferenceMonth() {
+    try {
+      const saved = JSON.parse(localStorage.getItem("baliAnswers") || "{}");
+      if (saved.startDate) {
+        const d = new Date(saved.startDate);
+        if (!isNaN(d.getTime())) return monthOf(d);
+      }
+    } catch (e) {}
+    return monthOf(new Date());
+  }
+
   /** Featured events: currently active first, then upcoming (next 3 months), deduped, max n */
   function featuredEvents(n) {
-    const m = monthOf(new Date());
+    const m = getReferenceMonth();
     const withKey = SEASONAL_EVENTS.map(ev => ({ ev, k: monthsAhead(ev, m) || 99 }));
     withKey.sort((a, b) => a.k - b.k);
     const seen = new Set();
@@ -58,7 +70,7 @@
 
   /** All events currently on this month */
   function currentEvents() {
-    const m = monthOf(new Date());
+    const m = getReferenceMonth();
     return SEASONAL_EVENTS.filter(ev => eventIsOnMonth(ev, m));
   }
 
@@ -157,7 +169,7 @@
     const events = await loadSeasonal();
     const feats = featuredEvents(4);
     if (!feats.length) return;
-    const m = monthOf(new Date());
+    const m = getReferenceMonth();
     const monthNames = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
     host.innerHTML =
       '<section class="py-14 bg-gradient-to-br from-[#E8F5E9] via-white to-[#FFF8E1] border-b border-gray-100">' +
