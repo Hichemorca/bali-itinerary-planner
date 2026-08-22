@@ -138,6 +138,7 @@ function renderQuestion() {
       updateButtons();
     };
     
+    inputDate.addEventListener("input", update);
     inputDate.addEventListener("change", update);
     inputDur.addEventListener("change", update);
     updateButtons();
@@ -217,13 +218,31 @@ function updateButtons() {
   const btnNext = document.getElementById("btn-next");
   const btnSubmit = document.getElementById("btn-submit");
 
-  if (btnPrev) btnPrev.disabled = current === 0;
+  if (btnPrev) {
+    btnPrev.disabled = current === 0;
+    btnPrev.style.display = current === 0 ? "none" : "inline-flex";
+    btnPrev.classList.toggle("hidden", current === 0);
+  }
   
-  // Fix: Next should ONLY show if NOT last page AND answered
-  if (btnNext) btnNext.classList.toggle("hidden", isLast || !answered);
+  if (btnNext) {
+    if (!isLast && answered) {
+      btnNext.style.display = "inline-flex";
+      btnNext.classList.remove("hidden");
+    } else {
+      btnNext.style.display = "none";
+      btnNext.classList.add("hidden");
+    }
+  }
   
-  // Fix: Submit should ONLY show if IS last page AND answered
-  if (btnSubmit) btnSubmit.classList.toggle("hidden", !isLast || !answered);
+  if (btnSubmit) {
+    if (isLast && answered) {
+      btnSubmit.style.display = "inline-flex";
+      btnSubmit.classList.remove("hidden");
+    } else {
+      btnSubmit.style.display = "none";
+      btnSubmit.classList.add("hidden");
+    }
+  }
 }
 
 document.getElementById("btn-prev").addEventListener("click", () => {

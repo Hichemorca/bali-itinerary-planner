@@ -67,9 +67,8 @@ body {
 /* Fade-in between questions */
 .fade-in { animation: fadeUp 0.35s ease; }
 
-/* Lazy-load image fade-in */
-.img-lazy { opacity: 0; transition: opacity 0.4s ease; }
-.img-loaded { opacity: 1; }
+/* Lazy-load image handling */
+.img-lazy { transition: opacity 0.4s ease; }
 
 /* Map responsiveness on small screens */
 #bali-map { min-height: 240px; }

@@ -44,25 +44,6 @@ window.trackFunnel = {
   purchased: function () { if (window.gtag) window.gtag("event", "purchase", { value: 29, currency: "USD" }); },
 };
 
-/* ---------- Image fade-in on lazy load ---------- */
-// Use MutationObserver to handle dynamically injected images (result cards)
-(function() {
-  const observeImages = () => {
-    const images = document.querySelectorAll("img[loading='lazy']:not(.img-lazy-ready)");
-    images.forEach(img => {
-      img.classList.add("img-lazy-ready");
-      img.classList.add("img-lazy");
-      if (img.complete) {
-        img.classList.add("img-loaded");
-      } else {
-        img.addEventListener("load", () => img.classList.add("img-loaded"), { once: true });
-        img.addEventListener("error", () => img.classList.add("img-loaded"), { once: true });
-      }
-    });
-  };
-
-  // Run on load and whenever DOM changes
-  document.addEventListener("DOMContentLoaded", observeImages);
-  const observer = new MutationObserver(observeImages);
-  observer.observe(document.body, { childList: true, subtree: true });
-})();
+/* ---------- Image handling ---------- */
+// Standard browser lazy loading is sufficient; no extra JS needed for basic visibility.
+// This block is kept empty to avoid conflicts with previous versions.

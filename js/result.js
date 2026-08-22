@@ -180,7 +180,7 @@ function renderDays() {
         const freeAct = a.isFree || a.priceHigh <= 1;
         const price = a.priceHigh > 0 ? `$${Math.round(a.priceLow)}–$${Math.round(a.priceHigh)}` : "Free";
         const badge = freeAct ? `<span class="inline-flex items-center gap-1 text-[10px] font-extrabold uppercase tracking-wider text-[#1B5E20] bg-[#C8E6C9] border border-[#A5D6A7] px-2 py-0.5 rounded-full"><i class="fa-solid fa-hand-holding-heart"></i>Free</span>` : "";
-        const imgHtml = a.imageUrl ? `<img src="${esc(a.imageUrl)}" alt="${esc(a.name)}" loading="lazy" decoding="async" onerror="this.src='assets/images/placeholder-activity.webp'" class="activity-image h-32">` : "";
+        const imgHtml = a.imageUrl ? `<img src="${esc(a.imageUrl)}" alt="${esc(a.name)}" loading="lazy" decoding="async" onerror="this.src='assets/images/placeholder-activity.webp'" class="activity-image">` : "";
         return `
           <div class="bg-white rounded-xl border border-gray-100 p-4 flex gap-3 items-start ${freeAct ? "free-activity-card" : ""}">
             <div class="text-center shrink-0 w-10"><div class="text-xs font-bold text-[#2E7D32] uppercase tracking-wide">Pick ${oi + 1}</div></div>
@@ -255,7 +255,7 @@ function renderDays() {
         : "";
       const rating = a.rating ? `<span class="text-[#F9A825] text-xs font-semibold">★ ${a.rating.toFixed(1)}</span>` : "";
       const imgHtml = a.imageUrl
-        ? `<img src="${a.imageUrl}" alt="${a.name.replace(/"/g, "")}" loading="lazy" decoding="async" onerror="this.src='assets/images/placeholder-activity.webp'" class="activity-image img-lazy">`
+        ? `<img src="${a.imageUrl}" alt="${a.name.replace(/"/g, "")}" loading="lazy" onerror="this.src='assets/images/placeholder-activity.webp'" class="activity-image">`
         : "";
       const actIcon = activityIcon(a);
       const localPrice = a.localPrice || 0;
